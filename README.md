@@ -7,9 +7,6 @@ applications which populate databases for search engines like Google Search or M
   
 ### Directories
 *   CMake - cmake build system script  
-*   Dependencies - dependency related files  
-    * Dependencies/Include - header of 3rd party libraries  
-    * Dependencies/Libraries - compiled source codes of 3rd party libraries  
 *   Documents - important documents  
     * Documents/Templates - document templates provided by the instructor  
     * Documents/Presentations - presentations  
@@ -17,6 +14,16 @@ applications which populate databases for search engines like Google Search or M
 
 ### Dependencies
 [SFML](http://sfml-dev.org/ "SFML")  
+[pugixml](http://pugixml.org/ "pugixml")  
+[uriparser](http://uriparser.sourceforge.net/ "uriparser")  
+
+### Installing Dependencies
+* Mac OSX
+	* brew install sfml
+	* brew install uriparser
+* Debian Stretch
+	* sudo apt-get install libsfml-dev
+	* sudo apt-get install liburiparser-dev
   
 ### Team
 Josephine Lipkin  
