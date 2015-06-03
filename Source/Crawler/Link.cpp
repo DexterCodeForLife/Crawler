@@ -172,7 +172,11 @@ std::string Crawler::Link::toString ( ) const
 
 sf::Http::Response Crawler::Link::sendRequest ( sf::Http::Request & request ) const
 {
-	request.setUri ( this->getPath ( ) + "?" + this->getQuery ( ) + "#" + this->getFragment ( ) ) ;
+	std::string string = this->getPath ( ) ;
+	string += ! this->getQuery ( ).empty ( ) ? "?" + this->getQuery ( ) : "" ;
+	string += ! this->getFragment ( ).empty ( ) ? "#" + this->getFragment ( ) : "" ;
+
+	request.setUri ( string ) ;
 	
 	sf::Http server ( this->getScheme ( ) + "://" + this->getAuthority ( ) ) ;
 	
@@ -180,7 +184,7 @@ sf::Http::Response Crawler::Link::sendRequest ( sf::Http::Request & request ) co
 }
 std::string Crawler::Link::requestContent ( ) const
 {
-	if ( this->scheme == "http" || this->scheme == "https" )
+	if ( this->getScheme ( ) == "http" )
 	{
 		sf::Http server ( this->getScheme ( ) + "://" + this->getAuthority ( ) ) ;
 		
@@ -190,7 +194,7 @@ std::string Crawler::Link::requestContent ( ) const
 		return response.getBody ( ) ;
 	}
 	
-	throw std::runtime_error ( ( "Protocol is not implemented (" + this->fragment + ")!" ).c_str ( ) ) ;
+	throw std::runtime_error ( ( "Protocol is not implemented (" + this->getScheme ( ) + ")!" ).c_str ( ) ) ;
 	
 	// workaround for vs
 	return "" ;
