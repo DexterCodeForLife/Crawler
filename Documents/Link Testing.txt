@@ -1,0 +1,21 @@
+Link Testing
+	About
+		Crawler::Link represents a link, splitted into specific URI parts (scheme, authority, path, query and fragment).
+		It is not only used to store link specific data, but to fetch content by using HTTP sockets.
+		
+	Constructor based parsing
+	Crawler::Link::Link ( const std::string & )
+		Create a Crawler::Link object and use the constructor based parser using URIs.		
+		Use the accessors to verify that everything works properly.
+		
+	Creating a string from a Crawler::Link object
+	std::string Crawler::Link::toString ( )
+		Create a Crawler::Link object and use the constructor based parser using URIs.
+		After that print the return value of Crawler::Link::toString and verify the output.
+		The output should be the same as the used URIs.
+		
+	Requesting content from a website
+	std::string Crawler::Link::requestContent ( )
+		Create a Crawler::Link object and use the constructor based parser using some URIs.
+		After that print the return value of requestContent.
+		Verify the output using a Webbrowser.
