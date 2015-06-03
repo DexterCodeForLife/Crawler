@@ -1,7 +1,8 @@
 #pragma once
 
 #include <Crawler/Linker.hpp>
-#include <SFML/System.hpp>
+#include <SFML/System/Mutex.hpp>
+#include <SFML/Network/Http.hpp>
 #include <string>
 
 namespace Crawler
@@ -97,7 +98,7 @@ namespace Crawler
 			const std::string & getFragment ( ) const ;
 			
 			/// \brief Changes fragment
-			/// \param scheme New fragment
+			/// \param fragment New fragment
 			void setFragment ( const std::string & fragment ) ;
 			
 			/// \brief Returns the link as a string
@@ -105,16 +106,15 @@ namespace Crawler
 			std::string toString ( ) const ;
 			
 			/// \brief Sends a request to the server
-			/// \exception std::exception Is thrown when the protocol is unsupported
+			/// \exception std::runtime_error Is thrown when the protocol (scheme) is unsupported
 			/// \param request Request which is sent to a server
 			/// \return Response from the server
-			sf::Http::Request sendRequest ( sf::Http::Request & request ) const ;
+			sf::Http::Response sendRequest ( sf::Http::Request & request ) const ;
 			
 			/// \brief Requests the content from the link using a HTTP socket
 			/// \exception std::exception Is thrown when the protocol is unsupported
 			/// \return Content
 			std::string requestContent ( ) const ;
-			
 			
 		private :
 			Crawler::Website * website = nullptr ;
