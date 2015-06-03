@@ -104,10 +104,17 @@ namespace Crawler
 			/// \param Link in string format
 			std::string toString ( ) const ;
 			
-			/// \brief Requests the content from the link using a HTTP Socket
+			/// \brief Sends a request to the server
 			/// \exception std::exception Is thrown when the protocol is unsupported
-			/// \return Content of specific link
+			/// \param request Request which is sent to a server
+			/// \return Response from the server
+			sf::Http::Request sendRequest ( sf::Http::Request & request ) const ;
+			
+			/// \brief Requests the content from the link using a HTTP socket
+			/// \exception std::exception Is thrown when the protocol is unsupported
+			/// \return Content
 			std::string requestContent ( ) const ;
+			
 			
 		private :
 			Crawler::Website * website = nullptr ;
