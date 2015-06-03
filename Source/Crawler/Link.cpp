@@ -132,12 +132,7 @@ const std::string & Crawler::Link::getPath ( ) const
 void Crawler::Link::setPath ( const std::string & path )
 {
 	this->mutex.lock ( ) ;
-	
 	this->path = path ;
-	
-	if ( ! this->path.empty ( ) && this->path [ 0 ] != '/' )
-		this->path.insert ( this->path.begin ( ) , '/' ) ;
-	
 	this->mutex.unlock ( ) ;
 }
 
