@@ -1,7 +1,6 @@
 #pragma once
 
 #include <Crawler/Linker.hpp>
-#include <SFML/System/Mutex.hpp>
 #include <SFML/Network/Http.hpp>
 #include <string>
 
@@ -124,7 +123,6 @@ namespace Crawler
 			std::string path ;
 			std::string query ;
 			std::string fragment ;
-			sf::Mutex mutex ;
 	} ;
 	
 	/// \brief Compares two links together

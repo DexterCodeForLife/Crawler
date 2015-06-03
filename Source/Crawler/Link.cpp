@@ -95,9 +95,7 @@ bool Crawler::Link::wasVisited ( ) const
 
 void Crawler::Link::setVisited ( bool visited )
 {
-	this->mutex.lock ( ) ;
 	this->visited = visited ;
-	this->mutex.unlock ( ) ;
 }
 
 const std::string & Crawler::Link::getScheme ( ) const
@@ -107,9 +105,7 @@ const std::string & Crawler::Link::getScheme ( ) const
 
 void Crawler::Link::setScheme ( const std::string & scheme )
 {
-	this->mutex.lock ( ) ;
 	this->scheme = scheme ;
-	this->mutex.unlock ( ) ;
 }
 
 const std::string & Crawler::Link::getAuthority ( ) const
@@ -119,9 +115,7 @@ const std::string & Crawler::Link::getAuthority ( ) const
 
 void Crawler::Link::setAuthority ( const std::string & authority )
 {
-	this->mutex.lock ( ) ;
 	this->authority = authority ;
-	this->mutex.unlock ( ) ;
 }
 
 const std::string & Crawler::Link::getPath ( ) const
@@ -131,9 +125,10 @@ const std::string & Crawler::Link::getPath ( ) const
 
 void Crawler::Link::setPath ( const std::string & path )
 {
-	this->mutex.lock ( ) ;
 	this->path = path ;
-	this->mutex.unlock ( ) ;
+	
+	if ( this->path [ 0 ] != '/' )
+		this->path.insert ( this->path.begin ( ) , '/' ) ;
 }
 
 const std::string & Crawler::Link::getQuery ( ) const
@@ -143,9 +138,7 @@ const std::string & Crawler::Link::getQuery ( ) const
 
 void Crawler::Link::setQuery ( const std::string & query )
 {
-	this->mutex.lock ( ) ;
 	this->query = query ;
-	this->mutex.unlock ( ) ;
 }
 
 const std::string & Crawler::Link::getFragment ( ) const
@@ -155,9 +148,7 @@ const std::string & Crawler::Link::getFragment ( ) const
 
 void Crawler::Link::setFragment ( const std::string & fragment )
 {
-	this->mutex.lock ( ) ;
 	this->fragment = fragment ;
-	this->mutex.unlock ( ) ;
 }
 
 std::string Crawler::Link::toString ( ) const
