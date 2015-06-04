@@ -1,6 +1,5 @@
 #include <Crawler/Link.hpp>
 #include <Crawler/Website.hpp>
-#include <SFML/Network.hpp>
 #include <uriparser/Uri.h>
 #include <exception>
 
@@ -48,6 +47,8 @@ Crawler::Link::Link ( const std::string & link )
 		std::string portText = getString ( parsedURI.portText ) ;
 		
 		std::string authority = ! userInfo.empty ( ) ? userInfo + "@" : "" ;
+		authority += hostText + ( ! portText.empty ( ) ? ":" + portText : "" ) ;
+		this->setAuthority ( authority ) ;
 				
 		std::string path ;
 		UriPathSegmentA * iterator = parsedURI.pathHead ;
@@ -58,7 +59,6 @@ Crawler::Link::Link ( const std::string & link )
 		}
 		this->setPath ( path ) ;
 				
-		this->setAuthority ( authority ) ;
 		this->setQuery ( getString ( parsedURI.query ) ) ;
 		this->setFragment ( getString ( parsedURI.fragment ) ) ;
 	}
@@ -73,12 +73,12 @@ bool Crawler::Link::hasWebsite ( ) const
 
 Crawler::Website & Crawler::Link::getWebsite ( )
 {
-	return this->website ;
+	return * this->website ;
 }
 
 const Crawler::Website & Crawler::Link::getWebsite ( ) const
 {
-	return this->website ;
+	return * this->website ;
 }
 
 void Crawler::Link::setWebsite ( Crawler::Website & website )
@@ -95,9 +95,7 @@ bool Crawler::Link::wasVisited ( ) const
 
 void Crawler::Link::setVisited ( bool visited )
 {
-	this->mutex.lock ( ) ;
 	this->visited = visited ;
-	this->mutex.unlock ( ) ;
 }
 
 const std::string & Crawler::Link::getScheme ( ) const
@@ -107,9 +105,7 @@ const std::string & Crawler::Link::getScheme ( ) const
 
 void Crawler::Link::setScheme ( const std::string & scheme )
 {
-	this->mutex.lock ( ) ;
 	this->scheme = scheme ;
-	this->mutex.unlock ( ) ;
 }
 
 const std::string & Crawler::Link::getAuthority ( ) const
@@ -119,9 +115,7 @@ const std::string & Crawler::Link::getAuthority ( ) const
 
 void Crawler::Link::setAuthority ( const std::string & authority )
 {
-	this->mutex.lock ( ) ;
 	this->authority = authority ;
-	this->mutex.unlock ( ) ;
 }
 
 const std::string & Crawler::Link::getPath ( ) const
@@ -131,14 +125,10 @@ const std::string & Crawler::Link::getPath ( ) const
 
 void Crawler::Link::setPath ( const std::string & path )
 {
-	this->mutex.lock ( ) ;
-	
 	this->path = path ;
 	
 	if ( this->path [ 0 ] != '/' )
 		this->path.insert ( this->path.begin ( ) , '/' ) ;
-	
-	this->mutex.unlock ( ) ;
 }
 
 const std::string & Crawler::Link::getQuery ( ) const
@@ -148,9 +138,7 @@ const std::string & Crawler::Link::getQuery ( ) const
 
 void Crawler::Link::setQuery ( const std::string & query )
 {
-	this->mutex.lock ( ) ;
 	this->query = query ;
-	this->mutex.unlock ( ) ;
 }
 
 const std::string & Crawler::Link::getFragment ( ) const
@@ -160,19 +148,26 @@ const std::string & Crawler::Link::getFragment ( ) const
 
 void Crawler::Link::setFragment ( const std::string & fragment )
 {
-	this->mutex.lock ( ) ;
 	this->fragment = fragment ;
-	this->mutex.unlock ( ) ;
 }
 
 std::string Crawler::Link::toString ( ) const
 {
-	return this->getScheme ( ) + "://" + this->getAuthority ( ) + this->getPath ( ) + "?" + this->getQuery ( ) + "#" + this->getFragment ( ) ;
+	std::string string = ! this->getScheme ( ).empty ( ) ? this->getScheme ( ) + "://" : "" ;
+	string += this->getAuthority ( ) + this->getPath ( ) ;
+	string += ! this->getQuery ( ).empty ( ) ? "?" + this->getQuery ( ) : "" ;
+	string += ! this->getFragment ( ).empty ( ) ? "#" + this->getFragment ( ) : "" ;
+
+	return string ;
 }
 
 sf::Http::Response Crawler::Link::sendRequest ( sf::Http::Request & request ) const
 {
-	request.setUri ( this->getPath ( ) + "?" + this->getQuery ( ) + "#" + this->getFragment ( ) ) ;
+	std::string string = this->getPath ( ) ;
+	string += ! this->getQuery ( ).empty ( ) ? "?" + this->getQuery ( ) : "" ;
+	string += ! this->getFragment ( ).empty ( ) ? "#" + this->getFragment ( ) : "" ;
+
+	request.setUri ( string ) ;
 	
 	sf::Http server ( this->getScheme ( ) + "://" + this->getAuthority ( ) ) ;
 	
@@ -180,7 +175,7 @@ sf::Http::Response Crawler::Link::sendRequest ( sf::Http::Request & request ) co
 }
 std::string Crawler::Link::requestContent ( ) const
 {
-	if ( this->scheme == "http" || this->scheme == "https" )
+	if ( this->getScheme ( ) == "http" )
 	{
 		sf::Http server ( this->getScheme ( ) + "://" + this->getAuthority ( ) ) ;
 		
@@ -190,11 +185,10 @@ std::string Crawler::Link::requestContent ( ) const
 		return response.getBody ( ) ;
 	}
 	
-	throw std::exception ( "PROTOCOL NOT IMPLEMENTED (" + this->fragment + ")!" ) ;
+	throw std::runtime_error ( ( "Protocol is not implemented (" + this->getScheme ( ) + ")!" ).c_str ( ) ) ;
 	
 	// workaround for vs
 	return "" ;
-}
 }
 
 bool Crawler::operator == ( const Crawler::Link & left , const Crawler::Link & right )
@@ -207,5 +201,5 @@ bool Crawler::operator == ( const Crawler::Link & left , const Crawler::Link & r
 }
 bool Crawler::operator != ( const Crawler::Link & left , const Crawler::Link & right )
 {
-	return ! left == right ;
+	return ! ( left == right ) ;
 }
