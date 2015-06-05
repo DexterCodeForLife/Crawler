@@ -9,60 +9,57 @@ namespace Crawler
 			Crawler::Worker::Worker();
 			
 			//brief reference to WorkerManager object
-			WorkerManager& Crawler::Worker::getWorkerManager();
+			WorkerManager& getWorkerManager();
 			
 			//brief reference to WorkerManager object
-			const WorkerManager& Crawler::Worker::getWorkerManager() const;
+			const WorkerManager& getWorkerManager() const;
 			
 			//brief
-			bool Crawler::Worker::hasWebsite() const;
+			bool hasWebsite() const;
 			
 			//brief
 			//param
-			void Crawler::Worker::setWebsite( const Website website&);
+			void setWebsite( const Website website&);
 			
 			//brief reference to Website object
-			Website& Crawler::Worker::getWebsite();
+			Website& getWebsite();
 			
 			//brief reference to Website object
-			const Website& Crawler::Worker::getWebsite()const;
+			const Website& getWebsite()const;
 			
 			//brief boolean determining if Worker object has a website
-			bool Crawler::Worker::hasWebsite()const;
+			bool hasWebsite()const;
 			
 			//brief sets a specified Website for the Worker
 			//param reference to a Website 
-			void Crawler::Worker::setWebsite(const Website& website);
+			void setWebsite(const Website& website);
 			
 			//brief reference to a Website object
-			Website& Crawler::Worker::getWebsite();
+			Website& getWebsite();
 			
 			//brief reference to a Website object
-			const Website& Crawler::Worker::getWebsite()const;
+			const Website& getWebsite()const;
 			
 			//brief boolean that specifies whether the Worker is active 
-			bool Crawler::Worker::isRunning()const;
+			bool isRunning()const;
 			
 			//brief starts the Worker
-			void Crawler::Worker::setRunning(bool running);
+			void setRunning(bool running);
 			
 			//brief 
-			void Crawler::Worker::launch();
+			void launch();
 			
 			//brief
-			void Crawler::Worker::terminate();
+			void terminate();
 			
 			//brief
-			void Crawler::Worker::wait();
+			void wait();
 			
 			//brief
-			void Crawler::Worker::wait();
+			void kill();
 			
 			//brief
-			void Crawler::Worker::kill();
-			
-			//brief
-			void Crawler::Worker::main();
+			void main();
 
 				
 		private: 
