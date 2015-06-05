@@ -1,4 +1,5 @@
 #include <Crawler/Website.hpp>
+#include <Crawler/Worker.hpp>
 
 Crawler::Website::Website ( Crawler::WebsiteManager & websiteManager , const std::string & scheme , const std::string & authority ) :
 	Website ( scheme , authority )
@@ -79,7 +80,10 @@ bool Crawler::Website::existsLink ( const Crawler::Link & link )
 void Crawler::Website::addLink ( const Crawler::Link & link )
 {
 	if ( ! this->existsLink ( link ) )
+	{
 		this->links.push_back ( link ) ;
+		this->links.back ( ).setWebsite ( * this ) ;
+	}
 }
 			
 void Crawler::Website::removeLink ( const Crawler::Link & link )
@@ -101,9 +105,9 @@ const std::list <Crawler::Link> & Crawler::Website::getLinks ( ) const
 			
 void Crawler::Website::registerWorker ( Crawler::Worker & worker )
 {
-	/*for ( auto element : this->worker )
-		if ( * element == & worker )
-			return ;*/
+	for ( auto element : this->worker )
+		if ( element == & worker )
+			return ;
 			
 	this->worker.push_back ( & worker ) ;
 }

@@ -140,6 +140,5 @@ namespace Crawler
 			std::string authority ;
 			std::list <Crawler::Link> links ;
 			std::list <Worker *> worker ;
-			sf::Mutex mutex ;
 	} ;
 }
