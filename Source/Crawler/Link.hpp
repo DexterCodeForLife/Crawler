@@ -17,8 +17,6 @@ namespace Crawler
 		
 			/// \brief Constructor for setting each member
 			/// \param website Reference to a website the link belongs to
-			/// \param scheme Scheme or protocol ("http"; "ftp")
-			/// \param authority Provider or server ("localhost:80"; "127.0.0.1"; "username@host.de:5000")
 			/// \param path Path ("/directory/file.extension"; "/index.html")
 			/// \param query Query ("?Key1=Value1&Key2=Value2")
 			/// \param fragment Fragment ("#Fragment")
@@ -60,22 +58,6 @@ namespace Crawler
 			/// \param visited Value which defines if link was visited
 			void setVisited ( bool visited ) ;
 			
-			/// \brief Returns scheme
-			/// \return Reference to scheme
-			const std::string & getScheme ( ) const ;
-			
-			/// \brief Changes scheme
-			/// \param scheme New scheme
-			void setScheme ( const std::string & scheme ) ;
-			
-			/// \brief Returns authority
-			/// \return Reference to authority
-			const std::string & getAuthority ( ) const ;
-			
-			/// \brief Changes authority
-			/// \param scheme New authority
-			void setAuthority ( const std::string & authority ) ;
-			
 			/// \brief Returns path
 			/// \return Reference to path
 			const std::string & getPath ( ) const ;
@@ -103,17 +85,6 @@ namespace Crawler
 			/// \brief Returns the link as a string
 			/// \param Link in string format
 			std::string toString ( ) const ;
-			
-			/// \brief Sends a request to the server
-			/// \exception std::runtime_error Is thrown when the protocol (scheme) is unsupported
-			/// \param request Request which is sent to a server
-			/// \return Response from the server
-			sf::Http::Response sendRequest ( sf::Http::Request & request ) const ;
-			
-			/// \brief Requests the content from the link using a HTTP socket
-			/// \exception std::exception Is thrown when the protocol is unsupported
-			/// \return Content
-			std::string requestContent ( ) const ;
 			
 		private :
 			Crawler::Website * website = nullptr ;

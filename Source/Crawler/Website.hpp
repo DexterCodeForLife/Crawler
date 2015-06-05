@@ -21,12 +21,14 @@ namespace Crawler
 		
 			/// \brief Constructor
 			/// \param websiteManager Assigned website manager
-			/// \param authority Authority, for instance the domain name, of the website
-			Website ( websiteManager & websiteManager , const std::string & authority ) ;
+			/// \param scheme Scheme or protocol ("http"; "ftp")
+			/// \param authority Provider or server ("localhost:80"; "127.0.0.1"; "username@host.de:5000")
+			Website ( websiteManager & websiteManager , const std::string & scheme , const std::string & authority ) ;
 			
 			/// \brief Constructor
-			/// \param authority Authority, for instance the domain name, of the website
-			Website ( const std::string & authority ) ;
+			/// \param scheme Scheme or protocol ("http"; "ftp")
+			/// \param authority Provider or server ("localhost:80"; "127.0.0.1"; "username@host.de:5000")
+			Website ( const std::string & scheme , const std::string & authority ) ;
 			
 			/// \brief Checks if a website manager is assigned
 			/// \return True if website manager is assigned
@@ -44,6 +46,10 @@ namespace Crawler
 			/// \param Reference to website manager
 			void setWebsiteManager ( Crawler::WebsiteManager & websiteManager ) ;
 			
+			/// \brief Assigns a website manager
+			/// \param Reference to website manager
+			void setWebsiteManager ( Crawler::WebsiteManager * websiteManager ) ;
+			
 			/// \brief Checks if website was visited (all links have been visited)
 			/// \return True of website was visited
 			bool wasVisited ( ) const ;
@@ -52,9 +58,21 @@ namespace Crawler
 			/// \param visited Value of visited
 			void setVisited ( bool visited ) ;
 			
+			/// \brief Returns scheme
+			/// \return Reference to scheme
+			const std::string & getScheme ( ) const ;
+			
+			/// \brief Changes scheme
+			/// \param scheme New scheme
+			void setScheme ( const std::string & scheme ) ;
+			
 			/// \brief Returns authority
 			/// \return Reference to authority
 			const std::string & getAuthority ( ) const ;
+			
+			/// \brief Changes authority
+			/// \param scheme New authority
+			void setAuthority ( const std::string & authority ) ;
 			
 			/// \brief Checks if link exists
 			/// \param link Link which is checked
@@ -116,6 +134,7 @@ namespace Crawler
 		private :
 			Crawler::WebsiteManager * websiteManager = nullptr ;
 			bool visited = false ;
+			std::string scheme ;
 			std::string authority ;
 			std::list <Crawler::Link> links ;
 			std::vector <Worker &> worker ;
