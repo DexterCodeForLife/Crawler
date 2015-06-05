@@ -2,7 +2,6 @@
 
 #include <Crawler/Linker.hpp>
 #include <Crawler/Link.hpp>
-#include <Crawler/Worker.hpp>
 #include <SFML/System/Mutex.hpp>
 #include <string>
 #include <list>
@@ -10,6 +9,7 @@
 namespace Crawler
 {
 	class WebsiteManager ;
+	class Worker ;
 
 	class CRAWLER_API Website
 	{
