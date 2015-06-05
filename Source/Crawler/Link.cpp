@@ -83,9 +83,7 @@ const Crawler::Website & Crawler::Link::getWebsite ( ) const
 
 void Crawler::Link::setWebsite ( Crawler::Website & website )
 {
-	this->mutex.lock ( ) ;
 	this->website = & website ;
-	this->mutex.unlock ( ) ;
 }
 
 bool Crawler::Link::wasVisited ( ) const
