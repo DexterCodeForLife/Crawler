@@ -17,7 +17,7 @@ namespace
 }
 
 Crawler::Link::Link ( Crawler::Website & website , const std::string & path , const std::string & query , const std::string & fragment ) :
-	Link ( scheme , authority , path , query , fragment )
+	Link ( path , query , fragment )
 {
 	this->setWebsite ( website ) ;
 }
@@ -124,7 +124,7 @@ void Crawler::Link::setFragment ( const std::string & fragment )
 
 std::string Crawler::Link::toString ( ) const
 {
-	string += this->getPath ( ) ;
+	std::string string = this->getPath ( ) ;
 	string += ! this->getQuery ( ).empty ( ) ? "?" + this->getQuery ( ) : "" ;
 	string += ! this->getFragment ( ).empty ( ) ? "#" + this->getFragment ( ) : "" ;
 

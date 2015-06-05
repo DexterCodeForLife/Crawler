@@ -1,7 +1,6 @@
 #pragma once
 
 #include <Crawler/Linker.hpp>
-#include <SFML/Network/Http.hpp>
 #include <string>
 
 namespace Crawler
@@ -20,7 +19,7 @@ namespace Crawler
 			/// \param path Path ("/directory/file.extension"; "/index.html")
 			/// \param query Query ("?Key1=Value1&Key2=Value2")
 			/// \param fragment Fragment ("#Fragment")
-			Link ( Crawler::Website & website , const std::string & scheme , const std::string & authority , const std::string & path , const std::string & query , const std::string & fragment ) ;
+			Link ( Crawler::Website & website , const std::string & path , const std::string & query , const std::string & fragment ) ;
 		
 			/// \brief Constructor for setting each member but the assigned website
 			/// \param scheme Scheme or protocol ("http"; "ftp")
@@ -28,7 +27,7 @@ namespace Crawler
 			/// \param path Path ("/directory/file.extension"; "/index.html")
 			/// \param query Query ("?Key1=Value1&Key2=Value2")
 			/// \param fragment Fragment ("#Fragment")
-			Link ( const std::string & scheme , const std::string & authority , const std::string & path , const std::string & query , const std::string & fragment ) ;
+			Link ( const std::string & scheme , const std::string & query , const std::string & fragment ) ;
 		
 			/// \brief Constructor for parsing a link
 			/// \param link String which gets parsed
@@ -49,6 +48,10 @@ namespace Crawler
 			/// \brief Changes the assigned website
 			/// \param website Website which is assigned to the link
 			void setWebsite ( Crawler::Website & website ) ;
+			
+			/// \brief Changes the assigned website
+			/// \param website Website which is assigned to the link
+			void setWebsite ( Crawler::Website * website ) ;
 			
 			/// \brief Checks if link was visited
 			/// \return True if link was visited
