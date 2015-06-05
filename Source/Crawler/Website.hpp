@@ -3,6 +3,7 @@
 #include <Crawler/Linker.hpp>
 #include <Crawler/Link.hpp>
 #include <Crawler/Worker.hpp>
+#include <SFML/System/Mutex.hpp>
 #include <string>
 #include <list>
 
@@ -13,8 +14,8 @@ namespace Crawler
 	class CRAWLER_API Website
 	{
 		public :
-			using Iterator = std::list <Crawler::Link>::Iterator ;
-			using ConstIterator = std::list <Crawler::Link>::ConstIterator ;
+			using Iterator = std::list <Crawler::Link>::iterator ;
+			using ConstIterator = std::list <Crawler::Link>::const_iterator ;
 		
 			/// \brief Default constructor
 			Website ( ) = default ;
@@ -23,7 +24,7 @@ namespace Crawler
 			/// \param websiteManager Assigned website manager
 			/// \param scheme Scheme or protocol ("http"; "ftp")
 			/// \param authority Provider or server ("localhost:80"; "127.0.0.1"; "username@host.de:5000")
-			Website ( websiteManager & websiteManager , const std::string & scheme , const std::string & authority ) ;
+			Website ( Crawler::WebsiteManager & websiteManager , const std::string & scheme , const std::string & authority ) ;
 			
 			/// \brief Constructor
 			/// \param scheme Scheme or protocol ("http"; "ftp")
@@ -76,7 +77,8 @@ namespace Crawler
 			
 			/// \brief Checks if link exists
 			/// \param link Link which is checked
-			void existsLink ( const Crawler::Link & link ) ;
+			/// \return True if link exists
+			bool existsLink ( const Crawler::Link & link ) ;
 			
 			/// \brief Adds a link to the website
 			/// \param link Link which is added
@@ -105,7 +107,7 @@ namespace Crawler
 			
 			/// \brief Returns all assigned workers
 			/// \return Vector of all assigned worker
-			const std::vector <Crawler::Worker &> & getWorker ( ) const ;
+			const std::list <Crawler::Worker *> & getWorker ( ) const ;
 			
 			/// \brief Returns begin iterator
 			/// \return Begin iterator
@@ -137,7 +139,7 @@ namespace Crawler
 			std::string scheme ;
 			std::string authority ;
 			std::list <Crawler::Link> links ;
-			std::vector <Worker &> worker ;
+			std::list <Worker *> worker ;
 			sf::Mutex mutex ;
 	} ;
 }
