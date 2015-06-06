@@ -14,13 +14,6 @@ namespace Crawler
 			/// \brief Default constructor
 			Link ( ) = default ;
 		
-			/// \brief Constructor for setting each member
-			/// \param website Reference to a website the link belongs to
-			/// \param path Path ("/directory/file.extension"; "/index.html")
-			/// \param query Query ("?Key1=Value1&Key2=Value2")
-			/// \param fragment Fragment ("#Fragment")
-			Link ( Crawler::Website & website , const std::string & path , const std::string & query , const std::string & fragment ) ;
-		
 			/// \brief Constructor for setting each member but the assigned website
 			/// \param scheme Scheme or protocol ("http"; "ftp")
 			/// \param authority Provider or server ("localhost:80"; "127.0.0.1"; "username@host.de:5000")
@@ -32,26 +25,6 @@ namespace Crawler
 			/// \brief Constructor for parsing a link
 			/// \param link String which gets parsed
 			Link ( const std::string & link ) ;
-		
-			/// \brief Method to check if a website is assigned to link
-			/// \return True if a website is assigned
-			bool hasWebsite ( ) const ;
-			
-			/// \brief Returnsassigned website
-			/// \return Reference to assigned website
-			Crawler::Website & getWebsite ( ) ;
-			
-			/// \brief Returns assigned website
-			/// \return Reference to the assigned website
-			const Crawler::Website & getWebsite ( ) const ;
-			
-			/// \brief Changes the assigned website
-			/// \param website Website which is assigned to the link
-			void setWebsite ( Crawler::Website & website ) ;
-			
-			/// \brief Changes the assigned website
-			/// \param website Website which is assigned to the link
-			void setWebsite ( Crawler::Website * website ) ;
 			
 			/// \brief Checks if link was visited
 			/// \return True if link was visited
@@ -90,10 +63,7 @@ namespace Crawler
 			std::string toString ( ) const ;
 			
 		private :
-			Crawler::Website * website = nullptr ;
 			bool visited = false ;
-			std::string scheme ;
-			std::string authority ;
 			std::string path ;
 			std::string query ;
 			std::string fragment ;

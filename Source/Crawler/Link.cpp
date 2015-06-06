@@ -1,7 +1,6 @@
 #include <Crawler/Link.hpp>
 #include <Crawler/Website.hpp>
 #include <uriparser/Uri.h>
-#include <exception>
 
 namespace
 {
@@ -14,12 +13,6 @@ namespace
 	{
 		return getString ( text.first , text.afterLast ) ;
 	}
-}
-
-Crawler::Link::Link ( Crawler::Website & website , const std::string & path , const std::string & query , const std::string & fragment ) :
-	Link ( path , query , fragment )
-{
-	this->setWebsite ( website ) ;
 }
 
 Crawler::Link::Link ( const std::string & path , const std::string & query , const std::string & fragment )
@@ -52,31 +45,6 @@ Crawler::Link::Link ( const std::string & link )
 	}
 
 	uriFreeUriMembersA ( & parsedURI ) ;
-}
-
-bool Crawler::Link::hasWebsite ( ) const
-{
-	return this->website == nullptr ;
-}
-
-Crawler::Website & Crawler::Link::getWebsite ( )
-{
-	return * this->website ;
-}
-
-const Crawler::Website & Crawler::Link::getWebsite ( ) const
-{
-	return * this->website ;
-}
-
-void Crawler::Link::setWebsite ( Crawler::Website & website )
-{
-	this->website = & website ;
-}
-
-void Crawler::Link::setWebsite ( Crawler::Website * website )
-{
-	this->website = website ;
 }
 
 bool Crawler::Link::wasVisited ( ) const
