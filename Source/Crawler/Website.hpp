@@ -21,35 +21,13 @@ namespace Crawler
 			Website ( ) = default ;
 		
 			/// \brief Constructor
-			/// \param websiteManager Assigned website manager
-			/// \param scheme Scheme or protocol ("http"; "ftp")
-			/// \param authority Provider or server ("localhost:80"; "127.0.0.1"; "username@host.de:5000")
-			Website ( Crawler::WebsiteManager & websiteManager , const std::string & scheme , const std::string & authority ) ;
-			
-			/// \brief Constructor
 			/// \param scheme Scheme or protocol ("http"; "ftp")
 			/// \param authority Provider or server ("localhost:80"; "127.0.0.1"; "username@host.de:5000")
 			Website ( const std::string & scheme , const std::string & authority ) ;
 			
-			/// \brief Checks if a website manager is assigned
-			/// \return True if website manager is assigned
-			bool hasWebsiteManager ( ) const ;
-			
-			/// \brief Returns assigned website manager
-			/// \return Reference to website manager
-			Crawler::WebsiteManager & getWebsiteManager ( ) ;
-			
-			/// \brief Returns assigned website manager
-			/// \return Reference to website manager
-			const Crawler::WebsiteManager & getWebsiteManager ( ) const ;
-			
-			/// \brief Assigns a website manager
-			/// \param Reference to website manager
-			void setWebsiteManager ( Crawler::WebsiteManager & websiteManager ) ;
-			
-			/// \brief Assigns a website manager
-			/// \param Reference to website manager
-			void setWebsiteManager ( Crawler::WebsiteManager * websiteManager ) ;
+			/// \brief Constructor for parsing a website
+			/// \param website String which gets parsed
+			Website ( const std::string & website ) ;			
 			
 			/// \brief Checks if website was visited (all links have been visited)
 			/// \return True of website was visited
@@ -134,7 +112,6 @@ namespace Crawler
 			ConstIterator cend ( ) const ;
 		
 		private :
-			Crawler::WebsiteManager * websiteManager = nullptr ;
 			bool visited = false ;
 			std::string scheme ;
 			std::string authority ;

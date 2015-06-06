@@ -1,43 +1,49 @@
 #include <Crawler/Website.hpp>
 #include <Crawler/Worker.hpp>
+#include <uriparser/Uri.h>
 
-Crawler::Website::Website ( Crawler::WebsiteManager & websiteManager , const std::string & scheme , const std::string & authority ) :
-	Website ( scheme , authority )
+namespace
 {
-	this->setWebsiteManager ( websiteManager ) ;
+	std::string getString ( const char * first , const char * last )
+	{
+		return std::string ( first , last ) ;
+	}
+
+	std::string getString ( const UriTextRangeA & text )
+	{
+		return getString ( text.first , text.afterLast ) ;
+	}
 }
-			
+		
 Crawler::Website::Website ( const std::string & scheme , const std::string & authority )
 {
 	this->setScheme ( scheme ) ;
 	this->setAuthority ( authority ) ;
 }
-			
-bool Crawler::Website::hasWebsiteManager ( ) const
+	
+Crawler::Website::Website ( const std::string & website )
 {
-	return this->websiteManager ;
+	UriParserStateA state ;
+	UriUriA parsedURI ;
+	
+	state.uri = & parsedURI ;
+	
+	if ( uriParseUriA ( & state , website.c_str ( ) ) == URI_SUCCESS )
+	{
+		this->setScheme ( getString ( parsedURI.scheme ) ) ;
+		
+		std::string userInfo = getString ( parsedURI.userInfo ) ;
+		std::string hostText = getString ( parsedURI.hostText ) ;
+		std::string portText = getString ( parsedURI.portText ) ;
+		
+		std::string authority = ! userInfo.empty ( ) ? userInfo + "@" : "" ;
+		authority += hostText + ( ! portText.empty ( ) ? ":" + portText : "" ) ;
+		this->setAuthority ( authority ) ;
+	}
+
+	uriFreeUriMembersA ( & parsedURI ) ;
 }
-			
-Crawler::WebsiteManager & Crawler::Website::getWebsiteManager ( )
-{
-	return * this->websiteManager ;
-}
-			
-const Crawler::WebsiteManager & Crawler::Website::getWebsiteManager ( ) const
-{
-	return * this->websiteManager ;
-}
-			
-void Crawler::Website::setWebsiteManager ( Crawler::WebsiteManager & websiteManager )
-{
-	this->websiteManager = & websiteManager ;
-}
-			
-void Crawler::Website::setWebsiteManager ( Crawler::WebsiteManager * websiteManager )
-{
-	this->websiteManager = websiteManager ;
-}
-			
+	
 bool Crawler::Website::wasVisited ( ) const
 {
 	return this->visited ;
@@ -80,10 +86,7 @@ bool Crawler::Website::existsLink ( const Crawler::Link & link )
 void Crawler::Website::addLink ( const Crawler::Link & link )
 {
 	if ( ! this->existsLink ( link ) )
-	{
 		this->links.push_back ( link ) ;
-		this->links.back ( ).setWebsite ( * this ) ;
-	}
 }
 			
 void Crawler::Website::removeLink ( const Crawler::Link & link )
