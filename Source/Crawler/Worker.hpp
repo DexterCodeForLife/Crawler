@@ -1,74 +1,67 @@
 #pragma once 
 
+#include <Crawler/Linker.hpp>
+#include <SFML/System/Thread.hpp>
+
 namespace Crawler 
 {
+	class WorkerManager ;
+	class Website ;
+
 	class CRAWLER_API Worker
 	{
 		public: 
-			//brief
-			Crawler::Worker::Worker();
+			/// \brief Constructor
+			/// \param workerManager Worker manager the worker belongs to
+			Worker ( Crawler::WorkerManager & workerManager ) ;
 			
-			//brief reference to WorkerManager object
-			WorkerManager& getWorkerManager();
+			/// \brief Returns reference to worker manager
+			/// \return Reference to worker manager
+			Crawler::WorkerManager & getWorkerManager ( ) ;
 			
-			//brief reference to WorkerManager object
-			const WorkerManager& getWorkerManager() const;
+			/// \brief Returns reference to worker manager
+			/// \return Reference to worker manager
+			const Crawler::WorkerManager & getWorkerManager ( ) const ;
 			
-			//brief
-			bool hasWebsite() const;
+			/// \brief Checks if a website has been assigned
+			/// \brief True is website is assigned
+			bool hasWebsite ( ) const ;
 			
-			//brief
-			//param
-			void setWebsite( const Website website&);
+			/// \brief Returns the assigned website
+			/// \return Reference to the assigned website
+			Crawler::Website & getWebsite ( ) ;
 			
-			//brief reference to Website object
-			Website& getWebsite();
+			/// \brief Returns the assigned website
+			/// \return Reference to the assigned website
+			const Crawler::Website & getWebsite ( ) const ;
 			
-			//brief reference to Website object
-			const Website& getWebsite()const;
+			/// \brief Checks if the worker is running
+			/// \return True if the worker is running
+			bool isRunning ( ) const;
 			
-			//brief boolean determining if Worker object has a website
-			bool hasWebsite()const;
+			/// \brief Sets if the worker is running
+			/// \param running Value of running
+			void setRunning ( bool running ) ;
 			
-			//brief sets a specified Website for the Worker
-			//param reference to a Website 
-			void setWebsite(const Website& website);
+			/// \brief Launches the worker
+			void launch ( ) ;
 			
-			//brief reference to a Website object
-			Website& getWebsite();
+			/// \brief Terminates the worker
+			void terminate ( ) ;
 			
-			//brief reference to a Website object
-			const Website& getWebsite()const;
+			/// \brief Wait until the worker finishes (this blocks the thread which executes this method so be carefull)
+			void wait ( ) ;
 			
-			//brief boolean that specifies whether the Worker is active 
-			bool isRunning()const;
-			
-			//brief starts the Worker
-			void setRunning(bool running);
-			
-			//brief 
-			void launch();
-			
-			//brief
-			void terminate();
-			
-			//brief
-			void wait();
-			
-			//brief
-			void kill();
-			
-			//brief
-			void main();
+			/// \brief Kills the worker immediately
+			void kill ( ) ;
 
-				
-		private: 
-		
-			WorkerManger& workerManager;
-			sf::Thread thread;
-			Website* website;
-			bool running; 
-			sf::Mutex mutex; 
+		private :
+			/// \brief Workers main function
+			void main ( ) ;
 			
-
+			Crawler::WorkerManager & workerManager ;
+			sf::Thread thread ;
+			Crawler::Website * website = nullptr ;
+			bool running = true ;
+	} ;
 }

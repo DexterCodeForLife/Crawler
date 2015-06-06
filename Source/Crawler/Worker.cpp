@@ -1,90 +1,64 @@
 #include <Crawler/Worker.hpp>
 #include <Crawler/Website.hpp>
-#include <Crawler/WorkerManager>
-//#include <uriparser/Uri.h> 
+#include <Crawler/WorkerManager.hpp>
 
-Crawler::Worker::Worker(){}
-
-
-WorkerManager& Crawler::Worker::getWorkerManager(){
-
-	return Crawler::WorkerManager; 
-	
+Crawler::Worker::Worker ( Crawler::WorkerManager & workerManager ) :
+	workerManager ( workerManager ) ,
+	thread ( & Crawler::Worker::main , this )
+{
 }
 
-
-
-const WorkerManager& Crawler::Worker::getWorkerManager() const{
-
-	return Crawler::WorkerManager; 
+Crawler::WorkerManager & Crawler::Worker::getWorkerManager ( )
+{
+	return this->workerManager ;
 }
 
-
-
-bool Crawler::Worker::hasWebsite() const{
-	
-	return this->website != NULL; 
+const Crawler::WorkerManager & Crawler::Worker::getWorkerManager ( ) const
+{
+	return this->workerManager ;
 }
 
-
-
-void Crawler::Worker::setWebsite( const Website& website){
-
-	this->mutex.lock(); 
-	this->website = website; 
-	this.mutex.unlock(); 
+bool Crawler::Worker::hasWebsite ( ) const
+{
+	return this->website ;
 }
 
-
-
-Website& Crawler::Worker::getWebsite(){
-
-	return * this->website; 
+Crawler::Website & Crawler::Worker::getWebsite ( )
+{
+	return * this->website ;
 }
 
-
-
-const Website& Crawler::Worker::getWebsite()const{
-	
-	return * this->website; 
+const Crawler::Website & Crawler::Worker::getWebsite ( ) const
+{
+	return * this->website ;
 }
 
-
-
-bool Crawler::Worker::hasWebsite()const{
-	return ; 
+bool Crawler::Worker::isRunning ( ) const
+{
+	return this->running ;
 }
 
-
-
-bool Crawler::Worker::isRunning()const{
-	return ; 
+void Crawler::Worker::setRunning ( bool running )
+{
+	this->running = running ;
 }
 
+void Crawler::Worker::launch ( )
+{
+}
 
+void Crawler::Worker::terminate ( )
+{
+}
 
-void Crawler::Worker::setRunning(bool running){}
+void Crawler::Worker::wait ( )
+{
+}
 
+void Crawler::Worker::kill ( )
+{
+}
 
-
-void Crawler::Worker::launch(){}
-
-
-
-void Crawler::Worker::terminate(){}
-
-
-
-void Crawler::Worker::wait(){}
-
-
-
-void Crawler::Worker::wait(){}
-
-
-
-void Crawler::Worker::kill(){}
-
-
-
-void Crawler::Worker::main(){}
+void Crawler::Worker::main ( )
+{
+}
