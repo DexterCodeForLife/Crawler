@@ -6,6 +6,16 @@ Crawler::Application::Application ( ) :
 {
 }
 
+void Crawler::Application::setRunning ( bool running )
+{
+	this->running = running ;
+}
+
+bool Crawler::Application::getRunning ( ) const
+{
+	return this->running ;
+}
+
 Crawler::WebsiteManager & Crawler::Application::getWebsiteManager ( )
 {
 	return this->websiteManager ;
@@ -30,6 +40,10 @@ int Crawler::Application::main ( const std::vector <std::string> & arguments )
 
 	if ( ! this->onStartup ( ) )
 		return -1 ;
+		
+	while ( this->isRunning ( ) )
+	{
+	}
 		
 	this->onShutdown ( ) ;
 	

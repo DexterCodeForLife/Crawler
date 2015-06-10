@@ -17,6 +17,14 @@ namespace Crawler
 			/// \brief Default destructor
 			virtual ~Application ( ) = default ;
 			
+			/// \brief Changes if application is running
+			/// \param running Value of running
+			void setRunning ( bool running ) ;
+			
+			/// \brief Returns if application is running
+			/// \return True if application is running
+			bool isRunning ( ) const ;
+			
 			/// \brief Returns website manager
 			/// \return Reference to website manager			
 			Crawler::WebsiteManager & getWebsiteManager ( ) ;
@@ -51,6 +59,7 @@ namespace Crawler
 			const std::vector <std::string> & getArguments ( ) const ;
 			
 		private :
+			bool running = true ;
 			std::vector <std::string> arguments ;
 			Crawler::WebsiteManager websiteManager ;
 			Crawler::WorkerManager workerManager ;
