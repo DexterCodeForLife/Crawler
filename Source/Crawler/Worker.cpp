@@ -45,18 +45,23 @@ void Crawler::Worker::setRunning ( bool running )
 
 void Crawler::Worker::launch ( )
 {
+	this->thread.launch ( ) ;
 }
 
 void Crawler::Worker::terminate ( )
 {
+	this->setRunning ( false ) ;
+	this->wait ( ) ;
 }
 
 void Crawler::Worker::wait ( )
 {
+	this->thread.wait ( ) ;
 }
 
 void Crawler::Worker::kill ( )
 {
+	this->thread.terminate ( ) ;
 }
 
 void Crawler::Worker::main ( )
