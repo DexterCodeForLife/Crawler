@@ -65,5 +65,5 @@ namespace Crawler
 		arguments.push_back ( argv [ i ] ) ; \
  \
  	x instance ; \
- 	return instance.main ( ) ; \
+ 	return instance.main ( arguments ) ; \
 }
