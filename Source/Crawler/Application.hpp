@@ -62,6 +62,9 @@ namespace Crawler
 			/// \return True if startup was successfull
 			virtual bool onStartup ( ) ;
 			
+			/// \brief Gets called inside the main function
+			virtual void onMain ( ) ;
+			
 			/// \brief Gets called when application shuts down
 			virtual void onShutdown ( ) ;
 			

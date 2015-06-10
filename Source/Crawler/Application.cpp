@@ -43,6 +43,7 @@ int Crawler::Application::main ( const std::vector <std::string> & arguments )
 		
 	while ( this->isRunning ( ) )
 	{
+		this->onMain ( ) ;
 	}
 		
 	this->onShutdown ( ) ;
@@ -54,6 +55,11 @@ bool Crawler::Application::onStartup ( )
 {
 	return true ;
 }
+
+void Crawler::Application::onMain ( )
+{
+}
+
 void Crawler::Application::onShutdown ( )
 {
 }
