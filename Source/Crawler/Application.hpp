@@ -11,26 +11,47 @@ namespace Crawler
 	class CRAWLER_API Application
 	{
 		public :
+			/// \brief Default constructor
 			Application ( ) ;
+			
+			/// \brief Default destructor
 			virtual ~Application ( ) = default ;
 			
+			/// \brief Returns website manager
+			/// \return Reference to website manager			
 			Crawler::WebsiteManager & getWebsiteManager ( ) ;
+			
+			/// \brief Returns website manager
+			/// \return Reference to website manager
 			const Crawler::WebsiteManager & getWebsiteManager ( ) const ;
 			
+			/// \brief Returns worker manager
+			/// \return Reference to worker manager
 			Crawler::WorkerManager & getWorkerManager ( ) ;
+			
+			/// \brief Returns worker manager
+			/// \return Reference to worker manager
 			const Crawler::WorkerManager & getWorkerManager ( ) const ;
 			
+			/// \brief Applications entry point
+			/// \param arguments Command line arguments
+			/// \return Error code for operating system
 			int main ( const std::vector <std::string> & arguments ) ;
 			
+			/// \brief Gets called when application starts up
+			/// \return True if startup was successfull
 			virtual bool onStartup ( ) ;
+			
+			/// \brief Gets called when application shuts down
 			virtual void onShutdown ( ) ;
 			
 		protected :
+			/// \brief Returns command line arguments
+			/// \return Reference to a vector with command line arguments
 			const std::vector <std::string> & getArguments ( ) const ;
 			
 		private :
 			std::vector <std::string> arguments ;
-		
 			Crawler::WebsiteManager websiteManager ;
 			Crawler::WorkerManager workerManager ;
 	} ;
