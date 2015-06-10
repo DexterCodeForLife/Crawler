@@ -28,13 +28,13 @@ std::size_t Crawler::WorkerManager::getAmountOfWorker ( ) const
 void Crawler::WorkerManager::spawnWorker ( )
 {
 	this->worker.push_back ( std::unique_ptr <Crawler::Worker> ( new Crawler::Worker ( * this ) ) ) ;
+	this->worker.back ( )->launch ( ) ;
 }
 			
 void Crawler::WorkerManager::despawnWorker ( )
 {
 	auto worker = this->worker.begin ( ) ;
-	( * worker )->setRunning ( false ) ;
-	( * worker )->wait ( ) ;
+	( * worker )->terminate ( ) ;
 	this->worker.erase ( worker ) ;
 }
 
