@@ -32,9 +32,30 @@ void Crawler::WorkerManager::spawnWorker ( )
 			
 void Crawler::WorkerManager::despawnWorker ( )
 {
+	auto worker = this->worker.begin ( ) ;
+	( * worker )->setRunning ( false ) ;
+	( * worker )->wait ( ) ;
+	this->worker.erase ( worker ) ;
 }
 
 const std::list <std::unique_ptr <Crawler::Worker>> & Crawler::WorkerManager::getWorker ( ) const
 {
 	return this->worker ;
+}
+
+Crawler::WorkerManager::ConstIterator Crawler::WorkerManager::begin ( ) const
+{
+	return this->worker.begin ( ) ;
+}
+Crawler::WorkerManager::ConstIterator Crawler::WorkerManager::cbegin ( ) const
+{
+	return this->worker.cbegin ( ) ;
+}
+Crawler::WorkerManager::ConstIterator Crawler::WorkerManager::end ( ) const
+{
+	return this->worker.end ( ) ;
+}
+Crawler::WorkerManager::ConstIterator Crawler::WorkerManager::cend ( ) const
+{
+	return this->worker.cend ( ) ;
 }

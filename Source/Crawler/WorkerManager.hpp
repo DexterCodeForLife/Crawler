@@ -12,6 +12,8 @@ namespace Crawler
 	class CRAWLER_API WorkerManager
 	{
 		public :
+			using ConstIterator = std::list <std::unique_ptr <Crawler::Worker>>::const_iterator ;
+		
 			/// \brief Constructor
 			/// \param application Reference to application object
 			WorkerManager ( Application & application ) ;
@@ -53,6 +55,22 @@ namespace Crawler
 			/// \brief Returns list of workers
 			/// \return Reference to list of workers
 			const std::list <std::unique_ptr <Crawler::Worker>> & getWorker ( ) const ;
+			
+			/// \brief Returns begin iterator
+			/// \return Begin iterator
+			ConstIterator begin ( ) const ;
+			
+			/// \brief Returns begin iterator
+			/// \return Begin iterator
+			ConstIterator cbegin ( ) const ;
+			
+			/// \brief Returns end iterator
+			/// \return End iterator
+			ConstIterator end ( ) const ;
+			
+			/// \brief Returns end iterator
+			/// \return End iterator
+			ConstIterator cend ( ) const ;
 
 		private :
 			Crawler::Application & application ;
