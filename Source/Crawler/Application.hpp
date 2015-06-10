@@ -84,6 +84,7 @@ namespace Crawler
 #define CRAWLER_APPLICATION(x) int main ( int argc , char ** argv ) \
 { \
 	std::vector <std::string> arguments ; \
+	arguments.reserve ( argc ) ; \
  \
 	for ( int i = 0 ; i < argc ; ++i ) \
 		arguments.push_back ( argv [ i ] ) ; \
