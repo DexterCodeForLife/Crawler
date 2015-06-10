@@ -17,6 +17,18 @@ namespace Crawler
 			/// \brief Default destructor
 			virtual ~Application ( ) = default ;
 			
+			/// \brief Copy constructor
+			Application ( const Application & application ) = delete ;
+			
+			/// \brief Move constructor
+			Application ( Application && application ) = delete ;
+			
+			/// \brief Copy assignment operator
+			Application & operator = ( const Application & application ) = delete ;
+			
+			/// \brief Move assignment operator
+			Application & operator = ( Application && application ) = delete ;
+			
 			/// \brief Changes if application is running
 			/// \param running Value of running
 			void setRunning ( bool running ) ;
