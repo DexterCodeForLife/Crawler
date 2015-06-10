@@ -11,7 +11,7 @@ void Crawler::Application::setRunning ( bool running )
 	this->running = running ;
 }
 
-bool Crawler::Application::getRunning ( ) const
+bool Crawler::Application::isRunning ( ) const
 {
 	return this->running ;
 }

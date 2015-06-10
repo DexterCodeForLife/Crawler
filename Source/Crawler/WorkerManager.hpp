@@ -16,9 +16,16 @@ namespace Crawler
 			/// \param application Reference to application object
 			WorkerManager ( Application & application ) ;
 			
+			/// \brief Copy constructor
 			WorkerManager ( const WorkerManager & workerManager ) = delete ;
+			
+			/// \brief Move constructor
 			WorkerManager ( WorkerManager && workerManager ) = delete ;
+			
+			/// \brief Copy assignment operator
 			WorkerManager & operator = ( const WorkerManager & workerManager ) = delete ;
+			
+			/// \brief Move assignment operator
 			WorkerManager & operator = ( WorkerManager && workerManager ) = delete ;
 			
 			/// \brief Returns application

@@ -18,6 +18,18 @@ namespace Crawler
 			/// \param application Reference to assigned application
 			WebsiteManager ( Crawler::Application & application ) ;
 			
+			/// \brief Copy constructor
+			WebsiteManager ( const WebsiteManager & websiteManager ) = delete ;
+			
+			/// \brief Move constructor
+			WebsiteManager ( WebsiteManager && websiteManager ) = delete ;
+			
+			/// \brief Copy assignment operator
+			WebsiteManager & operator = ( const WebsiteManager & workerManager ) = delete ;
+			
+			/// \brief Move assignment operator
+			WebsiteManager & operator = ( WebsiteManager && workerManager ) = delete ;
+			
 			/// \brief Returns assigned application
 			/// \return Reference to assigned application
 			Crawler::Application & getApplication ( ) ;

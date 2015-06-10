@@ -21,6 +21,18 @@ namespace Crawler
 			/// \param workerManager Worker manager the worker belongs to
 			Worker ( Crawler::WorkerManager & workerManager ) ;
 			
+			/// \brief Copy constructor
+			Worker ( const Worker & worker ) = delete ;
+			
+			/// \brief Move constructor
+			Worker ( Worker && worker ) = delete ;
+			
+			/// \brief Copy assignment operator
+			Worker & operator = ( const Worker & worker ) = delete ;
+			
+			/// \brief Move assignment operator
+			Worker & operator = ( Worker && Worker ) = delete ;
+			
 			/// \brief Returns reference to worker manager
 			/// \return Reference to worker manager
 			Crawler::WorkerManager & getWorkerManager ( ) ;
