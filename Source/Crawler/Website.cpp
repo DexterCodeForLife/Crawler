@@ -159,3 +159,13 @@ Crawler::Website::ConstIterator Crawler::Website::cend ( ) const
 {
 	return this->links.cend ( ) ;
 }
+
+bool Crawler::operator == ( const Crawler::Website & left , const Crawler::Website & right )
+{
+	return left.getScheme ( ) == right.getScheme ( ) &&
+		   left.getAuthority ( ) == right.getAuthority ( ) ;
+}
+bool Crawler::operator != ( const Crawler::Website & left , const Crawler::Website & right )
+{
+	return ! ( left == right ) ;
+}

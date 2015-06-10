@@ -118,4 +118,16 @@ namespace Crawler
 			std::list <Crawler::Link> links ;
 			std::list <Worker *> worker ;
 	} ;
+	
+	/// \brief Compares two websites together
+	/// \param left First website
+	/// \param right Second website
+	/// \return True if they are equal
+	CRAWLER_API bool operator == ( const Crawler::Website & left , const Crawler::Website & right ) ;
+	
+	/// \brief Compares two websites together
+	/// \param left First website
+	/// \param right Second website
+	/// \return False if they are equal
+	CRAWLER_API bool operator != ( const Crawler::Website & left , const Crawler::Website & right ) ;
 }
