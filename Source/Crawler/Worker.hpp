@@ -62,6 +62,11 @@ namespace Crawler
 			
 			Crawler::WorkerManager & workerManager ;
 			sf::Thread thread ;
+			sf::Http http; 
+			sf::Http::Request; 
+			sf::Http::Response; 
+			sf::Http::Response::Status status; 
+			string document; 
 			Crawler:WebsiteManager &websiteManager; 
 			Crawler::Website * website = nullptr ;
 			bool running = true ;
