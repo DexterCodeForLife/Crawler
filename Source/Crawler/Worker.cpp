@@ -65,23 +65,16 @@ void Crawler::Worker::launch ( )
 	
 }
 
-void Crawler::Worker::terminate ( )
-{
-	this->running  = false; 
-	this->website = NULL;
-	delete website;  
-	
-}
+
 
 void Crawler::Worker::wait ( )
 {
+	//not sure why this is needed also
 }
 
 void Crawler::Worker::kill ( )
 {
-	this->running = false; 
-	this->website = NULL; 
-	delete website; 
+	//not sure why this is needed
 }
 
 void Crawler::Worker::main ( )
@@ -90,8 +83,29 @@ void Crawler::Worker::main ( )
 	for(lIter!=websites->links.end(); lIter++){
 		if(!lIter->wasVisited()){
 			lIter->setVisited(true); 
+			http.setHost(//fetch link); 
+			resquest(websites->links.getPath()); 
+			response = http.sendRequest(resquest); 
+			status = response.getStatus(); 
+			if(status == sf::Http::Response::Ok){
+				document = response.getBody(); 
+			}
+			else
+			{
+				std::cout<<"Error" << status << std::endl; 
+			}
+			char* page_position; 
+			page_position = strstr(document.c_str(),'<a'); 
+			page_position = strstr(page_position, '>');
+			*page_position = '\0'
+			Link currentLink(document.c_str(), 'href'); 
+			websites->links.push_back(currentLink); 
+			//fetch document from links
+			//scrape links from document
 			
 		}
-		
+		if(lIter->wasVisited()){
+			this->kill(); 
+		}
 	} 
 }
