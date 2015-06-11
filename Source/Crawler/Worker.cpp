@@ -10,6 +10,8 @@ Crawler::Worker::Worker ( Crawler::WorkerManager & workerManager ) :
 
 Crawler::WorkerManager & Crawler::Worker::getWorkerManager ( )
 {
+	//assuming that the getWorkerManager is shard Memorey
+	//maybe need to use mutex lock and unlock
 	return this->workerManager ;
 }
 
@@ -25,12 +27,24 @@ bool Crawler::Worker::hasWebsite ( ) const
 
 Crawler::Website & Crawler::Worker::getWebsite ( )
 {
-	return * this->website ;
+	if(websiteManager.existsWebsite){
+		website = *iter; 
+		if(website->wasVisited()){
+			iter++; 
+			getWebsite(); 
+		}
+		return * this->website; 
+		
+	}
+		
 }
+	
 
 const Crawler::Website & Crawler::Worker::getWebsite ( ) const
-{
-	return * this->website ;
+{	
+	if(!website->visited){
+		return * this->website ;
+	}
 }
 
 bool Crawler::Worker::isRunning ( ) const
@@ -45,10 +59,18 @@ void Crawler::Worker::setRunning ( bool running )
 
 void Crawler::Worker::launch ( )
 {
+	this->running = true; 
+	this->getwebsite(); 
+	website->links::lIter = website->links.begin(); 
+	
 }
 
 void Crawler::Worker::terminate ( )
 {
+	this->running  = false; 
+	this->website = NULL;
+	delete website;  
+	
 }
 
 void Crawler::Worker::wait ( )
@@ -57,8 +79,19 @@ void Crawler::Worker::wait ( )
 
 void Crawler::Worker::kill ( )
 {
+	this->running = false; 
+	this->website = NULL; 
+	delete website; 
 }
 
 void Crawler::Worker::main ( )
 {
+	this->launch(); 
+	for(lIter!=websites->links.end(); lIter++){
+		if(!lIter->wasVisited()){
+			lIter->setVisited(true); 
+			
+		}
+		
+	} 
 }
