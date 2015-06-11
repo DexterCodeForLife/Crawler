@@ -7,6 +7,7 @@ namespace Crawler
 {
 	class WorkerManager ;
 	class Website ;
+	class WebsiteManager; 
 
 	class CRAWLER_API Worker
 	{
@@ -61,6 +62,7 @@ namespace Crawler
 			
 			Crawler::WorkerManager & workerManager ;
 			sf::Thread thread ;
+			Crawler:WebsiteManager &websiteManager; 
 			Crawler::Website * website = nullptr ;
 			bool running = true ;
 	} ;
