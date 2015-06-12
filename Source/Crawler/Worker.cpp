@@ -27,15 +27,11 @@ bool Crawler::Worker::hasWebsite ( ) const
 
 Crawler::Website & Crawler::Worker::getWebsite ( )
 {
-	if(websiteManager.existsWebsite){
-		website = *iter; 
-		if(website->wasVisited()){
-			iter++; 
-			getWebsite(); 
+    
+        if(!website->wasVisited(){
+        
 		}
-		return * this->website; 
-		
-	}
+		return * this->website;
 		
 }
 	
@@ -60,12 +56,11 @@ void Crawler::Worker::setRunning ( bool running )
 void Crawler::Worker::launch ( )
 {
 	this->running = true; 
-	this->getwebsite(); 
-	website->links::lIter = website->links.begin(); 
+	this->getwebsite();
 	
 }
 
-
+void Crawler::Worker::terminate
 
 void Crawler::Worker::wait ( )
 {
@@ -75,37 +70,34 @@ void Crawler::Worker::wait ( )
 void Crawler::Worker::kill ( )
 {
 	//not sure why this is needed
+    //kills the thread
 }
 
 void Crawler::Worker::main ( )
 {
-	this->launch(); 
-	for(lIter!=websites->links.end(); lIter++){
-		if(!lIter->wasVisited()){
-			lIter->setVisited(true); 
-			http.setHost(//fetch link); 
-			resquest(websites->links.getPath()); 
-			response = http.sendRequest(resquest); 
-			status = response.getStatus(); 
-			if(status == sf::Http::Response::Ok){
-				document = response.getBody(); 
-			}
-			else
-			{
-				std::cout<<"Error" << status << std::endl; 
-			}
-			char* page_position; 
-			page_position = strstr(document.c_str(),'<a'); 
-			page_position = strstr(page_position, '>');
-			*page_position = '\0'
-			Link currentLink(document.c_str(), 'href'); 
-			websites->links.push_back(currentLink); 
+	this->launch();
+    
+    http.setHost(//fetch link);
+    resquest(website->toString);//would this be the right method to use?
+    response = http.sendRequest(resquest);
+    status = response.getStatus();
+    if(status == sf::Http::Response::Ok){
+        document = response.getBody();
+    }
+    else
+    {
+        std::cout<<"Error" << status << std::endl;
+    }
+    char* page_position;
+    page_position = strstr(document.c_str(),'<a');
+    page_position = strstr(page_position, '>');
+    *page_position = '\0'
+    Link currentLink(document.c_str(), 'href');
+    website->links.push_back(currentLink);
 			//fetch document from links
 			//scrape links from document
+    //maybe this is where we empty out the links and they get put put in the website vector
+    //
 			
-		}
-		if(lIter->wasVisited()){
-			this->kill(); 
-		}
-	} 
 }
+			
