@@ -92,8 +92,13 @@ void Crawler::Website::addLink ( const Crawler::Link & link )
 void Crawler::Website::removeLink ( const Crawler::Link & link )
 {
 	for ( auto iterator = this->links.begin ( ) ; iterator != this->links.end ( ) ; ++iterator )
+	{
 		if ( * iterator == link )
+		{
 			this->links.erase ( iterator ) ;
+			break ;
+		}
+	}
 }
 			
 Crawler::Website::Iterator Crawler::Website::removeLink ( Iterator link )
@@ -118,11 +123,13 @@ void Crawler::Website::registerWorker ( Crawler::Worker & worker )
 void Crawler::Website::unregisterWorker ( Crawler::Worker & worker )
 {
 	for ( auto iterator = this->worker.begin ( ) ; iterator != this->worker.end ( ) ; ++iterator )
+	{
 		if ( * iterator == & worker )
 		{
 			this->worker.erase ( iterator ) ;
 			return ;
 		}
+	}
 }
 			
 const std::list <Crawler::Worker *> & Crawler::Website::getWorker ( ) const
@@ -158,4 +165,14 @@ Crawler::Website::ConstIterator Crawler::Website::end ( ) const
 Crawler::Website::ConstIterator Crawler::Website::cend ( ) const
 {
 	return this->links.cend ( ) ;
+}
+
+bool Crawler::operator == ( const Crawler::Website & left , const Crawler::Website & right )
+{
+	return left.getScheme ( ) == right.getScheme ( ) &&
+		   left.getAuthority ( ) == right.getAuthority ( ) ;
+}
+bool Crawler::operator != ( const Crawler::Website & left , const Crawler::Website & right )
+{
+	return ! ( left == right ) ;
 }
