@@ -2,6 +2,7 @@
 #include <Crawler/Website.hpp>
 #include <Crawler/WorkerManager.hpp>
 
+
 Crawler::Worker::Worker ( Crawler::WorkerManager & workerManager ) :
 	workerManager ( workerManager ) ,
 	thread ( & Crawler::Worker::main , this )
@@ -73,10 +74,29 @@ void Crawler::Worker::kill ( )
     //kills the thread
 }
 
+void Crawler::Worker::parse_anchor_tag(char *anchor, std::vector<string> &results){
+
+		char *href = std::strstr(anchor, "href=\""); 
+		if(href == NULL)
+			return; 
+		
+		char *link = href + 6; 
+		
+		char *end = std::strstr(link, "\""); 
+		if(end == NULL)
+			return; 
+		
+		*end = '\0'; 
+		
+		std::string result = link; 
+		results.push_back(result); 
+}
+
+
+
 void Crawler::Worker::main ( )
 {
 	this->launch();
-    
     http.setHost(//fetch link);
     resquest(website->toString);//would this be the right method to use?
     response = http.sendRequest(resquest);
@@ -88,16 +108,31 @@ void Crawler::Worker::main ( )
     {
         std::cout<<"Error" << status << std::endl;
     }
-    char* page_position;
-    page_position = strstr(document.c_str(),'<a');
-    page_position = strstr(page_position, '>');
-    *page_position = '\0'
-    Link currentLink(document.c_str(), 'href');
-    website->links.push_back(currentLink);
-			//fetch document from links
-			//scrape links from document
-    //maybe this is where we empty out the links and they get put put in the website vector
-    //
-			
+    
+    ifstream f(document); 
+	
+	f.seekg(0, ios::end);
+	auto size = f.tellg();
+	f.seekg(0, ios::beg);
+	
+	vector<char> document(size);
+	
+	f.read(document.data(), size);
+	f.close(); 
+		
+    char* page_position = document.data(); 
+    while(1){
+    
+    	page_position = strstr(page_position,"<a");
+    	if(page_position == NULL){
+    		break;
+    	}
+    	char *anchor; 
+		anchor = page_position; 
+    	page_position = strstr(page_position, ">");
+    	*page_position = '\0';
+    	page_position++;   
+    }
+    		
 }
 			
