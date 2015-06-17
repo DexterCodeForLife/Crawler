@@ -2,6 +2,11 @@
 
 #include <Crawler/Linker.hpp>
 #include <SFML/System/Thread.hpp>
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <streambuf>
+#include <vector>
 
 namespace Crawler 
 {
@@ -59,7 +64,7 @@ namespace Crawler
 		private :
 			/// \brief Workers main function
 			void main ( ) ;
-			
+			std::vector<string> results;
 			Crawler::WorkerManager & workerManager ;
 			sf::Thread thread ;
 			sf::Http http; 
