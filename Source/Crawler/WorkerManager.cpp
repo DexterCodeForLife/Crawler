@@ -18,6 +18,12 @@ const Crawler::Application & Crawler::WorkerManager::getApplication ( ) const
 void Crawler::WorkerManager::setAmountOfWorker ( std::size_t amountOfWorker )
 {
 	this->amountOfWorker = amountOfWorker ;
+	
+	if ( this->worker.size ( ) > 0 )
+	{
+		this->despawnWorker ( ) ;
+		this->spawnWorker ( ) ;
+	}
 }
 			
 std::size_t Crawler::WorkerManager::getAmountOfWorker ( ) const
@@ -27,15 +33,19 @@ std::size_t Crawler::WorkerManager::getAmountOfWorker ( ) const
 			
 void Crawler::WorkerManager::spawnWorker ( )
 {
-	this->worker.push_back ( std::unique_ptr <Crawler::Worker> ( new Crawler::Worker ( * this ) ) ) ;
+	for ( std::size_t i = 0 ; i < this->amountOfWorker ; ++i )
+	{
+		this->worker.push_back ( std::unique_ptr <Crawler::Worker> ( new Crawler::Worker ( * this ) ) ) ;	
+	}
 }
 			
 void Crawler::WorkerManager::despawnWorker ( )
 {
-	auto worker = this->worker.begin ( ) ;
-	( * worker )->setRunning ( false ) ;
-	( * worker )->wait ( ) ;
-	this->worker.erase ( worker ) ;
+	for ( auto iterator = this->worker.begin ( ) ; iterator != this->worker.end ( ) ; ++iterator )
+	{
+		( * iterator )->terminate ( ) ;
+		iterator = this->worker.erase ( iterator ) ;
+	}
 }
 
 const std::list <std::unique_ptr <Crawler::Worker>> & Crawler::WorkerManager::getWorker ( ) const

@@ -11,8 +11,6 @@ Crawler::Worker::Worker ( Crawler::WorkerManager & workerManager ) :
 
 Crawler::WorkerManager & Crawler::Worker::getWorkerManager ( )
 {
-	//assuming that the getWorkerManager is shard Memorey
-	//maybe need to use mutex lock and unlock
 	return this->workerManager ;
 }
 
@@ -28,20 +26,13 @@ bool Crawler::Worker::hasWebsite ( ) const
 
 Crawler::Website & Crawler::Worker::getWebsite ( )
 {
-    
-        if(!website->wasVisited(){
-        
-		}
-		return * this->website;
-		
+	return * this->website;
 }
 	
 
 const Crawler::Website & Crawler::Worker::getWebsite ( ) const
 {	
-	if(!website->visited){
-		return * this->website ;
-	}
+	return * this->website ;
 }
 
 bool Crawler::Worker::isRunning ( ) const
@@ -56,24 +47,26 @@ void Crawler::Worker::setRunning ( bool running )
 
 void Crawler::Worker::launch ( )
 {
-	this->running = true; 
-	this->getwebsite();
-	
 }
 
-void Crawler::Worker::terminate
+void Crawler::Worker::terminate ( )
+{
+	this->setRunning ( false ) ;
+	this->wait ( ) ;
+}
 
 void Crawler::Worker::wait ( )
 {
-	//not sure why this is needed also
+	this->thread.wait ( ) ;
 }
 
 void Crawler::Worker::kill ( )
 {
-	//not sure why this is needed
-    //kills the thread
+	this->thread.terminate ( ) ;
 }
 
+
+/*
 void Crawler::Worker::parse_anchor_tag(char *anchor, std::vector<string> &results){
 
 		char *href = std::strstr(anchor, "href=\""); 
@@ -135,4 +128,4 @@ void Crawler::Worker::main ( )
     }
     		
 }
-			
+			*/
