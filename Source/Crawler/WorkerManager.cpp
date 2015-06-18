@@ -35,7 +35,8 @@ void Crawler::WorkerManager::spawnWorker ( )
 {
 	for ( std::size_t i = 0 ; i < this->amountOfWorker ; ++i )
 	{
-		this->worker.push_back ( std::unique_ptr <Crawler::Worker> ( new Crawler::Worker ( * this ) ) ) ;	
+		this->worker.push_back ( std::unique_ptr <Crawler::Worker> ( new Crawler::Worker ( * this ) ) ) ;
+		this->worker.back ( )->launch ( ) ;
 	}
 }
 			
@@ -44,8 +45,9 @@ void Crawler::WorkerManager::despawnWorker ( )
 	for ( auto iterator = this->worker.begin ( ) ; iterator != this->worker.end ( ) ; ++iterator )
 	{
 		( * iterator )->terminate ( ) ;
-		iterator = this->worker.erase ( iterator ) ;
 	}
+	
+	this->worker.clear ( ) ;
 }
 
 const std::list <std::unique_ptr <Crawler::Worker>> & Crawler::WorkerManager::getWorker ( ) const
