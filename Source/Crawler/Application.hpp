@@ -58,6 +58,8 @@ namespace Crawler
 			/// \return Error code for operating system
 			int main ( const std::vector <std::string> & arguments ) ;
 			
+			/// \brief Shuts the down
+			
 			/// \brief Gets called when application starts up
 			/// \return True if startup was successfull
 			virtual bool onStartup ( ) ;

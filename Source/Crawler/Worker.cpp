@@ -1,6 +1,7 @@
 #include <Crawler/Worker.hpp>
 #include <Crawler/Website.hpp>
 #include <Crawler/WorkerManager.hpp>
+#include <SFML/System.hpp>
 
 Crawler::Worker::Worker ( Crawler::WorkerManager & workerManager ) :
 	workerManager ( workerManager ) ,
@@ -64,6 +65,13 @@ void Crawler::Worker::kill ( )
 	this->thread.terminate ( ) ;
 }
 
+#include <iostream>
+
 void Crawler::Worker::main ( )
 {
+	while ( this->isRunning ( ) )
+	{
+		std::cout << "Worker::main\n" ;
+		sf::sleep ( sf::seconds ( 5 ) ) ;
+	}
 }
