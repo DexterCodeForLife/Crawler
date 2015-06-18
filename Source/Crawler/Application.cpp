@@ -41,12 +41,16 @@ int Crawler::Application::main ( const std::vector <std::string> & arguments )
 	if ( ! this->onStartup ( ) )
 		return -1 ;
 		
+	this->workerManager.spawnWorker ( ) ;
+		
 	while ( this->isRunning ( ) )
 	{
 		this->onMain ( ) ;
 	}
 		
 	this->onShutdown ( ) ;
+	
+	this->workerManager.despawnWorker ( ) ;
 	
 	return 0 ;
 }
