@@ -47,10 +47,10 @@ int Crawler::Application::main ( const std::vector <std::string> & arguments )
 	{
 		this->onMain ( ) ;
 	}
-		
-	this->onShutdown ( ) ;
 	
 	this->workerManager.despawnWorker ( ) ;
+		
+	this->onShutdown ( ) ;
 	
 	return 0 ;
 }
@@ -65,6 +65,14 @@ void Crawler::Application::onMain ( )
 }
 
 void Crawler::Application::onShutdown ( )
+{
+}
+
+void Crawler::Application::onWorkerSpawn ( Crawler::Worker & worker )
+{
+}
+
+void Crawler::Application::onWorkerDespawn ( Crawler::Worker & worker )
 {
 }
 

@@ -68,6 +68,12 @@ namespace Crawler
 			/// \brief Gets called when application shuts down
 			virtual void onShutdown ( ) ;
 			
+			/// \brief Gets called when a worker spawns			
+			virtual void onWorkerSpawn ( Crawler::Worker & worker ) ;
+			
+			/// \brief Gets called when a worker despawns
+			virtual void onWorkerDespawn ( Crawler::Worker & worker ) ;
+			
 		protected :
 			/// \brief Returns command line arguments
 			/// \return Reference to a vector with command line arguments
