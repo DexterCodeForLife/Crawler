@@ -46,6 +46,20 @@ int Crawler::Application::main ( const std::vector <std::string> & arguments )
 	while ( this->isRunning ( ) )
 	{
 		this->onMain ( ) ;
+		
+		bool allVisited = true ;
+		
+		for ( auto & worker : this->getWorkerManager ( ) )
+		{
+			if ( worker->getWebsite ( ) )
+			{
+				allVisited = false ;
+				break ;
+			}
+		}
+		
+		if ( allVisited )
+			this->onVisitedWebsites ( ) ;
 	}
 	
 	this->workerManager.despawnWorker ( ) ;
@@ -68,11 +82,50 @@ void Crawler::Application::onShutdown ( )
 {
 }
 
-void Crawler::Application::onWorkerSpawn ( Crawler::Worker & worker )
+void Crawler::Application::onSpawnWorker ( Crawler::Worker & worker )
 {
 }
 
-void Crawler::Application::onWorkerDespawn ( Crawler::Worker & worker )
+void Crawler::Application::onDespawnWorker ( Crawler::Worker & worker )
+{
+}
+
+void Crawler::Application::onUnsupportedProtocol ( Crawler::Worker & worker , Crawler::Website & website )
+{
+	website.setVisited ( true ) ;
+}
+
+bool Crawler::Application::onRequest ( Crawler::Worker & worker , Crawler::Website & website , Crawler::Link & link , sf::Http & client , sf::Http::Request & request )
+{
+	return true ;
+}
+
+bool Crawler::Application::onResponse ( Crawler::Worker & worker , Crawler::Website & website , Crawler::Link & link , sf::Http & client , sf::Http::Response & response )
+{
+	return true ;
+}
+
+bool Crawler::Application::onParsing ( Crawler::Worker & worker , Crawler::Website & website , Crawler::Link & link , pugi::xml_document & document )
+{
+	return true ;
+}
+
+bool Crawler::Application::onReportLink ( const std::string & string )
+{
+	return true ;
+}
+
+bool Crawler::Application::onAddWebsite ( Crawler::Website & website )
+{
+	return true ;
+}
+		
+bool Crawler::Application::onAddLink ( Crawler::Website & website , Crawler::Link & link )
+{
+	return true ;
+}
+
+void Crawler::Application::onVisitedWebsites ( )
 {
 }
 
