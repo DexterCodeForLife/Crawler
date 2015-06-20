@@ -129,7 +129,7 @@ Crawler::Website * Crawler::WebsiteManager::requestWebsite ( Crawler::Worker * w
 {
 	for ( auto & website : this->websites )
 	{
-		if ( ! website.wasVisited ( ) && website.getWorker ( ).size ( ) <= this->workerPerWebsite )
+		if ( ! website.wasVisited ( ) && ( this->workerPerWebsite == 0 || website.getWorker ( ).size ( ) <= this->workerPerWebsite ) )
 		{
 			website.registerWorker ( * worker ) ;
 			return & website ;

@@ -104,6 +104,6 @@ namespace Crawler
 		private :
 			Crawler::Application & application ;
 			std::list <Crawler::Website> websites ;
-			std::size_t workerPerWebsite = 5 ;
+			std::size_t workerPerWebsite = 0 ;
 	} ;
 }
