@@ -1,7 +1,7 @@
 #pragma once 
 
 #include <Crawler/Linker.hpp>
-#include <SFML/System/Thread.hpp>
+#include <SFML/System.hpp>
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -41,17 +41,13 @@ namespace Crawler
 			/// \return Reference to worker manager
 			const Crawler::WorkerManager & getWorkerManager ( ) const ;
 			
-			/// \brief Checks if a website has been assigned
-			/// \brief True is website is assigned
-			bool hasWebsite ( ) const ;
+			/// \brief Returns the assigned website
+			/// \return Reference to the assigned website
+			Crawler::Website * getWebsite ( ) ;
 			
 			/// \brief Returns the assigned website
 			/// \return Reference to the assigned website
-			Crawler::Website & getWebsite ( ) ;
-			
-			/// \brief Returns the assigned website
-			/// \return Reference to the assigned website
-			const Crawler::Website & getWebsite ( ) const ;
+			const Crawler::Website * getWebsite ( ) const ;
 			
 			/// \brief Checks if the worker is running
 			/// \return True if the worker is running
@@ -76,15 +72,8 @@ namespace Crawler
 		private :
 			/// \brief Workers main function
 			void main ( ) ;
-			std::vector<string> results;
 			Crawler::WorkerManager & workerManager ;
 			sf::Thread thread ;
-			sf::Http http; 
-			sf::Http::Request; 
-			sf::Http::Response; 
-			sf::Http::Response::Status status; 
-			string document; 
-			Crawler:WebsiteManager &websiteManager; 
 			Crawler::Website * website = nullptr ;
 			bool running = true ;
 	} ;
