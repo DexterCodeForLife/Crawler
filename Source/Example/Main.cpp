@@ -56,7 +56,7 @@ class Application : public Crawler::Application
 		
 		bool onAddWebsite ( Crawler::Website & website )
 		{
-			return Crawler::Application::onAddLink ( website ) ;
+			return Crawler::Application::onAddWebsite ( website ) ;
 		}
 		
 		bool onAddLink ( Crawler::Website & website , Crawler::Link & link )
