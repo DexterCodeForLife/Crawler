@@ -3,6 +3,7 @@
 #include <Crawler/Application.hpp>
 #include <Crawler/Link.hpp>
 #include <Crawler/Linker.hpp>
+#include <Crawler/ScopedMutex.hpp>
 #include <Crawler/Website.hpp>
 #include <Crawler/WebsiteManager.hpp>
 #include <Crawler/Worker.hpp>
