@@ -39,7 +39,7 @@ void Crawler::WorkerManager::spawnWorker ( )
 		this->worker.push_back ( std::unique_ptr <Crawler::Worker> ( new Crawler::Worker ( * this ) ) ) ;
 		this->worker.back ( )->launch ( ) ;
 		
-		this->getApplication ( ).onWorkerSpawn ( * this->worker.back ( ) ) ;
+		this->getApplication ( ).onSpawnWorker ( * this->worker.back ( ) ) ;
 	}
 }
 			
@@ -47,7 +47,7 @@ void Crawler::WorkerManager::despawnWorker ( )
 {
 	for ( auto iterator = this->worker.begin ( ) ; iterator != this->worker.end ( ) ; ++iterator )
 	{
-		this->getApplication ( ).onWorkerDespawn ( ** iterator ) ;
+		this->getApplication ( ).onDespawnWorker ( ** iterator ) ;
 	
 		( * iterator )->terminate ( ) ;
 	}
