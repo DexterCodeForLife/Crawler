@@ -1,14 +1,15 @@
 #pragma once 
 
 #include <Crawler/Linker.hpp>
-#include <SFML/System.hpp>
-#include <iostream>
 #include <string>
-#include <fstream>
-#include <streambuf>
-#include <vector>
+#include <memory>
 
-namespace Crawler 
+namespace sf
+{
+	class Thread ;
+}
+
+namespace Crawler
 {
 	class WorkerManager ;
 	class Website ;
@@ -73,7 +74,7 @@ namespace Crawler
 			/// \brief Workers main function
 			void main ( ) ;
 			Crawler::WorkerManager & workerManager ;
-			sf::Thread thread ;
+			std::unique_ptr <sf::Thread> thread ;
 			Crawler::Website * website = nullptr ;
 			bool running = true ;
 	} ;

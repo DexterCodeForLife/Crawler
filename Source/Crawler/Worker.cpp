@@ -3,11 +3,12 @@
 #include <Crawler/WorkerManager.hpp>
 #include <Crawler/Application.hpp>
 #include <pugixml.hpp>
+#include <SFML/System.hpp>
 #include <SFML/Network.hpp>
 
 Crawler::Worker::Worker ( Crawler::WorkerManager & workerManager ) :
 	workerManager ( workerManager ) ,
-	thread ( & Crawler::Worker::main , this )
+	thread ( std::unique_ptr <sf::Thread> ( new sf::Thread ( & Crawler::Worker::main , this ) ) )
 {
 }
 
@@ -43,7 +44,7 @@ void Crawler::Worker::setRunning ( bool running )
 
 void Crawler::Worker::launch ( )
 {
-	this->thread.launch ( ) ;
+	this->thread->launch ( ) ;
 }
 
 void Crawler::Worker::terminate ( )
@@ -54,12 +55,12 @@ void Crawler::Worker::terminate ( )
 
 void Crawler::Worker::wait ( )
 {
-	this->thread.wait ( ) ;
+	this->thread->wait ( ) ;
 }
 
 void Crawler::Worker::kill ( )
 {
-	this->thread.terminate ( ) ;
+	this->thread->terminate ( ) ;
 }
 
 void Crawler::Worker::main ( )
