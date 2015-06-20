@@ -127,6 +127,7 @@ bool Crawler::Application::onAddLink ( Crawler::Website & website , Crawler::Lin
 
 void Crawler::Application::onVisitedWebsites ( )
 {
+	this->setRunning ( false ) ;
 }
 
 const std::vector <std::string> & Crawler::Application::getArguments ( ) const
