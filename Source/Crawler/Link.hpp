@@ -15,12 +15,10 @@ namespace Crawler
 			Link ( ) = default ;
 		
 			/// \brief Constructor for setting each member but the assigned website
-			/// \param scheme Scheme or protocol ("http"; "ftp")
-			/// \param authority Provider or server ("localhost:80"; "127.0.0.1"; "username@host.de:5000")
 			/// \param path Path ("/directory/file.extension"; "/index.html")
 			/// \param query Query ("?Key1=Value1&Key2=Value2")
 			/// \param fragment Fragment ("#Fragment")
-			Link ( const std::string & scheme , const std::string & query , const std::string & fragment ) ;
+			Link ( const std::string & path , const std::string & query , const std::string & fragment ) ;
 		
 			/// \brief Constructor for parsing a link
 			/// \param link String which gets parsed
