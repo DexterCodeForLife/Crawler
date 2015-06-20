@@ -60,7 +60,7 @@ class Application : public Crawler::Application
 			}
 			
 			// Shutdown the crawler	
-			this->setRunning ( false ) ;
+			Crawler::Application::onVisitedWebsites ( ) ;
 		}
 	
 	private :
