@@ -1,4 +1,5 @@
 #include <Crawler/WebsiteManager.hpp>
+#include <Crawler/Application.hpp>
 
 Crawler::WebsiteManager::WebsiteManager ( Crawler::Application & application ) :
 	application ( application )
@@ -94,9 +95,46 @@ std::size_t Crawler::WebsiteManager::getWorkerPerWebsite ( ) const
 
 void Crawler::WebsiteManager::reportLink ( const std::string & string )
 {
+	if ( ! this->getApplication ( ).onReportLink ( string ) )
+		return ;
+
+	Crawler::Website website ( string ) ;
+	
+	if ( website.getScheme ( ).empty ( ) || website.getAuthority ( ).empty ( ) )
+		return ;
+		
+	Crawler::Link link ( string ) ;
+	
+	for ( auto & element : this->websites )
+	{
+		if ( element == website )
+		{
+			if ( this->getApplication ( ).onAddLink ( element , link ) )
+				element.addLink ( link ) ;
+				
+			return ;
+		}
+	}
+	
+	if ( ! this->getApplication ( ).onAddWebsite ( website ) )
+		return ;
+		
+	if ( this->getApplication ( ).onAddLink ( website , link ) )
+		website.addLink ( link ) ;
+	
+	this->websites.push_back ( website ) ;
 }
 
-Crawler::Website * Crawler::WebsiteManager::requestWebsite ( )
+Crawler::Website * Crawler::WebsiteManager::requestWebsite ( Crawler::Worker * worker )
 {
+	for ( auto & website : this->websites )
+	{
+		if ( ! website.wasVisited ( ) && website.getWorker ( ).size ( ) <= this->workerPerWebsite )
+		{
+			website.registerWorker ( * worker ) ;
+			return & website ;
+		}
+	}
+
 	return nullptr ;
 }

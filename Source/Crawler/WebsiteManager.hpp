@@ -91,14 +91,15 @@ namespace Crawler
 			/// \brief Returns the amount of workers per website
 			/// \return Amount of workers per website
 			std::size_t getWorkerPerWebsite ( ) const ;
-			
+
 			/// \brief Report a link to website manager
 			/// \param link Link which is reported
 			void reportLink ( const std::string & string ) ;
 			
 			/// \brief Requests a new website from the list which is handled by the worker
+			/// \param worker Worker which is registered
 			/// \return Pointer to website which is handled by the worker
-			Crawler::Website * requestWebsite ( ) ;
+			Crawler::Website * requestWebsite ( Crawler::Worker * worker ) ;
 		
 		private :
 			Crawler::Application & application ;
