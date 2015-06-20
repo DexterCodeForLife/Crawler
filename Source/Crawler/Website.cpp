@@ -14,8 +14,14 @@ namespace
 		return getString ( text.first , text.afterLast ) ;
 	}
 }
+	
+Crawler::Website::Website ( )
+{
+	this->addLink ( Crawler::Link ( "/" , "" , "" ) ) ;
+}
 		
-Crawler::Website::Website ( const std::string & scheme , const std::string & authority )
+Crawler::Website::Website ( const std::string & scheme , const std::string & authority ) :
+	Website ( )
 {
 	this->setScheme ( scheme ) ;
 	this->setAuthority ( authority ) ;
@@ -51,7 +57,7 @@ bool Crawler::Website::wasVisited ( ) const
 			
 void Crawler::Website::setVisited ( bool visited )
 {
-	this->visited ;
+	this->visited = visited ;
 }
 			
 const std::string & Crawler::Website::getScheme ( ) const
@@ -86,7 +92,10 @@ bool Crawler::Website::existsLink ( const Crawler::Link & link )
 void Crawler::Website::addLink ( const Crawler::Link & link )
 {
 	if ( ! this->existsLink ( link ) )
+	{
 		this->links.push_back ( link ) ;
+		this->visited = false ;
+	}
 }
 			
 void Crawler::Website::removeLink ( const Crawler::Link & link )
@@ -165,6 +174,22 @@ Crawler::Website::ConstIterator Crawler::Website::end ( ) const
 Crawler::Website::ConstIterator Crawler::Website::cend ( ) const
 {
 	return this->links.cend ( ) ;
+}
+
+Crawler::Link * Crawler::Website::requestLink ( )
+{
+	for ( auto & link : this->links )
+	{
+		if ( ! link.wasVisited ( ) )
+		{
+			link.setVisited ( true ) ;
+			return & link ;
+		}
+	}
+	
+	this->visited = true ;
+	
+	return nullptr ;
 }
 
 bool Crawler::operator == ( const Crawler::Website & left , const Crawler::Website & right )

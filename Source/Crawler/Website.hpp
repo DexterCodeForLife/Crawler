@@ -17,8 +17,8 @@ namespace Crawler
 			using Iterator = std::list <Crawler::Link>::iterator ;
 			using ConstIterator = std::list <Crawler::Link>::const_iterator ;
 		
-			/// \brief Default constructor
-			Website ( ) = default ;
+			/// \brief Default constructor which adds the root as default entry
+			Website ( ) ;
 		
 			/// \brief Constructor
 			/// \param scheme Scheme or protocol ("http"; "ftp")
@@ -110,6 +110,11 @@ namespace Crawler
 			/// \brief Returns end iterator
 			/// \return End iterator
 			ConstIterator cend ( ) const ;
+			
+			/// \brief Requests link from website
+			///        The function marks the website automatically as visited if all links has been visited
+			/// \return Next link of website which has not been visited or nullptr
+			Crawler::Link * requestLink ( ) ;
 		
 		private :
 			bool visited = false ;
