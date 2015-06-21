@@ -21,7 +21,7 @@ namespace Crawler
 			
 			/// \brief Copy constructor
 			/// \param mutex ScopedMutex which is copied
-			ScopedMutex ( const Worker & mutex ) = delete ;
+			ScopedMutex ( const ScopedMutex & mutex ) = delete ;
 			
 			/// \brief Move constructor
 			/// \param mutex ScopedMutex which is moved
