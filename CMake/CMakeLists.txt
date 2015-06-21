@@ -20,3 +20,7 @@ target_link_libraries ( locallinkdirectory crawler )
 file ( GLOB_RECURSE GLOBAL_LINK_DIRECTORY_SOURCE "${CMAKE_CURRENT_LIST_DIR}/../Source/GlobalLinkDirectory/*" )
 add_executable ( globallinkdirectory ${GLOBAL_LINK_DIRECTORY_SOURCE} )
 target_link_libraries ( globallinkdirectory crawler )
+
+file ( GLOB_RECURSE EMAIL_SOURCE "${CMAKE_CURRENT_LIST_DIR}/../Source/Email/*" )
+add_executable ( email ${EMAIL_SOURCE} )
+target_link_libraries ( email crawler )
