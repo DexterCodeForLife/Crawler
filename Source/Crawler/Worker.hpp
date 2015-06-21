@@ -73,6 +73,7 @@ namespace Crawler
 		private :
 			/// \brief Workers main function
 			void main ( ) ;
+			
 			Crawler::WorkerManager & workerManager ;
 			std::unique_ptr <sf::Thread> thread ;
 			Crawler::Website * website = nullptr ;
