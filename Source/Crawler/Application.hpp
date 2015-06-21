@@ -20,15 +20,21 @@ namespace Crawler
 			virtual ~Application ( ) = default ;
 			
 			/// \brief Copy constructor
+			/// \param application Application which gets copied
 			Application ( const Application & application ) = delete ;
 			
 			/// \brief Move constructor
+			/// \param application Application which gets moved
 			Application ( Application && application ) = delete ;
 			
 			/// \brief Copy assignment operator
+			/// \param application Application which gets copied
+			/// \return Reference to this
 			Application & operator = ( const Application & application ) = delete ;
 			
 			/// \brief Move assignment operator
+			/// \param application Application which gets moved
+			/// \return Reference to this
 			Application & operator = ( Application && application ) = delete ;
 			
 			/// \brief Changes if application is running
