@@ -49,6 +49,15 @@ int Crawler::Application::main ( const std::vector <std::string> & arguments )
 		
 		bool allVisited = true ;
 		
+		for ( auto & worker : this->getWorkerManager ( ) )
+		{
+			if ( worker->getWebsite ( ) )
+			{
+				allVisited = false ;
+				break ;
+			}
+		}
+		
 		for ( auto & website : this->getWebsiteManager ( ) )
 		{
 			if ( ! website.wasVisited ( ) )
