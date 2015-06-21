@@ -1,6 +1,7 @@
 #pragma once 
 
 #include <Crawler/Linker.hpp>
+#include <SFML/System.hpp>
 #include <string>
 #include <memory>
 
@@ -23,15 +24,21 @@ namespace Crawler
 			Worker ( Crawler::WorkerManager & workerManager ) ;
 			
 			/// \brief Copy constructor
+			/// \param worker Worker which is copied
 			Worker ( const Worker & worker ) = delete ;
 			
 			/// \brief Move constructor
+			/// \param worker Worker which is moved
 			Worker ( Worker && worker ) = delete ;
 			
 			/// \brief Copy assignment operator
+			/// \param worker Worker which is copied
+			/// \return Reference to this
 			Worker & operator = ( const Worker & worker ) = delete ;
 			
 			/// \brief Move assignment operator
+			/// \param worker Worker which is moved
+			/// \return Reference to this
 			Worker & operator = ( Worker && Worker ) = delete ;
 			
 			/// \brief Returns reference to worker manager
@@ -78,5 +85,6 @@ namespace Crawler
 			std::unique_ptr <sf::Thread> thread ;
 			Crawler::Website * website = nullptr ;
 			bool running = true ;
+			sf::Mutex mutex ;
 	} ;
 }

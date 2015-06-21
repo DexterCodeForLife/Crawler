@@ -1,5 +1,6 @@
 #include <Crawler/Link.hpp>
 #include <Crawler/Website.hpp>
+#include <Crawler/ScopedMutex.hpp>
 #include <uriparser/Uri.h>
 
 namespace
@@ -47,6 +48,45 @@ Crawler::Link::Link ( const std::string & link )
 	uriFreeUriMembersA ( & parsedURI ) ;
 }
 
+Crawler::Link::Link ( const Link & link )
+{
+	this->visited = link.visited ;
+	this->path = link.path ;
+	this->query = link.query ;
+	this->fragment = link.fragment ;
+}
+			
+Crawler::Link::Link ( Link && link )
+{
+	Crawler::ScopedMutex ( link.mutex ) ;
+	std::swap ( this->visited , link.visited ) ;
+	std::swap ( this->path , link.path ) ;
+	std::swap ( this->query , link.query ) ;
+	std::swap ( this->fragment , link.fragment ) ;
+}
+			
+Crawler::Link & Crawler::Link::operator = ( const Link & link )
+{
+	Crawler::ScopedMutex ( this->mutex ) ;
+	this->visited = link.visited ;
+	this->path = link.path ;
+	this->query = link.query ;
+	this->fragment = link.fragment ;
+	return * this ;
+}
+		
+Crawler::Link & Crawler::Link::operator = ( Link && link )
+{
+	Crawler::ScopedMutex ( link.mutex ) ;
+	Crawler::ScopedMutex ( this->mutex ) ;
+	std::swap ( this->visited , link.visited ) ;
+	std::swap ( this->path , link.path ) ;
+	std::swap ( this->query , link.query ) ;
+	std::swap ( this->fragment , link.fragment ) ;
+	
+	return * this ;
+}
+
 bool Crawler::Link::wasVisited ( ) const
 {
 	return this->visited ;
@@ -54,6 +94,7 @@ bool Crawler::Link::wasVisited ( ) const
 
 void Crawler::Link::setVisited ( bool visited )
 {
+	Crawler::ScopedMutex ( this->mutex ) ;
 	this->visited = visited ;
 }
 
@@ -64,6 +105,7 @@ const std::string & Crawler::Link::getPath ( ) const
 
 void Crawler::Link::setPath ( const std::string & path )
 {
+	Crawler::ScopedMutex ( this->mutex ) ;
 	this->path = path ;
 	
 	if ( this->path [ 0 ] != '/' )
@@ -77,6 +119,7 @@ const std::string & Crawler::Link::getQuery ( ) const
 
 void Crawler::Link::setQuery ( const std::string & query )
 {
+	Crawler::ScopedMutex ( this->mutex ) ;
 	this->query = query ;
 }
 
@@ -87,6 +130,7 @@ const std::string & Crawler::Link::getFragment ( ) const
 
 void Crawler::Link::setFragment ( const std::string & fragment )
 {
+	Crawler::ScopedMutex ( this->mutex ) ;
 	this->fragment = fragment ;
 }
 

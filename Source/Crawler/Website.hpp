@@ -2,7 +2,7 @@
 
 #include <Crawler/Linker.hpp>
 #include <Crawler/Link.hpp>
-#include <SFML/System/Mutex.hpp>
+#include <SFML/System.hpp>
 #include <string>
 #include <list>
 
@@ -27,7 +27,25 @@ namespace Crawler
 			
 			/// \brief Constructor for parsing a website
 			/// \param website String which gets parsed
-			Website ( const std::string & website ) ;			
+			Website ( const std::string & website ) ;
+			
+			/// \brief Default copy constructor
+			/// \param website Website which is copied
+			Website ( const Website & website ) ;
+			
+			/// \brief Default move Constructor
+			/// \param website Website which is moved
+			Website ( Website && website ) ;
+			
+			/// \brief Copy assignment operator overloading
+			/// \param website Website which is copied
+			/// \return Reference to this
+			Website & operator = ( const Website & website ) ;
+			
+			/// \brief Move assignment operator overloading
+			/// \param website Website which is moved
+			/// \return Reference to this
+			Website & operator = ( Website && website ) ;
 			
 			/// \brief Checks if website was visited (all links have been visited)
 			/// \return True of website was visited
@@ -122,6 +140,7 @@ namespace Crawler
 			std::string authority ;
 			std::list <Crawler::Link> links ;
 			std::list <Worker *> worker ;
+			sf::Mutex mutex ;
 	} ;
 	
 	/// \brief Compares two websites together

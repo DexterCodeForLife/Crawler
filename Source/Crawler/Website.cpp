@@ -1,5 +1,6 @@
 #include <Crawler/Website.hpp>
 #include <Crawler/Worker.hpp>
+#include <Crawler/ScopedMutex.hpp>
 #include <uriparser/Uri.h>
 
 namespace
@@ -49,6 +50,49 @@ Crawler::Website::Website ( const std::string & website )
 
 	uriFreeUriMembersA ( & parsedURI ) ;
 }
+
+Crawler::Website::Website ( const Website & website )
+{
+	this->visited = website.visited ;
+	this->scheme = website.scheme ;
+	this->authority = website.authority ;
+	this->links = website.links ;
+}
+
+Crawler::Website::Website ( Website && website )
+{
+	Crawler::ScopedMutex ( website.mutex ) ;
+	std::swap ( this->visited , website.visited ) ;
+	std::swap ( this->scheme , website.scheme ) ;
+	std::swap ( this->authority , website.authority ) ;
+	std::swap ( this->links , website.links ) ;
+	std::swap ( this->worker , website.worker ) ;	
+}			
+
+Crawler::Website & Crawler::Website::operator = ( const Website & website )
+{
+	Crawler::ScopedMutex ( this->mutex ) ;
+	this->visited = website.visited ;
+	this->scheme = website.scheme ;
+	this->authority = website.authority ;
+	this->links = website.links ;
+	this->worker.clear ( ) ;
+	
+	return * this ;
+}
+
+Crawler::Website & Crawler::Website::operator = ( Website && website )
+{	
+	Crawler::ScopedMutex ( website.mutex ) ;
+	Crawler::ScopedMutex ( this->mutex ) ;
+	std::swap ( this->visited , website.visited ) ;
+	std::swap ( this->scheme , website.scheme ) ;
+	std::swap ( this->authority , website.authority ) ;
+	std::swap ( this->links , website.links ) ;
+	std::swap ( this->worker , website.worker ) ;	
+	
+	return * this ;
+}
 	
 bool Crawler::Website::wasVisited ( ) const
 {
@@ -57,6 +101,7 @@ bool Crawler::Website::wasVisited ( ) const
 			
 void Crawler::Website::setVisited ( bool visited )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	this->visited = visited ;
 }
 			
@@ -67,6 +112,7 @@ const std::string & Crawler::Website::getScheme ( ) const
 			
 void Crawler::Website::setScheme ( const std::string & scheme )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	this->scheme = scheme ;
 }
 			
@@ -82,7 +128,7 @@ void Crawler::Website::setAuthority ( const std::string & authority )
 			
 bool Crawler::Website::existsLink ( const Crawler::Link & link )
 {
-	for ( auto element : this->links )
+	for ( auto & element : this->links )
 		if ( element == link )
 			return true ;
 			
@@ -91,6 +137,7 @@ bool Crawler::Website::existsLink ( const Crawler::Link & link )
 			
 void Crawler::Website::addLink ( const Crawler::Link & link )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	if ( ! this->existsLink ( link ) )
 	{
 		this->links.push_back ( link ) ;
@@ -100,6 +147,7 @@ void Crawler::Website::addLink ( const Crawler::Link & link )
 			
 void Crawler::Website::removeLink ( const Crawler::Link & link )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	for ( auto iterator = this->links.begin ( ) ; iterator != this->links.end ( ) ; ++iterator )
 	{
 		if ( * iterator == link )
@@ -112,6 +160,7 @@ void Crawler::Website::removeLink ( const Crawler::Link & link )
 			
 Crawler::Website::Iterator Crawler::Website::removeLink ( Iterator link )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	return this->links.erase ( link ) ;
 }
 			
@@ -122,7 +171,8 @@ const std::list <Crawler::Link> & Crawler::Website::getLinks ( ) const
 			
 void Crawler::Website::registerWorker ( Crawler::Worker & worker )
 {
-	for ( auto element : this->worker )
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
+	for ( auto & element : this->worker )
 		if ( element == & worker )
 			return ;
 			
@@ -131,6 +181,7 @@ void Crawler::Website::registerWorker ( Crawler::Worker & worker )
 
 void Crawler::Website::unregisterWorker ( Crawler::Worker & worker )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	for ( auto iterator = this->worker.begin ( ) ; iterator != this->worker.end ( ) ; ++iterator )
 	{
 		if ( * iterator == & worker )
@@ -178,6 +229,7 @@ Crawler::Website::ConstIterator Crawler::Website::cend ( ) const
 
 Crawler::Link * Crawler::Website::requestLink ( )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	for ( auto & link : this->links )
 	{
 		if ( ! link.wasVisited ( ) )

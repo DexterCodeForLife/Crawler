@@ -2,6 +2,7 @@
 
 #include <Crawler/Linker.hpp>
 #include <Crawler/Worker.hpp>
+#include <SFML/System.hpp>
 #include <list>
 #include <memory>
 
@@ -76,5 +77,6 @@ namespace Crawler
 			Crawler::Application & application ;
 			std::list <std::unique_ptr <Crawler::Worker>> worker ;
 			std::size_t amountOfWorker = 10 ;
+			sf::Mutex mutex ;
 	} ;
 }

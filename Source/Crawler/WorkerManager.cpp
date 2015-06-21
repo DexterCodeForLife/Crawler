@@ -1,5 +1,6 @@
 #include <Crawler/WorkerManager.hpp>
 #include <Crawler/Application.hpp>
+#include <Crawler/ScopedMutex.hpp>
 
 Crawler::WorkerManager::WorkerManager ( Application & application ) :
 	application ( application )
@@ -18,6 +19,7 @@ const Crawler::Application & Crawler::WorkerManager::getApplication ( ) const
 
 void Crawler::WorkerManager::setAmountOfWorker ( std::size_t amountOfWorker )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	this->amountOfWorker = amountOfWorker ;
 	
 	if ( this->worker.size ( ) > 0 )
@@ -34,6 +36,7 @@ std::size_t Crawler::WorkerManager::getAmountOfWorker ( ) const
 			
 void Crawler::WorkerManager::spawnWorker ( )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	for ( std::size_t i = 0 ; i < this->amountOfWorker ; ++i )
 	{
 		this->worker.push_back ( std::unique_ptr <Crawler::Worker> ( new Crawler::Worker ( * this ) ) ) ;
@@ -45,6 +48,7 @@ void Crawler::WorkerManager::spawnWorker ( )
 			
 void Crawler::WorkerManager::despawnWorker ( )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	for ( auto iterator = this->worker.begin ( ) ; iterator != this->worker.end ( ) ; ++iterator )
 	{
 		this->getApplication ( ).onDespawnWorker ( ** iterator ) ;

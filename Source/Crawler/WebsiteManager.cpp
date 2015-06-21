@@ -1,5 +1,6 @@
 #include <Crawler/WebsiteManager.hpp>
 #include <Crawler/Application.hpp>
+#include <Crawler/ScopedMutex.hpp>
 
 Crawler::WebsiteManager::WebsiteManager ( Crawler::Application & application ) :
 	application ( application )
@@ -48,7 +49,7 @@ Crawler::WebsiteManager::ConstIterator Crawler::WebsiteManager::cend ( ) const
 
 bool Crawler::WebsiteManager::existsWebsite ( const Crawler::Website & website )
 {
-	for ( auto element : this->websites )
+	for ( auto & element : this->websites )
 		if ( element == website )
 			return true ;
 
@@ -57,12 +58,14 @@ bool Crawler::WebsiteManager::existsWebsite ( const Crawler::Website & website )
 
 void Crawler::WebsiteManager::addWebsite ( const Crawler::Website & website )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	if ( ! this->existsWebsite ( website ) )
 		this->websites.push_back ( website ) ;
 }
 
 void Crawler::WebsiteManager::removeWebsite ( const Crawler::Website & website )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	for ( auto iterator = this->websites.begin ( ) ; iterator != this->websites.end ( ) ; ++iterator )
 	{
 		if ( * iterator == website )
@@ -75,6 +78,7 @@ void Crawler::WebsiteManager::removeWebsite ( const Crawler::Website & website )
 
 Crawler::WebsiteManager::Iterator Crawler::WebsiteManager::removeWebsite ( Iterator iterator )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	return this->websites.erase ( iterator ) ;
 }
 
@@ -85,6 +89,7 @@ const std::list <Crawler::Website> & Crawler::WebsiteManager::getWebsites ( ) co
 
 void Crawler::WebsiteManager::setWorkerPerWebsite ( std::size_t workerPerWebsite )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	this->workerPerWebsite = workerPerWebsite ;
 }
 
@@ -95,6 +100,7 @@ std::size_t Crawler::WebsiteManager::getWorkerPerWebsite ( ) const
 
 void Crawler::WebsiteManager::reportLink ( const std::string & string )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	if ( ! this->getApplication ( ).onReportLink ( string ) )
 		return ;
 
@@ -127,6 +133,7 @@ void Crawler::WebsiteManager::reportLink ( const std::string & string )
 
 Crawler::Website * Crawler::WebsiteManager::requestWebsite ( Crawler::Worker * worker )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	for ( auto & website : this->websites )
 	{
 		if ( ! website.wasVisited ( ) && ( this->workerPerWebsite == 0 || website.getWorker ( ).size ( ) <= this->workerPerWebsite ) )

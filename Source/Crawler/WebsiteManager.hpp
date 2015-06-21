@@ -2,6 +2,7 @@
 
 #include <Crawler/Linker.hpp>
 #include <Crawler/Website.hpp>
+#include <SFML/System.hpp>
 #include <list>
 
 namespace Crawler
@@ -19,15 +20,21 @@ namespace Crawler
 			WebsiteManager ( Crawler::Application & application ) ;
 			
 			/// \brief Copy constructor
+			/// \param websiteManager WebsiteManager which is copied
 			WebsiteManager ( const WebsiteManager & websiteManager ) = delete ;
 			
 			/// \brief Move constructor
+			/// \param websiteManager WebsiteManager which is moved
 			WebsiteManager ( WebsiteManager && websiteManager ) = delete ;
 			
 			/// \brief Copy assignment operator
+			/// \param websiteManager WebsiteManager which is copied
+			/// \return Reference to this
 			WebsiteManager & operator = ( const WebsiteManager & workerManager ) = delete ;
 			
 			/// \brief Move assignment operator
+			/// \param websiteManager WebsiteManager which is moved
+			/// \return Reference to this
 			WebsiteManager & operator = ( WebsiteManager && workerManager ) = delete ;
 			
 			/// \brief Returns assigned application
@@ -105,5 +112,6 @@ namespace Crawler
 			Crawler::Application & application ;
 			std::list <Crawler::Website> websites ;
 			std::size_t workerPerWebsite = 0 ;
+			sf::Mutex mutex ;
 	} ;
 }

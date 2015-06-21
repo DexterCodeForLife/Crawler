@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Crawler/Linker.hpp>
+#include <SFML/System.hpp>
 #include <string>
 
 namespace Crawler
@@ -23,6 +24,24 @@ namespace Crawler
 			/// \brief Constructor for parsing a link
 			/// \param link String which gets parsed
 			Link ( const std::string & link ) ;
+			
+			/// \brief Default copy constructor
+			/// \param link Link which gets copied
+			Link ( const Link & link ) ;
+			
+			/// \brief Default move constructor
+			/// \param link Link which is moved
+			Link ( Link && link ) ;
+			
+			/// \brief Copy assignment operator overloading
+			/// \param link Link which is copied
+			/// \return Reference to this
+			Link & operator = ( const Link & link ) ;
+			
+			/// \brief Move assignment operator overloading
+			/// \param link Link which is moved
+			/// \return Reference to this
+			Link & operator = ( Link && link ) ;
 			
 			/// \brief Checks if link was visited
 			/// \return True if link was visited
@@ -65,6 +84,7 @@ namespace Crawler
 			std::string path ;
 			std::string query ;
 			std::string fragment ;
+			sf::Mutex mutex ;
 	} ;
 	
 	/// \brief Compares two links together

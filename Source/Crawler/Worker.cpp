@@ -2,6 +2,7 @@
 #include <Crawler/Website.hpp>
 #include <Crawler/WorkerManager.hpp>
 #include <Crawler/Application.hpp>
+#include <Crawler/ScopedMutex.hpp>
 #include <pugixml.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Network.hpp>
@@ -39,11 +40,13 @@ bool Crawler::Worker::isRunning ( ) const
 
 void Crawler::Worker::setRunning ( bool running )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	this->running = running ;
 }
 
 void Crawler::Worker::launch ( )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	this->thread->launch ( ) ;
 }
 
@@ -55,11 +58,13 @@ void Crawler::Worker::terminate ( )
 
 void Crawler::Worker::wait ( )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	this->thread->wait ( ) ;
 }
 
 void Crawler::Worker::kill ( )
 {
+	Crawler::ScopedMutex mutex ( this->mutex ) ;
 	this->thread->terminate ( ) ;
 }
 
