@@ -1,0 +1,119 @@
+.TH "Crawler::ScopedMutex" 3 "Sun Jun 21 2015" "Version 1.0" "Crawler" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Crawler::ScopedMutex \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ScopedMutex\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBScopedMutex\fP (sf::Mutex &mutex)"
+.br
+.ti -1c
+.RI "\fB~ScopedMutex\fP ()"
+.br
+.RI "\fIDefault destructor\&. \fP"
+.ti -1c
+.RI "\fBScopedMutex\fP (const \fBScopedMutex\fP &mutex)=delete"
+.br
+.RI "\fICopy constructor\&. \fP"
+.ti -1c
+.RI "\fBScopedMutex\fP (\fBScopedMutex\fP &&mutex)=delete"
+.br
+.RI "\fIMove constructor\&. \fP"
+.ti -1c
+.RI "\fBScopedMutex\fP & \fBoperator=\fP (const \fBScopedMutex\fP &mutex)=delete"
+.br
+.RI "\fICopy assignment operator\&. \fP"
+.ti -1c
+.RI "\fBScopedMutex\fP & \fBoperator=\fP (\fBScopedMutex\fP &&mutex)=delete"
+.br
+.RI "\fIMove assignment operator\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 12 of file ScopedMutex\&.hpp\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Crawler::ScopedMutex::ScopedMutex (sf::Mutex & mutex)"
+Default constructor 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImutex\fP Reference to mutex which is used 
+.RE
+.PP
+
+.PP
+Definition at line 4 of file ScopedMutex\&.cpp\&.
+.SS "Crawler::ScopedMutex::~ScopedMutex ()"
+
+.PP
+Default destructor\&. 
+.PP
+Definition at line 9 of file ScopedMutex\&.cpp\&.
+.SS "Crawler::ScopedMutex::ScopedMutex (const \fBScopedMutex\fP & mutex)\fC [delete]\fP"
+
+.PP
+Copy constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImutex\fP \fBScopedMutex\fP which is copied 
+.RE
+.PP
+
+.SS "Crawler::ScopedMutex::ScopedMutex (\fBScopedMutex\fP && mutex)\fC [delete]\fP"
+
+.PP
+Move constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImutex\fP \fBScopedMutex\fP which is moved 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBScopedMutex\fP& Crawler::ScopedMutex::operator= (const \fBScopedMutex\fP & mutex)\fC [delete]\fP"
+
+.PP
+Copy assignment operator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImutex\fP \fBScopedMutex\fP which is copied 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to this 
+.RE
+.PP
+
+.SS "\fBScopedMutex\fP& Crawler::ScopedMutex::operator= (\fBScopedMutex\fP && mutex)\fC [delete]\fP"
+
+.PP
+Move assignment operator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImutex\fP \fBScopedMutex\fP which is moved 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to this 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Crawler from the source code\&.

@@ -1,0 +1,436 @@
+.TH "Crawler::WebsiteManager" 3 "Sun Jun 21 2015" "Version 1.0" "Crawler" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Crawler::WebsiteManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <WebsiteManager\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBIterator\fP = typename std::list< \fBCrawler::Website\fP >::iterator"
+.br
+.ti -1c
+.RI "using \fBConstIterator\fP = typename std::list< \fBCrawler::Website\fP >::const_iterator"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWebsiteManager\fP (\fBCrawler::Application\fP &application)"
+.br
+.RI "\fIConstructor\&. \fP"
+.ti -1c
+.RI "\fBWebsiteManager\fP (const \fBWebsiteManager\fP &websiteManager)=delete"
+.br
+.RI "\fICopy constructor\&. \fP"
+.ti -1c
+.RI "\fBWebsiteManager\fP (\fBWebsiteManager\fP &&websiteManager)=delete"
+.br
+.RI "\fIMove constructor\&. \fP"
+.ti -1c
+.RI "\fBWebsiteManager\fP & \fBoperator=\fP (const \fBWebsiteManager\fP &workerManager)=delete"
+.br
+.RI "\fICopy assignment operator\&. \fP"
+.ti -1c
+.RI "\fBWebsiteManager\fP & \fBoperator=\fP (\fBWebsiteManager\fP &&workerManager)=delete"
+.br
+.RI "\fIMove assignment operator\&. \fP"
+.ti -1c
+.RI "\fBCrawler::Application\fP & \fBgetApplication\fP ()"
+.br
+.RI "\fIReturns assigned application\&. \fP"
+.ti -1c
+.RI "const \fBCrawler::Application\fP & \fBgetApplication\fP () const "
+.br
+.RI "\fIReturns assigned application\&. \fP"
+.ti -1c
+.RI "\fBIterator\fP \fBbegin\fP ()"
+.br
+.RI "\fIReturns begin iterator\&. \fP"
+.ti -1c
+.RI "\fBConstIterator\fP \fBbegin\fP () const "
+.br
+.RI "\fIReturns begin iterator\&. \fP"
+.ti -1c
+.RI "\fBConstIterator\fP \fBcbegin\fP () const "
+.br
+.RI "\fIReturns begin iterator\&. \fP"
+.ti -1c
+.RI "\fBIterator\fP \fBend\fP ()"
+.br
+.RI "\fIReturns end iterator\&. \fP"
+.ti -1c
+.RI "\fBConstIterator\fP \fBend\fP () const "
+.br
+.RI "\fIReturns end iterator\&. \fP"
+.ti -1c
+.RI "\fBConstIterator\fP \fBcend\fP () const "
+.br
+.RI "\fIReturns end iterator\&. \fP"
+.ti -1c
+.RI "bool \fBexistsWebsite\fP (const \fBCrawler::Website\fP &website)"
+.br
+.RI "\fIChecks if website exists\&. \fP"
+.ti -1c
+.RI "void \fBaddWebsite\fP (const \fBCrawler::Website\fP &website)"
+.br
+.RI "\fIAdd website to manager\&. \fP"
+.ti -1c
+.RI "void \fBremoveWebsite\fP (const \fBCrawler::Website\fP &website)"
+.br
+.RI "\fIRemove website from manager\&. \fP"
+.ti -1c
+.RI "\fBIterator\fP \fBremoveWebsite\fP (\fBIterator\fP iterator)"
+.br
+.RI "\fIRemove website from manager\&. \fP"
+.ti -1c
+.RI "const std::list< \fBCrawler::Website\fP > & \fBgetWebsites\fP () const "
+.br
+.RI "\fIReturns list of websites\&. \fP"
+.ti -1c
+.RI "void \fBsetWorkerPerWebsite\fP (std::size_t workerPerWebsite)"
+.br
+.RI "\fIChanges the amount of workers per website\&. \fP"
+.ti -1c
+.RI "std::size_t \fBgetWorkerPerWebsite\fP () const "
+.br
+.RI "\fIReturns the amount of workers per website\&. \fP"
+.ti -1c
+.RI "void \fBreportLink\fP (const std::string &string)"
+.br
+.RI "\fIReport a link to website manager\&. \fP"
+.ti -1c
+.RI "\fBCrawler::Website\fP * \fBrequestWebsite\fP (\fBCrawler::Worker\fP *worker)"
+.br
+.RI "\fIRequests a new website from the list which is handled by the worker\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 12 of file WebsiteManager\&.hpp\&.
+.SH "Member Typedef Documentation"
+.PP 
+.SS "using \fBCrawler::WebsiteManager::ConstIterator\fP =  typename std::list <\fBCrawler::Website\fP>::const_iterator"
+
+.PP
+Definition at line 16 of file WebsiteManager\&.hpp\&.
+.SS "using \fBCrawler::WebsiteManager::Iterator\fP =  typename std::list <\fBCrawler::Website\fP>::iterator"
+
+.PP
+Definition at line 15 of file WebsiteManager\&.hpp\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Crawler::WebsiteManager::WebsiteManager (\fBCrawler::Application\fP & application)"
+
+.PP
+Constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIapplication\fP Reference to assigned application 
+.RE
+.PP
+
+.PP
+Definition at line 5 of file WebsiteManager\&.cpp\&.
+.SS "Crawler::WebsiteManager::WebsiteManager (const \fBWebsiteManager\fP & websiteManager)\fC [delete]\fP"
+
+.PP
+Copy constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsiteManager\fP \fBWebsiteManager\fP which is copied 
+.RE
+.PP
+
+.SS "Crawler::WebsiteManager::WebsiteManager (\fBWebsiteManager\fP && websiteManager)\fC [delete]\fP"
+
+.PP
+Move constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsiteManager\fP \fBWebsiteManager\fP which is moved 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Crawler::WebsiteManager::addWebsite (const \fBCrawler::Website\fP & website)"
+
+.PP
+Add website to manager\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsite\fP Reference to website object which is added 
+.RE
+.PP
+
+.PP
+Definition at line 59 of file WebsiteManager\&.cpp\&.
+.SS "\fBCrawler::WebsiteManager::Iterator\fP Crawler::WebsiteManager::begin ()"
+
+.PP
+Returns begin iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Begin iterator 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file WebsiteManager\&.cpp\&.
+.SS "\fBCrawler::WebsiteManager::ConstIterator\fP Crawler::WebsiteManager::begin () const"
+
+.PP
+Returns begin iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Begin iterator 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file WebsiteManager\&.cpp\&.
+.SS "\fBCrawler::WebsiteManager::ConstIterator\fP Crawler::WebsiteManager::cbegin () const"
+
+.PP
+Returns begin iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Begin iterator 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file WebsiteManager\&.cpp\&.
+.SS "\fBCrawler::WebsiteManager::ConstIterator\fP Crawler::WebsiteManager::cend () const"
+
+.PP
+Returns end iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+End iterator 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file WebsiteManager\&.cpp\&.
+.SS "\fBCrawler::WebsiteManager::Iterator\fP Crawler::WebsiteManager::end ()"
+
+.PP
+Returns end iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+End iterator 
+.RE
+.PP
+
+.PP
+Definition at line 35 of file WebsiteManager\&.cpp\&.
+.SS "\fBCrawler::WebsiteManager::ConstIterator\fP Crawler::WebsiteManager::end () const"
+
+.PP
+Returns end iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+End iterator 
+.RE
+.PP
+
+.PP
+Definition at line 40 of file WebsiteManager\&.cpp\&.
+.SS "bool Crawler::WebsiteManager::existsWebsite (const \fBCrawler::Website\fP & website)"
+
+.PP
+Checks if website exists\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsite\fP Reference to website object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if website exists 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file WebsiteManager\&.cpp\&.
+.SS "\fBCrawler::Application\fP & Crawler::WebsiteManager::getApplication ()"
+
+.PP
+Returns assigned application\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to assigned application 
+.RE
+.PP
+
+.PP
+Definition at line 10 of file WebsiteManager\&.cpp\&.
+.SS "const \fBCrawler::Application\fP & Crawler::WebsiteManager::getApplication () const"
+
+.PP
+Returns assigned application\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to assigned application 
+.RE
+.PP
+
+.PP
+Definition at line 15 of file WebsiteManager\&.cpp\&.
+.SS "const std::list< \fBCrawler::Website\fP > & Crawler::WebsiteManager::getWebsites () const"
+
+.PP
+Returns list of websites\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to list of websites 
+.RE
+.PP
+
+.PP
+Definition at line 85 of file WebsiteManager\&.cpp\&.
+.SS "std::size_t Crawler::WebsiteManager::getWorkerPerWebsite () const"
+
+.PP
+Returns the amount of workers per website\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Amount of workers per website 
+.RE
+.PP
+
+.PP
+Definition at line 96 of file WebsiteManager\&.cpp\&.
+.SS "\fBWebsiteManager\fP& Crawler::WebsiteManager::operator= (const \fBWebsiteManager\fP & workerManager)\fC [delete]\fP"
+
+.PP
+Copy assignment operator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsiteManager\fP \fBWebsiteManager\fP which is copied 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to this 
+.RE
+.PP
+
+.SS "\fBWebsiteManager\fP& Crawler::WebsiteManager::operator= (\fBWebsiteManager\fP && workerManager)\fC [delete]\fP"
+
+.PP
+Move assignment operator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsiteManager\fP \fBWebsiteManager\fP which is moved 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to this 
+.RE
+.PP
+
+.SS "void Crawler::WebsiteManager::removeWebsite (const \fBCrawler::Website\fP & website)"
+
+.PP
+Remove website from manager\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsite\fP Reference to website object which is removed 
+.RE
+.PP
+
+.PP
+Definition at line 66 of file WebsiteManager\&.cpp\&.
+.SS "\fBCrawler::WebsiteManager::Iterator\fP Crawler::WebsiteManager::removeWebsite (\fBIterator\fP iterator)"
+
+.PP
+Remove website from manager\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsite\fP Iterator to website object which is removed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Iterator to iterator - 1 
+.RE
+.PP
+
+.PP
+Definition at line 79 of file WebsiteManager\&.cpp\&.
+.SS "void Crawler::WebsiteManager::reportLink (const std::string & string)"
+
+.PP
+Report a link to website manager\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlink\fP \fBLink\fP which is reported 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file WebsiteManager\&.cpp\&.
+.SS "\fBCrawler::Website\fP * Crawler::WebsiteManager::requestWebsite (\fBCrawler::Worker\fP * worker)"
+
+.PP
+Requests a new website from the list which is handled by the worker\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP \fBWorker\fP which is registered 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Pointer to website which is handled by the worker 
+.RE
+.PP
+
+.PP
+Definition at line 134 of file WebsiteManager\&.cpp\&.
+.SS "void Crawler::WebsiteManager::setWorkerPerWebsite (std::size_t workerPerWebsite)"
+
+.PP
+Changes the amount of workers per website\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworkerPerWebsite\fP Amount of workers per website 
+.RE
+.PP
+
+.PP
+Definition at line 90 of file WebsiteManager\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Crawler from the source code\&.

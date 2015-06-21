@@ -1,0 +1,333 @@
+\hypertarget{class_crawler_1_1_worker_manager}{}\section{Crawler\+:\+:Worker\+Manager Class Reference}
+\label{class_crawler_1_1_worker_manager}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+
+
+{\ttfamily \#include $<$Worker\+Manager.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{class_crawler_1_1_worker_manager_a5160dd76c74ca0275a642b6d1d6d08bc}{Const\+Iterator} = std\+::list$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{class_crawler_1_1_worker}{Crawler\+::\+Worker} $>$$>$\+::const\+\_\+iterator
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_crawler_1_1_worker_manager_af66aa7a09696dc2e3e6c509960152abd}{Worker\+Manager} (\hyperlink{class_crawler_1_1_application}{Application} \&application)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_worker_manager_a1ed9da795171ebeb1aabd1506a83632f}{Worker\+Manager} (const \hyperlink{class_crawler_1_1_worker_manager}{Worker\+Manager} \&worker\+Manager)=delete
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_worker_manager_adf7cd8642f26220330375a7da3d66134}{Worker\+Manager} (\hyperlink{class_crawler_1_1_worker_manager}{Worker\+Manager} \&\&worker\+Manager)=delete
+\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_worker_manager}{Worker\+Manager} \& \hyperlink{class_crawler_1_1_worker_manager_a1f2cfe40346b4876bc6699c78a475a96}{operator=} (const \hyperlink{class_crawler_1_1_worker_manager}{Worker\+Manager} \&worker\+Manager)=delete
+\begin{DoxyCompactList}\small\item\em Copy assignment operator. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_worker_manager}{Worker\+Manager} \& \hyperlink{class_crawler_1_1_worker_manager_aa16be296ec92e09be514c7f0b122f0ee}{operator=} (\hyperlink{class_crawler_1_1_worker_manager}{Worker\+Manager} \&\&worker\+Manager)=delete
+\begin{DoxyCompactList}\small\item\em Move assignment operator. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_application}{Crawler\+::\+Application} \& \hyperlink{class_crawler_1_1_worker_manager_a78b7d9c3e7fb1eb3c8d568e8048273de}{get\+Application} ()
+\begin{DoxyCompactList}\small\item\em Returns application. \end{DoxyCompactList}\item 
+const \hyperlink{class_crawler_1_1_application}{Crawler\+::\+Application} \& \hyperlink{class_crawler_1_1_worker_manager_a904127a9afd47ac7409a87c5cddbf404}{get\+Application} () const 
+\begin{DoxyCompactList}\small\item\em Returns application. \end{DoxyCompactList}\item 
+void \hyperlink{class_crawler_1_1_worker_manager_abb08a70465a495d7f7bef9388c73e6c7}{set\+Amount\+Of\+Worker} (std\+::size\+\_\+t amount\+Of\+Worker)
+\begin{DoxyCompactList}\small\item\em Changes amount of worker. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \hyperlink{class_crawler_1_1_worker_manager_a90edb07566d306b3e40625a109926478}{get\+Amount\+Of\+Worker} () const 
+\begin{DoxyCompactList}\small\item\em Returns amount of worker. \end{DoxyCompactList}\item 
+void \hyperlink{class_crawler_1_1_worker_manager_acf0f7d2269d469fdd10f90de1802a0e0}{spawn\+Worker} ()
+\begin{DoxyCompactList}\small\item\em Spawns a worker. \end{DoxyCompactList}\item 
+void \hyperlink{class_crawler_1_1_worker_manager_af77314b7fef1073a5a49e903fe9735ad}{despawn\+Worker} ()
+\begin{DoxyCompactList}\small\item\em Despawns a worker. \end{DoxyCompactList}\item 
+const std\+::list$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{class_crawler_1_1_worker}{Crawler\+::\+Worker} $>$ $>$ \& \hyperlink{class_crawler_1_1_worker_manager_adc739a8db9184618bce1af698cad7351}{get\+Worker} () const 
+\begin{DoxyCompactList}\small\item\em Returns list of workers. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_worker_manager_a5160dd76c74ca0275a642b6d1d6d08bc}{Const\+Iterator} \hyperlink{class_crawler_1_1_worker_manager_a27b89da04231f14c39c77f911373e8b2}{begin} () const 
+\begin{DoxyCompactList}\small\item\em Returns begin iterator. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_worker_manager_a5160dd76c74ca0275a642b6d1d6d08bc}{Const\+Iterator} \hyperlink{class_crawler_1_1_worker_manager_ab37a1b8ce853882d0227f25f7aa11230}{cbegin} () const 
+\begin{DoxyCompactList}\small\item\em Returns begin iterator. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_worker_manager_a5160dd76c74ca0275a642b6d1d6d08bc}{Const\+Iterator} \hyperlink{class_crawler_1_1_worker_manager_a4decbfcf3e4892050cd6691081f2a70f}{end} () const 
+\begin{DoxyCompactList}\small\item\em Returns end iterator. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_worker_manager_a5160dd76c74ca0275a642b6d1d6d08bc}{Const\+Iterator} \hyperlink{class_crawler_1_1_worker_manager_a48b7d5a1ce5359bc59844b1d8699f154}{cend} () const 
+\begin{DoxyCompactList}\small\item\em Returns end iterator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file Worker\+Manager.\+hpp.
+
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{class_crawler_1_1_worker_manager_a5160dd76c74ca0275a642b6d1d6d08bc}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!Const\+Iterator@{Const\+Iterator}}
+\index{Const\+Iterator@{Const\+Iterator}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{Const\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf Crawler\+::\+Worker\+Manager\+::\+Const\+Iterator} =  std\+::list $<$std\+::unique\+\_\+ptr $<${\bf Crawler\+::\+Worker}$>$$>$\+::const\+\_\+iterator}\label{class_crawler_1_1_worker_manager_a5160dd76c74ca0275a642b6d1d6d08bc}
+
+
+Definition at line 16 of file Worker\+Manager.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_crawler_1_1_worker_manager_af66aa7a09696dc2e3e6c509960152abd}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!Worker\+Manager@{Worker\+Manager}}
+\index{Worker\+Manager@{Worker\+Manager}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{Worker\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}Crawler\+::\+Worker\+Manager\+::\+Worker\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Application} \&}]{application}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_worker_manager_af66aa7a09696dc2e3e6c509960152abd}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em application} & Reference to application object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 5 of file Worker\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_worker_manager_a1ed9da795171ebeb1aabd1506a83632f}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!Worker\+Manager@{Worker\+Manager}}
+\index{Worker\+Manager@{Worker\+Manager}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{Worker\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}Crawler\+::\+Worker\+Manager\+::\+Worker\+Manager (
+\begin{DoxyParamCaption}
+\item[{const {\bf Worker\+Manager} \&}]{worker\+Manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\label{class_crawler_1_1_worker_manager_a1ed9da795171ebeb1aabd1506a83632f}
+
+
+Copy constructor. 
+
+\hypertarget{class_crawler_1_1_worker_manager_adf7cd8642f26220330375a7da3d66134}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!Worker\+Manager@{Worker\+Manager}}
+\index{Worker\+Manager@{Worker\+Manager}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{Worker\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}Crawler\+::\+Worker\+Manager\+::\+Worker\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Worker\+Manager} \&\&}]{worker\+Manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\label{class_crawler_1_1_worker_manager_adf7cd8642f26220330375a7da3d66134}
+
+
+Move constructor. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_crawler_1_1_worker_manager_a27b89da04231f14c39c77f911373e8b2}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!begin@{begin}}
+\index{begin@{begin}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Worker\+Manager\+::\+Const\+Iterator} Crawler\+::\+Worker\+Manager\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_worker_manager_a27b89da04231f14c39c77f911373e8b2}
+
+
+Returns begin iterator. 
+
+\begin{DoxyReturn}{Returns}
+Begin iterator 
+\end{DoxyReturn}
+
+
+Definition at line 67 of file Worker\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_worker_manager_ab37a1b8ce853882d0227f25f7aa11230}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{cbegin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Worker\+Manager\+::\+Const\+Iterator} Crawler\+::\+Worker\+Manager\+::cbegin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_worker_manager_ab37a1b8ce853882d0227f25f7aa11230}
+
+
+Returns begin iterator. 
+
+\begin{DoxyReturn}{Returns}
+Begin iterator 
+\end{DoxyReturn}
+
+
+Definition at line 71 of file Worker\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_worker_manager_a48b7d5a1ce5359bc59844b1d8699f154}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!cend@{cend}}
+\index{cend@{cend}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{cend}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Worker\+Manager\+::\+Const\+Iterator} Crawler\+::\+Worker\+Manager\+::cend (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_worker_manager_a48b7d5a1ce5359bc59844b1d8699f154}
+
+
+Returns end iterator. 
+
+\begin{DoxyReturn}{Returns}
+End iterator 
+\end{DoxyReturn}
+
+
+Definition at line 79 of file Worker\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_worker_manager_af77314b7fef1073a5a49e903fe9735ad}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!despawn\+Worker@{despawn\+Worker}}
+\index{despawn\+Worker@{despawn\+Worker}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{despawn\+Worker}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Worker\+Manager\+::despawn\+Worker (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_worker_manager_af77314b7fef1073a5a49e903fe9735ad}
+
+
+Despawns a worker. 
+
+
+
+Definition at line 49 of file Worker\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_worker_manager_a4decbfcf3e4892050cd6691081f2a70f}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!end@{end}}
+\index{end@{end}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Worker\+Manager\+::\+Const\+Iterator} Crawler\+::\+Worker\+Manager\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_worker_manager_a4decbfcf3e4892050cd6691081f2a70f}
+
+
+Returns end iterator. 
+
+\begin{DoxyReturn}{Returns}
+End iterator 
+\end{DoxyReturn}
+
+
+Definition at line 75 of file Worker\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_worker_manager_a90edb07566d306b3e40625a109926478}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!get\+Amount\+Of\+Worker@{get\+Amount\+Of\+Worker}}
+\index{get\+Amount\+Of\+Worker@{get\+Amount\+Of\+Worker}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{get\+Amount\+Of\+Worker}]{\setlength{\rightskip}{0pt plus 5cm}std\+::size\+\_\+t Crawler\+::\+Worker\+Manager\+::get\+Amount\+Of\+Worker (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_worker_manager_a90edb07566d306b3e40625a109926478}
+
+
+Returns amount of worker. 
+
+\begin{DoxyReturn}{Returns}
+Amount of worker 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file Worker\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_worker_manager_a78b7d9c3e7fb1eb3c8d568e8048273de}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!get\+Application@{get\+Application}}
+\index{get\+Application@{get\+Application}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{get\+Application}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Application} \& Crawler\+::\+Worker\+Manager\+::get\+Application (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_worker_manager_a78b7d9c3e7fb1eb3c8d568e8048273de}
+
+
+Returns application. 
+
+\begin{DoxyReturn}{Returns}
+Reference to application 
+\end{DoxyReturn}
+
+
+Definition at line 10 of file Worker\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_worker_manager_a904127a9afd47ac7409a87c5cddbf404}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!get\+Application@{get\+Application}}
+\index{get\+Application@{get\+Application}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{get\+Application}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Crawler\+::\+Application} \& Crawler\+::\+Worker\+Manager\+::get\+Application (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_worker_manager_a904127a9afd47ac7409a87c5cddbf404}
+
+
+Returns application. 
+
+\begin{DoxyReturn}{Returns}
+Reference to application 
+\end{DoxyReturn}
+
+
+Definition at line 15 of file Worker\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_worker_manager_adc739a8db9184618bce1af698cad7351}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!get\+Worker@{get\+Worker}}
+\index{get\+Worker@{get\+Worker}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{get\+Worker}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::list$<$ std\+::unique\+\_\+ptr$<$ {\bf Crawler\+::\+Worker} $>$ $>$ \& Crawler\+::\+Worker\+Manager\+::get\+Worker (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_worker_manager_adc739a8db9184618bce1af698cad7351}
+
+
+Returns list of workers. 
+
+\begin{DoxyReturn}{Returns}
+Reference to list of workers 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file Worker\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_worker_manager_a1f2cfe40346b4876bc6699c78a475a96}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!operator=@{operator=}}
+\index{operator=@{operator=}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Worker\+Manager}\& Crawler\+::\+Worker\+Manager\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Worker\+Manager} \&}]{worker\+Manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\label{class_crawler_1_1_worker_manager_a1f2cfe40346b4876bc6699c78a475a96}
+
+
+Copy assignment operator. 
+
+\hypertarget{class_crawler_1_1_worker_manager_aa16be296ec92e09be514c7f0b122f0ee}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!operator=@{operator=}}
+\index{operator=@{operator=}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Worker\+Manager}\& Crawler\+::\+Worker\+Manager\+::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Worker\+Manager} \&\&}]{worker\+Manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\label{class_crawler_1_1_worker_manager_aa16be296ec92e09be514c7f0b122f0ee}
+
+
+Move assignment operator. 
+
+\hypertarget{class_crawler_1_1_worker_manager_abb08a70465a495d7f7bef9388c73e6c7}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!set\+Amount\+Of\+Worker@{set\+Amount\+Of\+Worker}}
+\index{set\+Amount\+Of\+Worker@{set\+Amount\+Of\+Worker}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{set\+Amount\+Of\+Worker}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Worker\+Manager\+::set\+Amount\+Of\+Worker (
+\begin{DoxyParamCaption}
+\item[{std\+::size\+\_\+t}]{amount\+Of\+Worker}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_worker_manager_abb08a70465a495d7f7bef9388c73e6c7}
+
+
+Changes amount of worker. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount\+Of\+Worker} & Value of amount of worker \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 20 of file Worker\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_worker_manager_acf0f7d2269d469fdd10f90de1802a0e0}{}\index{Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}!spawn\+Worker@{spawn\+Worker}}
+\index{spawn\+Worker@{spawn\+Worker}!Crawler\+::\+Worker\+Manager@{Crawler\+::\+Worker\+Manager}}
+\subsubsection[{spawn\+Worker}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Worker\+Manager\+::spawn\+Worker (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_worker_manager_acf0f7d2269d469fdd10f90de1802a0e0}
+
+
+Spawns a worker. 
+
+
+
+Definition at line 37 of file Worker\+Manager.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Crawler/\hyperlink{_worker_manager_8hpp}{Worker\+Manager.\+hpp}\item 
+Source/\+Crawler/\hyperlink{_worker_manager_8cpp}{Worker\+Manager.\+cpp}\end{DoxyCompactItemize}

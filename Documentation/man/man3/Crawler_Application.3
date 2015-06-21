@@ -1,0 +1,514 @@
+.TH "Crawler::Application" 3 "Sun Jun 21 2015" "Version 1.0" "Crawler" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Crawler::Application \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Application\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBApplication\fP ()"
+.br
+.RI "\fIDefault constructor\&. \fP"
+.ti -1c
+.RI "virtual \fB~Application\fP ()=default"
+.br
+.RI "\fIDefault destructor\&. \fP"
+.ti -1c
+.RI "\fBApplication\fP (const \fBApplication\fP &application)=delete"
+.br
+.RI "\fICopy constructor\&. \fP"
+.ti -1c
+.RI "\fBApplication\fP (\fBApplication\fP &&application)=delete"
+.br
+.RI "\fIMove constructor\&. \fP"
+.ti -1c
+.RI "\fBApplication\fP & \fBoperator=\fP (const \fBApplication\fP &application)=delete"
+.br
+.RI "\fICopy assignment operator\&. \fP"
+.ti -1c
+.RI "\fBApplication\fP & \fBoperator=\fP (\fBApplication\fP &&application)=delete"
+.br
+.RI "\fIMove assignment operator\&. \fP"
+.ti -1c
+.RI "void \fBsetRunning\fP (bool running)"
+.br
+.RI "\fIChanges if application is running\&. \fP"
+.ti -1c
+.RI "bool \fBisRunning\fP () const "
+.br
+.RI "\fIReturns if application is running\&. \fP"
+.ti -1c
+.RI "\fBCrawler::WebsiteManager\fP & \fBgetWebsiteManager\fP ()"
+.br
+.RI "\fIReturns website manager\&. \fP"
+.ti -1c
+.RI "const \fBCrawler::WebsiteManager\fP & \fBgetWebsiteManager\fP () const "
+.br
+.RI "\fIReturns website manager\&. \fP"
+.ti -1c
+.RI "\fBCrawler::WorkerManager\fP & \fBgetWorkerManager\fP ()"
+.br
+.RI "\fIReturns worker manager\&. \fP"
+.ti -1c
+.RI "const \fBCrawler::WorkerManager\fP & \fBgetWorkerManager\fP () const "
+.br
+.RI "\fIReturns worker manager\&. \fP"
+.ti -1c
+.RI "int \fBmain\fP (const std::vector< std::string > &arguments)"
+.br
+.RI "\fIApplications entry point\&. \fP"
+.ti -1c
+.RI "virtual bool \fBonStartup\fP ()"
+.br
+.RI "\fIGets called when application starts up\&. \fP"
+.ti -1c
+.RI "virtual void \fBonMain\fP ()"
+.br
+.RI "\fIGets called inside the main function\&. \fP"
+.ti -1c
+.RI "virtual void \fBonShutdown\fP ()"
+.br
+.RI "\fIGets called when application shuts down\&. \fP"
+.ti -1c
+.RI "virtual void \fBonSpawnWorker\fP (\fBCrawler::Worker\fP &worker)"
+.br
+.RI "\fIGets called when a worker spawns\&. \fP"
+.ti -1c
+.RI "virtual void \fBonDespawnWorker\fP (\fBCrawler::Worker\fP &worker)"
+.br
+.RI "\fIGets called when a worker despawns\&. \fP"
+.ti -1c
+.RI "virtual void \fBonUnsupportedProtocol\fP (\fBCrawler::Worker\fP &worker, \fBCrawler::Website\fP &website)"
+.br
+.RI "\fIGets called when an unsupported protocol is accessed\&. \fP"
+.ti -1c
+.RI "virtual bool \fBonRequest\fP (\fBCrawler::Worker\fP &worker, \fBCrawler::Website\fP &website, \fBCrawler::Link\fP &link, sf::Http &client, sf::Http::Request &request)"
+.br
+.RI "\fIGets called when a HTTP request is sent\&. \fP"
+.ti -1c
+.RI "virtual bool \fBonResponse\fP (\fBCrawler::Worker\fP &worker, \fBCrawler::Website\fP &website, \fBCrawler::Link\fP &link, sf::Http &client, sf::Http::Response &response)"
+.br
+.RI "\fIGets called when a HTTP response is received\&. \fP"
+.ti -1c
+.RI "virtual bool \fBonParsing\fP (\fBCrawler::Worker\fP &worker, \fBCrawler::Website\fP &website, \fBCrawler::Link\fP &link, pugi::xml_document &document)"
+.br
+.RI "\fIGets called when the document is parsed\&. \fP"
+.ti -1c
+.RI "virtual bool \fBonReportLink\fP (const std::string &string)"
+.br
+.RI "\fIGets called when a \fBLink\fP is reported\&. \fP"
+.ti -1c
+.RI "virtual bool \fBonAddWebsite\fP (\fBCrawler::Website\fP &website)"
+.br
+.RI "\fIGets called when a new website is added\&. \fP"
+.ti -1c
+.RI "virtual bool \fBonAddLink\fP (\fBCrawler::Website\fP &website, \fBCrawler::Link\fP &link)"
+.br
+.RI "\fIGets called when a new link to a website is added\&. \fP"
+.ti -1c
+.RI "virtual void \fBonVisitedWebsites\fP ()"
+.br
+.RI "\fIGets called when all websites has been visited\&. \fP"
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "const std::vector< std::string > & \fBgetArguments\fP () const "
+.br
+.RI "\fIReturns command line arguments\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 13 of file Application\&.hpp\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Crawler::Application::Application ()"
+
+.PP
+Default constructor\&. 
+.PP
+Definition at line 3 of file Application\&.cpp\&.
+.SS "virtual Crawler::Application::~Application ()\fC [virtual]\fP, \fC [default]\fP"
+
+.PP
+Default destructor\&. 
+.SS "Crawler::Application::Application (const \fBApplication\fP & application)\fC [delete]\fP"
+
+.PP
+Copy constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIapplication\fP \fBApplication\fP which gets copied 
+.RE
+.PP
+
+.SS "Crawler::Application::Application (\fBApplication\fP && application)\fC [delete]\fP"
+
+.PP
+Move constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIapplication\fP \fBApplication\fP which gets moved 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "const std::vector< std::string > & Crawler::Application::getArguments () const\fC [protected]\fP"
+
+.PP
+Returns command line arguments\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to a vector with command line arguments 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file Application\&.cpp\&.
+.SS "\fBCrawler::WebsiteManager\fP & Crawler::Application::getWebsiteManager ()"
+
+.PP
+Returns website manager\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to website manager 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file Application\&.cpp\&.
+.SS "const \fBCrawler::WebsiteManager\fP & Crawler::Application::getWebsiteManager () const"
+
+.PP
+Returns website manager\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to website manager 
+.RE
+.PP
+
+.PP
+Definition at line 23 of file Application\&.cpp\&.
+.SS "\fBCrawler::WorkerManager\fP & Crawler::Application::getWorkerManager ()"
+
+.PP
+Returns worker manager\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to worker manager 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file Application\&.cpp\&.
+.SS "const \fBCrawler::WorkerManager\fP & Crawler::Application::getWorkerManager () const"
+
+.PP
+Returns worker manager\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to worker manager 
+.RE
+.PP
+
+.PP
+Definition at line 32 of file Application\&.cpp\&.
+.SS "bool Crawler::Application::isRunning () const"
+
+.PP
+Returns if application is running\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if application is running 
+.RE
+.PP
+
+.PP
+Definition at line 14 of file Application\&.cpp\&.
+.SS "int Crawler::Application::main (const std::vector< std::string > & arguments)"
+
+.PP
+Applications entry point\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIarguments\fP Command line arguments 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Error code for operating system 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file Application\&.cpp\&.
+.SS "bool Crawler::Application::onAddLink (\fBCrawler::Website\fP & website, \fBCrawler::Link\fP & link)\fC [virtual]\fP"
+
+.PP
+Gets called when a new link to a website is added\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsite\fP \fBWebsite\fP which link refers to 
+.br
+\fIlink\fP \fBLink\fP which is added to website 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if link will be added to website 
+.RE
+.PP
+
+.PP
+Definition at line 109 of file Application\&.cpp\&.
+.SS "bool Crawler::Application::onAddWebsite (\fBCrawler::Website\fP & website)\fC [virtual]\fP"
+
+.PP
+Gets called when a new website is added\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsite\fP \fBWebsite\fP which is added to website manager 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if website will be added to website manager 
+.RE
+.PP
+
+.PP
+Definition at line 104 of file Application\&.cpp\&.
+.SS "void Crawler::Application::onDespawnWorker (\fBCrawler::Worker\fP & worker)\fC [virtual]\fP"
+
+.PP
+Gets called when a worker despawns\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP \fBWorker\fP which is despawned 
+.RE
+.PP
+
+.PP
+Definition at line 75 of file Application\&.cpp\&.
+.SS "void Crawler::Application::onMain ()\fC [virtual]\fP"
+
+.PP
+Gets called inside the main function\&. 
+.PP
+Definition at line 63 of file Application\&.cpp\&.
+.SS "bool Crawler::Application::onParsing (\fBCrawler::Worker\fP & worker, \fBCrawler::Website\fP & website, \fBCrawler::Link\fP & link, pugi::xml_document & document)\fC [virtual]\fP"
+
+.PP
+Gets called when the document is parsed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP \fBWorker\fP which parses the document 
+.br
+\fIwebsite\fP \fBWebsite\fP the document refers to 
+.br
+\fIlink\fP \fBLink\fP the document refers to 
+.br
+\fIdocument\fP XML document of the link 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if worker will report all links 
+.RE
+.PP
+
+.PP
+Definition at line 94 of file Application\&.cpp\&.
+.SS "bool Crawler::Application::onReportLink (const std::string & string)\fC [virtual]\fP"
+
+.PP
+Gets called when a \fBLink\fP is reported\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstring\fP \fBLink\fP which is reported 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if reportLink continues the handling of the link 
+.RE
+.PP
+
+.PP
+Definition at line 99 of file Application\&.cpp\&.
+.SS "bool Crawler::Application::onRequest (\fBCrawler::Worker\fP & worker, \fBCrawler::Website\fP & website, \fBCrawler::Link\fP & link, sf::Http & client, sf::Http::Request & request)\fC [virtual]\fP"
+
+.PP
+Gets called when a HTTP request is sent\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP \fBWorker\fP which parses the document 
+.br
+\fIwebsite\fP \fBWebsite\fP the document refers to 
+.br
+\fIlink\fP \fBLink\fP the document refers to 
+.br
+\fIclient\fP HTTP client which sends the request 
+.br
+\fIrequest\fP Request which is sent by the client 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if worker will send the request and receive the response 
+.RE
+.PP
+
+.PP
+Definition at line 84 of file Application\&.cpp\&.
+.SS "bool Crawler::Application::onResponse (\fBCrawler::Worker\fP & worker, \fBCrawler::Website\fP & website, \fBCrawler::Link\fP & link, sf::Http & client, sf::Http::Response & response)\fC [virtual]\fP"
+
+.PP
+Gets called when a HTTP response is received\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP \fBWorker\fP which received the response 
+.br
+\fIwebsite\fP \fBWebsite\fP the document refers to 
+.br
+\fIlink\fP \fBLink\fP the document refers to 
+.br
+\fIclient\fP HTTP client which received the response 
+.br
+\fIresponse\fP Response which was received by the client 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if worker will parse the body of the response 
+.RE
+.PP
+
+.PP
+Definition at line 89 of file Application\&.cpp\&.
+.SS "void Crawler::Application::onShutdown ()\fC [virtual]\fP"
+
+.PP
+Gets called when application shuts down\&. 
+.PP
+Definition at line 67 of file Application\&.cpp\&.
+.SS "void Crawler::Application::onSpawnWorker (\fBCrawler::Worker\fP & worker)\fC [virtual]\fP"
+
+.PP
+Gets called when a worker spawns\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP \fBWorker\fP which is spawned 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file Application\&.cpp\&.
+.SS "bool Crawler::Application::onStartup ()\fC [virtual]\fP"
+
+.PP
+Gets called when application starts up\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if startup was successfull 
+.RE
+.PP
+
+.PP
+Definition at line 58 of file Application\&.cpp\&.
+.SS "void Crawler::Application::onUnsupportedProtocol (\fBCrawler::Worker\fP & worker, \fBCrawler::Website\fP & website)\fC [virtual]\fP"
+
+.PP
+Gets called when an unsupported protocol is accessed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP \fBWorker\fP which accesses the unsupported protocol 
+.br
+\fIwebsite\fP \fBWebsite\fP with the unsupported protocol 
+.RE
+.PP
+
+.PP
+Definition at line 79 of file Application\&.cpp\&.
+.SS "void Crawler::Application::onVisitedWebsites ()\fC [virtual]\fP"
+
+.PP
+Gets called when all websites has been visited\&. 
+.PP
+Definition at line 114 of file Application\&.cpp\&.
+.SS "\fBApplication\fP& Crawler::Application::operator= (const \fBApplication\fP & application)\fC [delete]\fP"
+
+.PP
+Copy assignment operator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIapplication\fP \fBApplication\fP which gets copied 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to this 
+.RE
+.PP
+
+.SS "\fBApplication\fP& Crawler::Application::operator= (\fBApplication\fP && application)\fC [delete]\fP"
+
+.PP
+Move assignment operator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIapplication\fP \fBApplication\fP which gets moved 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to this 
+.RE
+.PP
+
+.SS "void Crawler::Application::setRunning (bool running)"
+
+.PP
+Changes if application is running\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrunning\fP Value of running 
+.RE
+.PP
+
+.PP
+Definition at line 9 of file Application\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Crawler from the source code\&.

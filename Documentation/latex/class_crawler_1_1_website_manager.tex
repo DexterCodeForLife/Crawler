@@ -1,0 +1,515 @@
+\hypertarget{class_crawler_1_1_website_manager}{}\section{Crawler\+:\+:Website\+Manager Class Reference}
+\label{class_crawler_1_1_website_manager}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+
+
+{\ttfamily \#include $<$Website\+Manager.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{class_crawler_1_1_website_manager_a73a0d579dfd90c0f5eab55c0f0ae82a8}{Iterator} = typename std\+::list$<$ \hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} $>$\+::iterator
+\item 
+using \hyperlink{class_crawler_1_1_website_manager_a5540e8864e8c8defbf06ebfc3aa6c7c8}{Const\+Iterator} = typename std\+::list$<$ \hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} $>$\+::const\+\_\+iterator
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_crawler_1_1_website_manager_a5a030384d9b5f0adf15a1d051256c5fe}{Website\+Manager} (\hyperlink{class_crawler_1_1_application}{Crawler\+::\+Application} \&application)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_website_manager_a7c1715be3c86c226503202021bfc855d}{Website\+Manager} (const \hyperlink{class_crawler_1_1_website_manager}{Website\+Manager} \&website\+Manager)=delete
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_website_manager_ae0ab13041fef6aa04601c739ae6dd02e}{Website\+Manager} (\hyperlink{class_crawler_1_1_website_manager}{Website\+Manager} \&\&website\+Manager)=delete
+\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_website_manager}{Website\+Manager} \& \hyperlink{class_crawler_1_1_website_manager_aefc1b9366f71d46c98fdafdf104c6d8a}{operator=} (const \hyperlink{class_crawler_1_1_website_manager}{Website\+Manager} \&worker\+Manager)=delete
+\begin{DoxyCompactList}\small\item\em Copy assignment operator. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_website_manager}{Website\+Manager} \& \hyperlink{class_crawler_1_1_website_manager_ad7402de1b8bfb1b587ed6485242541a7}{operator=} (\hyperlink{class_crawler_1_1_website_manager}{Website\+Manager} \&\&worker\+Manager)=delete
+\begin{DoxyCompactList}\small\item\em Move assignment operator. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_application}{Crawler\+::\+Application} \& \hyperlink{class_crawler_1_1_website_manager_aa5bfdf43dbee41e408aae5df57159824}{get\+Application} ()
+\begin{DoxyCompactList}\small\item\em Returns assigned application. \end{DoxyCompactList}\item 
+const \hyperlink{class_crawler_1_1_application}{Crawler\+::\+Application} \& \hyperlink{class_crawler_1_1_website_manager_a9845375139da6d2e002daf2a14a0ae26}{get\+Application} () const 
+\begin{DoxyCompactList}\small\item\em Returns assigned application. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_website_manager_a73a0d579dfd90c0f5eab55c0f0ae82a8}{Iterator} \hyperlink{class_crawler_1_1_website_manager_a0da0227729636655190bb8679f5cbd39}{begin} ()
+\begin{DoxyCompactList}\small\item\em Returns begin iterator. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_website_manager_a5540e8864e8c8defbf06ebfc3aa6c7c8}{Const\+Iterator} \hyperlink{class_crawler_1_1_website_manager_a02f632879597f127a978ffbb6dc532a3}{begin} () const 
+\begin{DoxyCompactList}\small\item\em Returns begin iterator. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_website_manager_a5540e8864e8c8defbf06ebfc3aa6c7c8}{Const\+Iterator} \hyperlink{class_crawler_1_1_website_manager_a574b34605ba1629e890e577a22c167f0}{cbegin} () const 
+\begin{DoxyCompactList}\small\item\em Returns begin iterator. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_website_manager_a73a0d579dfd90c0f5eab55c0f0ae82a8}{Iterator} \hyperlink{class_crawler_1_1_website_manager_ad96ddfa5b856df683c2742bb63662c0c}{end} ()
+\begin{DoxyCompactList}\small\item\em Returns end iterator. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_website_manager_a5540e8864e8c8defbf06ebfc3aa6c7c8}{Const\+Iterator} \hyperlink{class_crawler_1_1_website_manager_adf7b27efbd44be2a7f8be01a4e57a2f8}{end} () const 
+\begin{DoxyCompactList}\small\item\em Returns end iterator. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_website_manager_a5540e8864e8c8defbf06ebfc3aa6c7c8}{Const\+Iterator} \hyperlink{class_crawler_1_1_website_manager_a18aad5f4a56da5d2f31e17b9c75e6dc4}{cend} () const 
+\begin{DoxyCompactList}\small\item\em Returns end iterator. \end{DoxyCompactList}\item 
+bool \hyperlink{class_crawler_1_1_website_manager_a226f24b306bb60ba3ffda550296b97a4}{exists\+Website} (const \hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} \&website)
+\begin{DoxyCompactList}\small\item\em Checks if website exists. \end{DoxyCompactList}\item 
+void \hyperlink{class_crawler_1_1_website_manager_ac0caf44a0602ab60f947f2a282069135}{add\+Website} (const \hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} \&website)
+\begin{DoxyCompactList}\small\item\em Add website to manager. \end{DoxyCompactList}\item 
+void \hyperlink{class_crawler_1_1_website_manager_ab148782b9fc087c25ddfa1ae2b53c9c7}{remove\+Website} (const \hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} \&website)
+\begin{DoxyCompactList}\small\item\em Remove website from manager. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_website_manager_a73a0d579dfd90c0f5eab55c0f0ae82a8}{Iterator} \hyperlink{class_crawler_1_1_website_manager_af33f67f613ab2110790e30670390dfcb}{remove\+Website} (\hyperlink{class_crawler_1_1_website_manager_a73a0d579dfd90c0f5eab55c0f0ae82a8}{Iterator} iterator)
+\begin{DoxyCompactList}\small\item\em Remove website from manager. \end{DoxyCompactList}\item 
+const std\+::list$<$ \hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} $>$ \& \hyperlink{class_crawler_1_1_website_manager_abb40067a259c4c1cb274a30e4259e09b}{get\+Websites} () const 
+\begin{DoxyCompactList}\small\item\em Returns list of websites. \end{DoxyCompactList}\item 
+void \hyperlink{class_crawler_1_1_website_manager_addf1f3b0bf194c14ed1b77dd8a8eaf1b}{set\+Worker\+Per\+Website} (std\+::size\+\_\+t worker\+Per\+Website)
+\begin{DoxyCompactList}\small\item\em Changes the amount of workers per website. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \hyperlink{class_crawler_1_1_website_manager_a28f65de487a2006d00d44c157efbf45a}{get\+Worker\+Per\+Website} () const 
+\begin{DoxyCompactList}\small\item\em Returns the amount of workers per website. \end{DoxyCompactList}\item 
+void \hyperlink{class_crawler_1_1_website_manager_a2df4537dc3e42b2888491cafd463f80e}{report\+Link} (const std\+::string \&string)
+\begin{DoxyCompactList}\small\item\em Report a link to website manager. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} $\ast$ \hyperlink{class_crawler_1_1_website_manager_a128ba5c4f12e5d445c1b786af67f2301}{request\+Website} (\hyperlink{class_crawler_1_1_worker}{Crawler\+::\+Worker} $\ast$worker)
+\begin{DoxyCompactList}\small\item\em Requests a new website from the list which is handled by the worker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 12 of file Website\+Manager.\+hpp.
+
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{class_crawler_1_1_website_manager_a5540e8864e8c8defbf06ebfc3aa6c7c8}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!Const\+Iterator@{Const\+Iterator}}
+\index{Const\+Iterator@{Const\+Iterator}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{Const\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf Crawler\+::\+Website\+Manager\+::\+Const\+Iterator} =  typename std\+::list $<${\bf Crawler\+::\+Website}$>$\+::const\+\_\+iterator}\label{class_crawler_1_1_website_manager_a5540e8864e8c8defbf06ebfc3aa6c7c8}
+
+
+Definition at line 16 of file Website\+Manager.\+hpp.
+
+\hypertarget{class_crawler_1_1_website_manager_a73a0d579dfd90c0f5eab55c0f0ae82a8}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!Iterator@{Iterator}}
+\index{Iterator@{Iterator}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{Iterator}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf Crawler\+::\+Website\+Manager\+::\+Iterator} =  typename std\+::list $<${\bf Crawler\+::\+Website}$>$\+::iterator}\label{class_crawler_1_1_website_manager_a73a0d579dfd90c0f5eab55c0f0ae82a8}
+
+
+Definition at line 15 of file Website\+Manager.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_crawler_1_1_website_manager_a5a030384d9b5f0adf15a1d051256c5fe}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!Website\+Manager@{Website\+Manager}}
+\index{Website\+Manager@{Website\+Manager}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{Website\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}Crawler\+::\+Website\+Manager\+::\+Website\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Crawler\+::\+Application} \&}]{application}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_website_manager_a5a030384d9b5f0adf15a1d051256c5fe}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em application} & Reference to assigned application \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 5 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_a7c1715be3c86c226503202021bfc855d}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!Website\+Manager@{Website\+Manager}}
+\index{Website\+Manager@{Website\+Manager}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{Website\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}Crawler\+::\+Website\+Manager\+::\+Website\+Manager (
+\begin{DoxyParamCaption}
+\item[{const {\bf Website\+Manager} \&}]{website\+Manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\label{class_crawler_1_1_website_manager_a7c1715be3c86c226503202021bfc855d}
+
+
+Copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em website\+Manager} & \hyperlink{class_crawler_1_1_website_manager}{Website\+Manager} which is copied \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_crawler_1_1_website_manager_ae0ab13041fef6aa04601c739ae6dd02e}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!Website\+Manager@{Website\+Manager}}
+\index{Website\+Manager@{Website\+Manager}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{Website\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}Crawler\+::\+Website\+Manager\+::\+Website\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Website\+Manager} \&\&}]{website\+Manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\label{class_crawler_1_1_website_manager_ae0ab13041fef6aa04601c739ae6dd02e}
+
+
+Move constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em website\+Manager} & \hyperlink{class_crawler_1_1_website_manager}{Website\+Manager} which is moved \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_crawler_1_1_website_manager_ac0caf44a0602ab60f947f2a282069135}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!add\+Website@{add\+Website}}
+\index{add\+Website@{add\+Website}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{add\+Website}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Website\+Manager\+::add\+Website (
+\begin{DoxyParamCaption}
+\item[{const {\bf Crawler\+::\+Website} \&}]{website}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_website_manager_ac0caf44a0602ab60f947f2a282069135}
+
+
+Add website to manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em website} & Reference to website object which is added \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 59 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_a0da0227729636655190bb8679f5cbd39}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!begin@{begin}}
+\index{begin@{begin}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Website\+Manager\+::\+Iterator} Crawler\+::\+Website\+Manager\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_website_manager_a0da0227729636655190bb8679f5cbd39}
+
+
+Returns begin iterator. 
+
+\begin{DoxyReturn}{Returns}
+Begin iterator 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_a02f632879597f127a978ffbb6dc532a3}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!begin@{begin}}
+\index{begin@{begin}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Website\+Manager\+::\+Const\+Iterator} Crawler\+::\+Website\+Manager\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_website_manager_a02f632879597f127a978ffbb6dc532a3}
+
+
+Returns begin iterator. 
+
+\begin{DoxyReturn}{Returns}
+Begin iterator 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_a574b34605ba1629e890e577a22c167f0}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{cbegin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Website\+Manager\+::\+Const\+Iterator} Crawler\+::\+Website\+Manager\+::cbegin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_website_manager_a574b34605ba1629e890e577a22c167f0}
+
+
+Returns begin iterator. 
+
+\begin{DoxyReturn}{Returns}
+Begin iterator 
+\end{DoxyReturn}
+
+
+Definition at line 30 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_a18aad5f4a56da5d2f31e17b9c75e6dc4}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!cend@{cend}}
+\index{cend@{cend}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{cend}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Website\+Manager\+::\+Const\+Iterator} Crawler\+::\+Website\+Manager\+::cend (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_website_manager_a18aad5f4a56da5d2f31e17b9c75e6dc4}
+
+
+Returns end iterator. 
+
+\begin{DoxyReturn}{Returns}
+End iterator 
+\end{DoxyReturn}
+
+
+Definition at line 45 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_ad96ddfa5b856df683c2742bb63662c0c}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!end@{end}}
+\index{end@{end}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Website\+Manager\+::\+Iterator} Crawler\+::\+Website\+Manager\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_website_manager_ad96ddfa5b856df683c2742bb63662c0c}
+
+
+Returns end iterator. 
+
+\begin{DoxyReturn}{Returns}
+End iterator 
+\end{DoxyReturn}
+
+
+Definition at line 35 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_adf7b27efbd44be2a7f8be01a4e57a2f8}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!end@{end}}
+\index{end@{end}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Website\+Manager\+::\+Const\+Iterator} Crawler\+::\+Website\+Manager\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_website_manager_adf7b27efbd44be2a7f8be01a4e57a2f8}
+
+
+Returns end iterator. 
+
+\begin{DoxyReturn}{Returns}
+End iterator 
+\end{DoxyReturn}
+
+
+Definition at line 40 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_a226f24b306bb60ba3ffda550296b97a4}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!exists\+Website@{exists\+Website}}
+\index{exists\+Website@{exists\+Website}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{exists\+Website}]{\setlength{\rightskip}{0pt plus 5cm}bool Crawler\+::\+Website\+Manager\+::exists\+Website (
+\begin{DoxyParamCaption}
+\item[{const {\bf Crawler\+::\+Website} \&}]{website}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_website_manager_a226f24b306bb60ba3ffda550296b97a4}
+
+
+Checks if website exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em website} & Reference to website object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if website exists 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_aa5bfdf43dbee41e408aae5df57159824}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!get\+Application@{get\+Application}}
+\index{get\+Application@{get\+Application}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{get\+Application}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Application} \& Crawler\+::\+Website\+Manager\+::get\+Application (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_website_manager_aa5bfdf43dbee41e408aae5df57159824}
+
+
+Returns assigned application. 
+
+\begin{DoxyReturn}{Returns}
+Reference to assigned application 
+\end{DoxyReturn}
+
+
+Definition at line 10 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_a9845375139da6d2e002daf2a14a0ae26}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!get\+Application@{get\+Application}}
+\index{get\+Application@{get\+Application}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{get\+Application}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Crawler\+::\+Application} \& Crawler\+::\+Website\+Manager\+::get\+Application (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_website_manager_a9845375139da6d2e002daf2a14a0ae26}
+
+
+Returns assigned application. 
+
+\begin{DoxyReturn}{Returns}
+Reference to assigned application 
+\end{DoxyReturn}
+
+
+Definition at line 15 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_abb40067a259c4c1cb274a30e4259e09b}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!get\+Websites@{get\+Websites}}
+\index{get\+Websites@{get\+Websites}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{get\+Websites}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::list$<$ {\bf Crawler\+::\+Website} $>$ \& Crawler\+::\+Website\+Manager\+::get\+Websites (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_website_manager_abb40067a259c4c1cb274a30e4259e09b}
+
+
+Returns list of websites. 
+
+\begin{DoxyReturn}{Returns}
+Reference to list of websites 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_a28f65de487a2006d00d44c157efbf45a}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!get\+Worker\+Per\+Website@{get\+Worker\+Per\+Website}}
+\index{get\+Worker\+Per\+Website@{get\+Worker\+Per\+Website}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{get\+Worker\+Per\+Website}]{\setlength{\rightskip}{0pt plus 5cm}std\+::size\+\_\+t Crawler\+::\+Website\+Manager\+::get\+Worker\+Per\+Website (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_website_manager_a28f65de487a2006d00d44c157efbf45a}
+
+
+Returns the amount of workers per website. 
+
+\begin{DoxyReturn}{Returns}
+Amount of workers per website 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_aefc1b9366f71d46c98fdafdf104c6d8a}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!operator=@{operator=}}
+\index{operator=@{operator=}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Website\+Manager}\& Crawler\+::\+Website\+Manager\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Website\+Manager} \&}]{worker\+Manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\label{class_crawler_1_1_website_manager_aefc1b9366f71d46c98fdafdf104c6d8a}
+
+
+Copy assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em website\+Manager} & \hyperlink{class_crawler_1_1_website_manager}{Website\+Manager} which is copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this 
+\end{DoxyReturn}
+\hypertarget{class_crawler_1_1_website_manager_ad7402de1b8bfb1b587ed6485242541a7}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!operator=@{operator=}}
+\index{operator=@{operator=}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Website\+Manager}\& Crawler\+::\+Website\+Manager\+::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Website\+Manager} \&\&}]{worker\+Manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\label{class_crawler_1_1_website_manager_ad7402de1b8bfb1b587ed6485242541a7}
+
+
+Move assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em website\+Manager} & \hyperlink{class_crawler_1_1_website_manager}{Website\+Manager} which is moved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this 
+\end{DoxyReturn}
+\hypertarget{class_crawler_1_1_website_manager_ab148782b9fc087c25ddfa1ae2b53c9c7}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!remove\+Website@{remove\+Website}}
+\index{remove\+Website@{remove\+Website}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{remove\+Website}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Website\+Manager\+::remove\+Website (
+\begin{DoxyParamCaption}
+\item[{const {\bf Crawler\+::\+Website} \&}]{website}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_website_manager_ab148782b9fc087c25ddfa1ae2b53c9c7}
+
+
+Remove website from manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em website} & Reference to website object which is removed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 66 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_af33f67f613ab2110790e30670390dfcb}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!remove\+Website@{remove\+Website}}
+\index{remove\+Website@{remove\+Website}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{remove\+Website}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Website\+Manager\+::\+Iterator} Crawler\+::\+Website\+Manager\+::remove\+Website (
+\begin{DoxyParamCaption}
+\item[{{\bf Iterator}}]{iterator}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_website_manager_af33f67f613ab2110790e30670390dfcb}
+
+
+Remove website from manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em website} & Iterator to website object which is removed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Iterator to iterator -\/ 1 
+\end{DoxyReturn}
+
+
+Definition at line 79 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_a2df4537dc3e42b2888491cafd463f80e}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!report\+Link@{report\+Link}}
+\index{report\+Link@{report\+Link}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{report\+Link}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Website\+Manager\+::report\+Link (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{string}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_website_manager_a2df4537dc3e42b2888491cafd463f80e}
+
+
+Report a link to website manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & \hyperlink{class_crawler_1_1_link}{Link} which is reported \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 101 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_a128ba5c4f12e5d445c1b786af67f2301}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!request\+Website@{request\+Website}}
+\index{request\+Website@{request\+Website}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{request\+Website}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Website} $\ast$ Crawler\+::\+Website\+Manager\+::request\+Website (
+\begin{DoxyParamCaption}
+\item[{{\bf Crawler\+::\+Worker} $\ast$}]{worker}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_website_manager_a128ba5c4f12e5d445c1b786af67f2301}
+
+
+Requests a new website from the list which is handled by the worker. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & \hyperlink{class_crawler_1_1_worker}{Worker} which is registered \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to website which is handled by the worker 
+\end{DoxyReturn}
+
+
+Definition at line 134 of file Website\+Manager.\+cpp.
+
+\hypertarget{class_crawler_1_1_website_manager_addf1f3b0bf194c14ed1b77dd8a8eaf1b}{}\index{Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}!set\+Worker\+Per\+Website@{set\+Worker\+Per\+Website}}
+\index{set\+Worker\+Per\+Website@{set\+Worker\+Per\+Website}!Crawler\+::\+Website\+Manager@{Crawler\+::\+Website\+Manager}}
+\subsubsection[{set\+Worker\+Per\+Website}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Website\+Manager\+::set\+Worker\+Per\+Website (
+\begin{DoxyParamCaption}
+\item[{std\+::size\+\_\+t}]{worker\+Per\+Website}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_website_manager_addf1f3b0bf194c14ed1b77dd8a8eaf1b}
+
+
+Changes the amount of workers per website. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker\+Per\+Website} & Amount of workers per website \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 90 of file Website\+Manager.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Crawler/\hyperlink{_website_manager_8hpp}{Website\+Manager.\+hpp}\item 
+Source/\+Crawler/\hyperlink{_website_manager_8cpp}{Website\+Manager.\+cpp}\end{DoxyCompactItemize}

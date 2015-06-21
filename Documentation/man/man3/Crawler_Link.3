@@ -1,0 +1,305 @@
+.TH "Crawler::Link" 3 "Sun Jun 21 2015" "Version 1.0" "Crawler" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Crawler::Link \- Utility class which represents a link\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Link\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLink\fP ()=default"
+.br
+.RI "\fIDefault constructor\&. \fP"
+.ti -1c
+.RI "\fBLink\fP (const std::string &path, const std::string &query, const std::string &fragment)"
+.br
+.RI "\fIConstructor for setting each member but the assigned website\&. \fP"
+.ti -1c
+.RI "\fBLink\fP (const std::string &link)"
+.br
+.RI "\fIConstructor for parsing a link\&. \fP"
+.ti -1c
+.RI "\fBLink\fP (const \fBLink\fP &link)"
+.br
+.RI "\fIDefault copy constructor\&. \fP"
+.ti -1c
+.RI "\fBLink\fP (\fBLink\fP &&link)"
+.br
+.RI "\fIDefault move constructor\&. \fP"
+.ti -1c
+.RI "\fBLink\fP & \fBoperator=\fP (const \fBLink\fP &link)"
+.br
+.RI "\fICopy assignment operator overloading\&. \fP"
+.ti -1c
+.RI "\fBLink\fP & \fBoperator=\fP (\fBLink\fP &&link)"
+.br
+.RI "\fIMove assignment operator overloading\&. \fP"
+.ti -1c
+.RI "bool \fBwasVisited\fP () const "
+.br
+.RI "\fIChecks if link was visited\&. \fP"
+.ti -1c
+.RI "void \fBsetVisited\fP (bool visited)"
+.br
+.RI "\fIChanges if link was visitied\&. \fP"
+.ti -1c
+.RI "const std::string & \fBgetPath\fP () const "
+.br
+.RI "\fIReturns path\&. \fP"
+.ti -1c
+.RI "void \fBsetPath\fP (const std::string &path)"
+.br
+.RI "\fIChanges path\&. \fP"
+.ti -1c
+.RI "const std::string & \fBgetQuery\fP () const "
+.br
+.RI "\fIReturns query\&. \fP"
+.ti -1c
+.RI "void \fBsetQuery\fP (const std::string &query)"
+.br
+.RI "\fIChanges query\&. \fP"
+.ti -1c
+.RI "const std::string & \fBgetFragment\fP () const "
+.br
+.RI "\fIReturns fragment\&. \fP"
+.ti -1c
+.RI "void \fBsetFragment\fP (const std::string &fragment)"
+.br
+.RI "\fIChanges fragment\&. \fP"
+.ti -1c
+.RI "std::string \fBtoString\fP () const "
+.br
+.RI "\fIReturns the link as a string\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Utility class which represents a link\&. 
+.PP
+Definition at line 12 of file Link\&.hpp\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Crawler::Link::Link ()\fC [default]\fP"
+
+.PP
+Default constructor\&. 
+.SS "Crawler::Link::Link (const std::string & path, const std::string & query, const std::string & fragment)"
+
+.PP
+Constructor for setting each member but the assigned website\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP Path ('/directory/file\&.extension'; '/index\&.html') 
+.br
+\fIquery\fP Query ('?Key1=Value1&Key2=Value2') 
+.br
+\fIfragment\fP Fragment ('#Fragment') 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file Link\&.cpp\&.
+.SS "Crawler::Link::Link (const std::string & link)"
+
+.PP
+Constructor for parsing a link\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlink\fP String which gets parsed 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file Link\&.cpp\&.
+.SS "Crawler::Link::Link (const \fBLink\fP & link)"
+
+.PP
+Default copy constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlink\fP \fBLink\fP which gets copied 
+.RE
+.PP
+
+.PP
+Definition at line 51 of file Link\&.cpp\&.
+.SS "Crawler::Link::Link (\fBLink\fP && link)"
+
+.PP
+Default move constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlink\fP \fBLink\fP which is moved 
+.RE
+.PP
+
+.PP
+Definition at line 59 of file Link\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "const std::string & Crawler::Link::getFragment () const"
+
+.PP
+Returns fragment\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to fragment 
+.RE
+.PP
+
+.PP
+Definition at line 126 of file Link\&.cpp\&.
+.SS "const std::string & Crawler::Link::getPath () const"
+
+.PP
+Returns path\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to path 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file Link\&.cpp\&.
+.SS "const std::string & Crawler::Link::getQuery () const"
+
+.PP
+Returns query\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to query 
+.RE
+.PP
+
+.PP
+Definition at line 115 of file Link\&.cpp\&.
+.SS "\fBCrawler::Link\fP & Crawler::Link::operator= (const \fBLink\fP & link)"
+
+.PP
+Copy assignment operator overloading\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlink\fP \fBLink\fP which is copied 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to this 
+.RE
+.PP
+
+.PP
+Definition at line 68 of file Link\&.cpp\&.
+.SS "\fBCrawler::Link\fP & Crawler::Link::operator= (\fBLink\fP && link)"
+
+.PP
+Move assignment operator overloading\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlink\fP \fBLink\fP which is moved 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to this 
+.RE
+.PP
+
+.PP
+Definition at line 78 of file Link\&.cpp\&.
+.SS "void Crawler::Link::setFragment (const std::string & fragment)"
+
+.PP
+Changes fragment\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfragment\fP New fragment 
+.RE
+.PP
+
+.PP
+Definition at line 131 of file Link\&.cpp\&.
+.SS "void Crawler::Link::setPath (const std::string & path)"
+
+.PP
+Changes path\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIscheme\fP New path 
+.RE
+.PP
+
+.PP
+Definition at line 106 of file Link\&.cpp\&.
+.SS "void Crawler::Link::setQuery (const std::string & query)"
+
+.PP
+Changes query\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIscheme\fP New query 
+.RE
+.PP
+
+.PP
+Definition at line 120 of file Link\&.cpp\&.
+.SS "void Crawler::Link::setVisited (bool visited)"
+
+.PP
+Changes if link was visitied\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvisited\fP Value which defines if link was visited 
+.RE
+.PP
+
+.PP
+Definition at line 95 of file Link\&.cpp\&.
+.SS "std::string Crawler::Link::toString () const"
+
+.PP
+Returns the link as a string\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fBLink\fP\fP in string format 
+.RE
+.PP
+
+.PP
+Definition at line 137 of file Link\&.cpp\&.
+.SS "bool Crawler::Link::wasVisited () const"
+
+.PP
+Checks if link was visited\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if link was visited 
+.RE
+.PP
+
+.PP
+Definition at line 90 of file Link\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Crawler from the source code\&.

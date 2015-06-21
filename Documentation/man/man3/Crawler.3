@@ -1,0 +1,139 @@
+.TH "Crawler" 3 "Sun Jun 21 2015" "Version 1.0" "Crawler" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Crawler \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBApplication\fP"
+.br
+.ti -1c
+.RI "class \fBLink\fP"
+.br
+.RI "\fIUtility class which represents a link\&. \fP"
+.ti -1c
+.RI "class \fBScopedMutex\fP"
+.br
+.ti -1c
+.RI "class \fBWebsite\fP"
+.br
+.ti -1c
+.RI "class \fBWebsiteManager\fP"
+.br
+.ti -1c
+.RI "class \fBWorker\fP"
+.br
+.ti -1c
+.RI "class \fBWorkerManager\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCRAWLER_API\fP bool \fBoperator==\fP (const \fBCrawler::Link\fP &left, const \fBCrawler::Link\fP &right)"
+.br
+.RI "\fICompares two links together\&. \fP"
+.ti -1c
+.RI "\fBCRAWLER_API\fP bool \fBoperator!=\fP (const \fBCrawler::Link\fP &left, const \fBCrawler::Link\fP &right)"
+.br
+.RI "\fICompares two links together\&. \fP"
+.ti -1c
+.RI "\fBCRAWLER_API\fP bool \fBoperator==\fP (const \fBCrawler::Website\fP &left, const \fBCrawler::Website\fP &right)"
+.br
+.RI "\fICompares two websites together\&. \fP"
+.ti -1c
+.RI "\fBCRAWLER_API\fP bool \fBoperator!=\fP (const \fBCrawler::Website\fP &left, const \fBCrawler::Website\fP &right)"
+.br
+.RI "\fICompares two websites together\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "bool Crawler::operator!= (const \fBCrawler::Link\fP & left, const \fBCrawler::Link\fP & right)"
+
+.PP
+Compares two links together\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIleft\fP First link 
+.br
+\fIright\fP Second link 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+False if they are equal 
+.RE
+.PP
+
+.PP
+Definition at line 152 of file Link\&.cpp\&.
+.SS "bool Crawler::operator!= (const \fBCrawler::Website\fP & left, const \fBCrawler::Website\fP & right)"
+
+.PP
+Compares two websites together\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIleft\fP First website 
+.br
+\fIright\fP Second website 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+False if they are equal 
+.RE
+.PP
+
+.PP
+Definition at line 252 of file Website\&.cpp\&.
+.SS "bool Crawler::operator== (const \fBCrawler::Link\fP & left, const \fBCrawler::Link\fP & right)"
+
+.PP
+Compares two links together\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIleft\fP First link 
+.br
+\fIright\fP Second link 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if they are equal 
+.RE
+.PP
+
+.PP
+Definition at line 146 of file Link\&.cpp\&.
+.SS "bool Crawler::operator== (const \fBCrawler::Website\fP & left, const \fBCrawler::Website\fP & right)"
+
+.PP
+Compares two websites together\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIleft\fP First website 
+.br
+\fIright\fP Second website 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if they are equal 
+.RE
+.PP
+
+.PP
+Definition at line 247 of file Website\&.cpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Crawler from the source code\&.

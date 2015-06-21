@@ -1,0 +1,67 @@
+.TH "Source/Crawler/Application.hpp" 3 "Sun Jun 21 2015" "Version 1.0" "Crawler" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Source/Crawler/Application.hpp \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <Crawler/Linker\&.hpp>\fP
+.br
+\fC#include <Crawler/WebsiteManager\&.hpp>\fP
+.br
+\fC#include <Crawler/WorkerManager\&.hpp>\fP
+.br
+\fC#include <SFML/Network\&.hpp>\fP
+.br
+\fC#include <pugixml\&.hpp>\fP
+.br
+\fC#include <vector>\fP
+.br
+\fC#include <string>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBCrawler::Application\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI " \fBCrawler\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCRAWLER_APPLICATION\fP(x)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CRAWLER_APPLICATION(x)"
+\fBValue:\fP
+.PP
+.nf
+int main ( int argc , char ** argv ) \
+{ \
+    std::vector <std::string> arguments ; \
+    arguments\&.reserve ( argc ) ; \
+ \
+    for ( int i = 0 ; i < argc ; ++i ) \
+        arguments\&.push_back ( argv [ i ] ) ; \
+ \
+    x instance ; \
+    return instance\&.main ( arguments ) ; \
+}
+.fi
+.PP
+Definition at line 150 of file Application\&.hpp\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Crawler from the source code\&.

@@ -1,0 +1,137 @@
+\hypertarget{namespace_crawler}{}\section{Crawler Namespace Reference}
+\label{namespace_crawler}\index{Crawler@{Crawler}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_crawler_1_1_application}{Application}
+\item 
+class \hyperlink{class_crawler_1_1_link}{Link}
+\begin{DoxyCompactList}\small\item\em Utility class which represents a link. \end{DoxyCompactList}\item 
+class \hyperlink{class_crawler_1_1_scoped_mutex}{Scoped\+Mutex}
+\item 
+class \hyperlink{class_crawler_1_1_website}{Website}
+\item 
+class \hyperlink{class_crawler_1_1_website_manager}{Website\+Manager}
+\item 
+class \hyperlink{class_crawler_1_1_worker}{Worker}
+\item 
+class \hyperlink{class_crawler_1_1_worker_manager}{Worker\+Manager}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_linker_8hpp_a6d4e3fff6f0294594417d2aa3530fb57}{C\+R\+A\+W\+L\+E\+R\+\_\+\+A\+P\+I} bool \hyperlink{namespace_crawler_ad2f4cb6dcb6244376bec77969769be43}{operator==} (const \hyperlink{class_crawler_1_1_link}{Crawler\+::\+Link} \&left, const \hyperlink{class_crawler_1_1_link}{Crawler\+::\+Link} \&right)
+\begin{DoxyCompactList}\small\item\em Compares two links together. \end{DoxyCompactList}\item 
+\hyperlink{_linker_8hpp_a6d4e3fff6f0294594417d2aa3530fb57}{C\+R\+A\+W\+L\+E\+R\+\_\+\+A\+P\+I} bool \hyperlink{namespace_crawler_a9b3b52cf15065a20a362fa1a750d3e4a}{operator!=} (const \hyperlink{class_crawler_1_1_link}{Crawler\+::\+Link} \&left, const \hyperlink{class_crawler_1_1_link}{Crawler\+::\+Link} \&right)
+\begin{DoxyCompactList}\small\item\em Compares two links together. \end{DoxyCompactList}\item 
+\hyperlink{_linker_8hpp_a6d4e3fff6f0294594417d2aa3530fb57}{C\+R\+A\+W\+L\+E\+R\+\_\+\+A\+P\+I} bool \hyperlink{namespace_crawler_a93aa1c0dfad41c40d35c40033f9284ff}{operator==} (const \hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} \&left, const \hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} \&right)
+\begin{DoxyCompactList}\small\item\em Compares two websites together. \end{DoxyCompactList}\item 
+\hyperlink{_linker_8hpp_a6d4e3fff6f0294594417d2aa3530fb57}{C\+R\+A\+W\+L\+E\+R\+\_\+\+A\+P\+I} bool \hyperlink{namespace_crawler_a7f80630220ca236fcb6afcca0f0cac6d}{operator!=} (const \hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} \&left, const \hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} \&right)
+\begin{DoxyCompactList}\small\item\em Compares two websites together. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespace_crawler_a9b3b52cf15065a20a362fa1a750d3e4a}{}\index{Crawler@{Crawler}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Crawler@{Crawler}}
+\subsubsection[{operator"!=}]{\setlength{\rightskip}{0pt plus 5cm}bool Crawler\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Crawler\+::\+Link} \&}]{left, }
+\item[{const {\bf Crawler\+::\+Link} \&}]{right}
+\end{DoxyParamCaption}
+)}\label{namespace_crawler_a9b3b52cf15065a20a362fa1a750d3e4a}
+
+
+Compares two links together. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & First link \\
+\hline
+{\em right} & Second link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False if they are equal 
+\end{DoxyReturn}
+
+
+Definition at line 152 of file Link.\+cpp.
+
+\hypertarget{namespace_crawler_a7f80630220ca236fcb6afcca0f0cac6d}{}\index{Crawler@{Crawler}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Crawler@{Crawler}}
+\subsubsection[{operator"!=}]{\setlength{\rightskip}{0pt plus 5cm}bool Crawler\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Crawler\+::\+Website} \&}]{left, }
+\item[{const {\bf Crawler\+::\+Website} \&}]{right}
+\end{DoxyParamCaption}
+)}\label{namespace_crawler_a7f80630220ca236fcb6afcca0f0cac6d}
+
+
+Compares two websites together. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & First website \\
+\hline
+{\em right} & Second website \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False if they are equal 
+\end{DoxyReturn}
+
+
+Definition at line 252 of file Website.\+cpp.
+
+\hypertarget{namespace_crawler_ad2f4cb6dcb6244376bec77969769be43}{}\index{Crawler@{Crawler}!operator==@{operator==}}
+\index{operator==@{operator==}!Crawler@{Crawler}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Crawler\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Crawler\+::\+Link} \&}]{left, }
+\item[{const {\bf Crawler\+::\+Link} \&}]{right}
+\end{DoxyParamCaption}
+)}\label{namespace_crawler_ad2f4cb6dcb6244376bec77969769be43}
+
+
+Compares two links together. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & First link \\
+\hline
+{\em right} & Second link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if they are equal 
+\end{DoxyReturn}
+
+
+Definition at line 146 of file Link.\+cpp.
+
+\hypertarget{namespace_crawler_a93aa1c0dfad41c40d35c40033f9284ff}{}\index{Crawler@{Crawler}!operator==@{operator==}}
+\index{operator==@{operator==}!Crawler@{Crawler}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Crawler\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Crawler\+::\+Website} \&}]{left, }
+\item[{const {\bf Crawler\+::\+Website} \&}]{right}
+\end{DoxyParamCaption}
+)}\label{namespace_crawler_a93aa1c0dfad41c40d35c40033f9284ff}
+
+
+Compares two websites together. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & First website \\
+\hline
+{\em right} & Second website \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if they are equal 
+\end{DoxyReturn}
+
+
+Definition at line 247 of file Website.\+cpp.
+

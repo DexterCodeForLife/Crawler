@@ -1,0 +1,380 @@
+\hypertarget{class_crawler_1_1_link}{}\section{Crawler\+:\+:Link Class Reference}
+\label{class_crawler_1_1_link}\index{Crawler\+::\+Link@{Crawler\+::\+Link}}
+
+
+Utility class which represents a link.  
+
+
+
+
+{\ttfamily \#include $<$Link.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_crawler_1_1_link_aa573a7b693717b4968e5461eae1d0d9d}{Link} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_link_afe281adb9739ced6e0431b9dd52e99fb}{Link} (const std\+::string \&path, const std\+::string \&query, const std\+::string \&fragment)
+\begin{DoxyCompactList}\small\item\em Constructor for setting each member but the assigned website. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_link_a89b684575312068544a65ecc99bca246}{Link} (const std\+::string \&link)
+\begin{DoxyCompactList}\small\item\em Constructor for parsing a link. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_link_a4616811d7557fdd6e572191217a7c6b3}{Link} (const \hyperlink{class_crawler_1_1_link}{Link} \&link)
+\begin{DoxyCompactList}\small\item\em Default copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_link_a77a8ec7a710ca721bfaba618c15ea900}{Link} (\hyperlink{class_crawler_1_1_link}{Link} \&\&link)
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_link}{Link} \& \hyperlink{class_crawler_1_1_link_a94698caeabaa55b0b4b16ea733792203}{operator=} (const \hyperlink{class_crawler_1_1_link}{Link} \&link)
+\begin{DoxyCompactList}\small\item\em Copy assignment operator overloading. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_link}{Link} \& \hyperlink{class_crawler_1_1_link_a0e4f956e93dda3deff3641c3d3188803}{operator=} (\hyperlink{class_crawler_1_1_link}{Link} \&\&link)
+\begin{DoxyCompactList}\small\item\em Move assignment operator overloading. \end{DoxyCompactList}\item 
+bool \hyperlink{class_crawler_1_1_link_a238ee637d3eaafa958f026babea76c17}{was\+Visited} () const 
+\begin{DoxyCompactList}\small\item\em Checks if link was visited. \end{DoxyCompactList}\item 
+void \hyperlink{class_crawler_1_1_link_a39ed70d40b4b5364a6510f32214fb9d0}{set\+Visited} (bool visited)
+\begin{DoxyCompactList}\small\item\em Changes if link was visitied. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{class_crawler_1_1_link_ad7bf54537b1230e37dd00c75273c901d}{get\+Path} () const 
+\begin{DoxyCompactList}\small\item\em Returns path. \end{DoxyCompactList}\item 
+void \hyperlink{class_crawler_1_1_link_a6fe245b48b238800ba4b41e97fed92e5}{set\+Path} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Changes path. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{class_crawler_1_1_link_a1ff66f8100180d6c39681ff459c3d44c}{get\+Query} () const 
+\begin{DoxyCompactList}\small\item\em Returns query. \end{DoxyCompactList}\item 
+void \hyperlink{class_crawler_1_1_link_ac106084c056ba12c23eb445c8fe7294f}{set\+Query} (const std\+::string \&query)
+\begin{DoxyCompactList}\small\item\em Changes query. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{class_crawler_1_1_link_a756a7fbb4a07e0292346b90784b6926d}{get\+Fragment} () const 
+\begin{DoxyCompactList}\small\item\em Returns fragment. \end{DoxyCompactList}\item 
+void \hyperlink{class_crawler_1_1_link_a02a04a5a1042d03d287d4ac9191cb350}{set\+Fragment} (const std\+::string \&fragment)
+\begin{DoxyCompactList}\small\item\em Changes fragment. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{class_crawler_1_1_link_a91bca215b33c135699c5755266f075c7}{to\+String} () const 
+\begin{DoxyCompactList}\small\item\em Returns the link as a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Utility class which represents a link. 
+
+Definition at line 12 of file Link.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_crawler_1_1_link_aa573a7b693717b4968e5461eae1d0d9d}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!Link@{Link}}
+\index{Link@{Link}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{Link}]{\setlength{\rightskip}{0pt plus 5cm}Crawler\+::\+Link\+::\+Link (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}\label{class_crawler_1_1_link_aa573a7b693717b4968e5461eae1d0d9d}
+
+
+Default constructor. 
+
+\hypertarget{class_crawler_1_1_link_afe281adb9739ced6e0431b9dd52e99fb}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!Link@{Link}}
+\index{Link@{Link}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{Link}]{\setlength{\rightskip}{0pt plus 5cm}Crawler\+::\+Link\+::\+Link (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{path, }
+\item[{const std\+::string \&}]{query, }
+\item[{const std\+::string \&}]{fragment}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_link_afe281adb9739ced6e0431b9dd52e99fb}
+
+
+Constructor for setting each member but the assigned website. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path (\char`\"{}/directory/file.\+extension\char`\"{}; \char`\"{}/index.\+html\char`\"{}) \\
+\hline
+{\em query} & Query (\char`\"{}?\+Key1=\+Value1\&\+Key2=\+Value2\char`\"{}) \\
+\hline
+{\em fragment} & Fragment (\char`\"{}\#\+Fragment\char`\"{}) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 19 of file Link.\+cpp.
+
+\hypertarget{class_crawler_1_1_link_a89b684575312068544a65ecc99bca246}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!Link@{Link}}
+\index{Link@{Link}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{Link}]{\setlength{\rightskip}{0pt plus 5cm}Crawler\+::\+Link\+::\+Link (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{link}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_link_a89b684575312068544a65ecc99bca246}
+
+
+Constructor for parsing a link. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & String which gets parsed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 26 of file Link.\+cpp.
+
+\hypertarget{class_crawler_1_1_link_a4616811d7557fdd6e572191217a7c6b3}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!Link@{Link}}
+\index{Link@{Link}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{Link}]{\setlength{\rightskip}{0pt plus 5cm}Crawler\+::\+Link\+::\+Link (
+\begin{DoxyParamCaption}
+\item[{const {\bf Link} \&}]{link}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_link_a4616811d7557fdd6e572191217a7c6b3}
+
+
+Default copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & \hyperlink{class_crawler_1_1_link}{Link} which gets copied \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 51 of file Link.\+cpp.
+
+\hypertarget{class_crawler_1_1_link_a77a8ec7a710ca721bfaba618c15ea900}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!Link@{Link}}
+\index{Link@{Link}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{Link}]{\setlength{\rightskip}{0pt plus 5cm}Crawler\+::\+Link\+::\+Link (
+\begin{DoxyParamCaption}
+\item[{{\bf Link} \&\&}]{link}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_link_a77a8ec7a710ca721bfaba618c15ea900}
+
+
+Default move constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & \hyperlink{class_crawler_1_1_link}{Link} which is moved \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 59 of file Link.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_crawler_1_1_link_a756a7fbb4a07e0292346b90784b6926d}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!get\+Fragment@{get\+Fragment}}
+\index{get\+Fragment@{get\+Fragment}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{get\+Fragment}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string \& Crawler\+::\+Link\+::get\+Fragment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_link_a756a7fbb4a07e0292346b90784b6926d}
+
+
+Returns fragment. 
+
+\begin{DoxyReturn}{Returns}
+Reference to fragment 
+\end{DoxyReturn}
+
+
+Definition at line 126 of file Link.\+cpp.
+
+\hypertarget{class_crawler_1_1_link_ad7bf54537b1230e37dd00c75273c901d}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!get\+Path@{get\+Path}}
+\index{get\+Path@{get\+Path}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{get\+Path}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string \& Crawler\+::\+Link\+::get\+Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_link_ad7bf54537b1230e37dd00c75273c901d}
+
+
+Returns path. 
+
+\begin{DoxyReturn}{Returns}
+Reference to path 
+\end{DoxyReturn}
+
+
+Definition at line 101 of file Link.\+cpp.
+
+\hypertarget{class_crawler_1_1_link_a1ff66f8100180d6c39681ff459c3d44c}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!get\+Query@{get\+Query}}
+\index{get\+Query@{get\+Query}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{get\+Query}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string \& Crawler\+::\+Link\+::get\+Query (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_link_a1ff66f8100180d6c39681ff459c3d44c}
+
+
+Returns query. 
+
+\begin{DoxyReturn}{Returns}
+Reference to query 
+\end{DoxyReturn}
+
+
+Definition at line 115 of file Link.\+cpp.
+
+\hypertarget{class_crawler_1_1_link_a94698caeabaa55b0b4b16ea733792203}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!operator=@{operator=}}
+\index{operator=@{operator=}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Link} \& Crawler\+::\+Link\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Link} \&}]{link}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_link_a94698caeabaa55b0b4b16ea733792203}
+
+
+Copy assignment operator overloading. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & \hyperlink{class_crawler_1_1_link}{Link} which is copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this 
+\end{DoxyReturn}
+
+
+Definition at line 68 of file Link.\+cpp.
+
+\hypertarget{class_crawler_1_1_link_a0e4f956e93dda3deff3641c3d3188803}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!operator=@{operator=}}
+\index{operator=@{operator=}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Link} \& Crawler\+::\+Link\+::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Link} \&\&}]{link}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_link_a0e4f956e93dda3deff3641c3d3188803}
+
+
+Move assignment operator overloading. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em link} & \hyperlink{class_crawler_1_1_link}{Link} which is moved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file Link.\+cpp.
+
+\hypertarget{class_crawler_1_1_link_a02a04a5a1042d03d287d4ac9191cb350}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!set\+Fragment@{set\+Fragment}}
+\index{set\+Fragment@{set\+Fragment}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{set\+Fragment}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Link\+::set\+Fragment (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{fragment}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_link_a02a04a5a1042d03d287d4ac9191cb350}
+
+
+Changes fragment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fragment} & New fragment \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 131 of file Link.\+cpp.
+
+\hypertarget{class_crawler_1_1_link_a6fe245b48b238800ba4b41e97fed92e5}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!set\+Path@{set\+Path}}
+\index{set\+Path@{set\+Path}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{set\+Path}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Link\+::set\+Path (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{path}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_link_a6fe245b48b238800ba4b41e97fed92e5}
+
+
+Changes path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scheme} & New path \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 106 of file Link.\+cpp.
+
+\hypertarget{class_crawler_1_1_link_ac106084c056ba12c23eb445c8fe7294f}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!set\+Query@{set\+Query}}
+\index{set\+Query@{set\+Query}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{set\+Query}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Link\+::set\+Query (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{query}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_link_ac106084c056ba12c23eb445c8fe7294f}
+
+
+Changes query. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scheme} & New query \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 120 of file Link.\+cpp.
+
+\hypertarget{class_crawler_1_1_link_a39ed70d40b4b5364a6510f32214fb9d0}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!set\+Visited@{set\+Visited}}
+\index{set\+Visited@{set\+Visited}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{set\+Visited}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Link\+::set\+Visited (
+\begin{DoxyParamCaption}
+\item[{bool}]{visited}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_link_a39ed70d40b4b5364a6510f32214fb9d0}
+
+
+Changes if link was visitied. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em visited} & Value which defines if link was visited \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 95 of file Link.\+cpp.
+
+\hypertarget{class_crawler_1_1_link_a91bca215b33c135699c5755266f075c7}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{to\+String}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Crawler\+::\+Link\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_link_a91bca215b33c135699c5755266f075c7}
+
+
+Returns the link as a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_crawler_1_1_link}{Link}} & in string format \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 137 of file Link.\+cpp.
+
+\hypertarget{class_crawler_1_1_link_a238ee637d3eaafa958f026babea76c17}{}\index{Crawler\+::\+Link@{Crawler\+::\+Link}!was\+Visited@{was\+Visited}}
+\index{was\+Visited@{was\+Visited}!Crawler\+::\+Link@{Crawler\+::\+Link}}
+\subsubsection[{was\+Visited}]{\setlength{\rightskip}{0pt plus 5cm}bool Crawler\+::\+Link\+::was\+Visited (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_link_a238ee637d3eaafa958f026babea76c17}
+
+
+Checks if link was visited. 
+
+\begin{DoxyReturn}{Returns}
+True if link was visited 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file Link.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Crawler/\hyperlink{_link_8hpp}{Link.\+hpp}\item 
+Source/\+Crawler/\hyperlink{_link_8cpp}{Link.\+cpp}\end{DoxyCompactItemize}

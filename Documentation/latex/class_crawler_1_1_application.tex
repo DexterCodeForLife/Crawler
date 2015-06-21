@@ -1,0 +1,632 @@
+\hypertarget{class_crawler_1_1_application}{}\section{Crawler\+:\+:Application Class Reference}
+\label{class_crawler_1_1_application}\index{Crawler\+::\+Application@{Crawler\+::\+Application}}
+
+
+{\ttfamily \#include $<$Application.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_crawler_1_1_application_acf656ce91b631690e20404f6b4d01f7f}{Application} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_crawler_1_1_application_a2c8754469bd6c0722a7077e39775867c}{$\sim$\+Application} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_application_a3f14969f49a9cbfb58ae0976aa65223d}{Application} (const \hyperlink{class_crawler_1_1_application}{Application} \&application)=delete
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_application_a72a0ae0583df3520ae43af8421eec28b}{Application} (\hyperlink{class_crawler_1_1_application}{Application} \&\&application)=delete
+\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_application}{Application} \& \hyperlink{class_crawler_1_1_application_aebd607d398cd26488c0216b2def97f4e}{operator=} (const \hyperlink{class_crawler_1_1_application}{Application} \&application)=delete
+\begin{DoxyCompactList}\small\item\em Copy assignment operator. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_application}{Application} \& \hyperlink{class_crawler_1_1_application_a31d508ac368f000bd3f4dd6626569279}{operator=} (\hyperlink{class_crawler_1_1_application}{Application} \&\&application)=delete
+\begin{DoxyCompactList}\small\item\em Move assignment operator. \end{DoxyCompactList}\item 
+void \hyperlink{class_crawler_1_1_application_aec89860e70e9f040f5468fc233144cae}{set\+Running} (bool running)
+\begin{DoxyCompactList}\small\item\em Changes if application is running. \end{DoxyCompactList}\item 
+bool \hyperlink{class_crawler_1_1_application_a09ab3c80a3677f69b6ba6f6a81367ce6}{is\+Running} () const 
+\begin{DoxyCompactList}\small\item\em Returns if application is running. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_website_manager}{Crawler\+::\+Website\+Manager} \& \hyperlink{class_crawler_1_1_application_acff7506553bf1a55dced63c1d0b1c2e4}{get\+Website\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Returns website manager. \end{DoxyCompactList}\item 
+const \hyperlink{class_crawler_1_1_website_manager}{Crawler\+::\+Website\+Manager} \& \hyperlink{class_crawler_1_1_application_a08d275f1722533ab7ea40b276b3ee712}{get\+Website\+Manager} () const 
+\begin{DoxyCompactList}\small\item\em Returns website manager. \end{DoxyCompactList}\item 
+\hyperlink{class_crawler_1_1_worker_manager}{Crawler\+::\+Worker\+Manager} \& \hyperlink{class_crawler_1_1_application_aae5500b115428bbe7de9c0451fd3b556}{get\+Worker\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Returns worker manager. \end{DoxyCompactList}\item 
+const \hyperlink{class_crawler_1_1_worker_manager}{Crawler\+::\+Worker\+Manager} \& \hyperlink{class_crawler_1_1_application_adb00513d242574057f14d71b60e152bf}{get\+Worker\+Manager} () const 
+\begin{DoxyCompactList}\small\item\em Returns worker manager. \end{DoxyCompactList}\item 
+int \hyperlink{class_crawler_1_1_application_a0c1b381f01f73dacb6493043302136ae}{main} (const std\+::vector$<$ std\+::string $>$ \&arguments)
+\begin{DoxyCompactList}\small\item\em Applications entry point. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_crawler_1_1_application_a4db5d3f489384149ec89be2d9a862277}{on\+Startup} ()
+\begin{DoxyCompactList}\small\item\em Gets called when application starts up. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_crawler_1_1_application_a3f5866fdfdfd85b3ce2d192eef7efd32}{on\+Main} ()
+\begin{DoxyCompactList}\small\item\em Gets called inside the main function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_crawler_1_1_application_a544d41cc0fb2b5f36b44480ea4a3b14f}{on\+Shutdown} ()
+\begin{DoxyCompactList}\small\item\em Gets called when application shuts down. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_crawler_1_1_application_a7fe762aa7cd9d776ef593f690fd7d516}{on\+Spawn\+Worker} (\hyperlink{class_crawler_1_1_worker}{Crawler\+::\+Worker} \&worker)
+\begin{DoxyCompactList}\small\item\em Gets called when a worker spawns. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_crawler_1_1_application_aa6bc95edeb44f9338224862365c812d5}{on\+Despawn\+Worker} (\hyperlink{class_crawler_1_1_worker}{Crawler\+::\+Worker} \&worker)
+\begin{DoxyCompactList}\small\item\em Gets called when a worker despawns. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_crawler_1_1_application_af9735a84f3ed01419a14e9dc584bd238}{on\+Unsupported\+Protocol} (\hyperlink{class_crawler_1_1_worker}{Crawler\+::\+Worker} \&worker, \hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} \&website)
+\begin{DoxyCompactList}\small\item\em Gets called when an unsupported protocol is accessed. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_crawler_1_1_application_a1d3c8c2d7f226d33601e96ede098976a}{on\+Request} (\hyperlink{class_crawler_1_1_worker}{Crawler\+::\+Worker} \&worker, \hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} \&website, \hyperlink{class_crawler_1_1_link}{Crawler\+::\+Link} \&link, sf\+::\+Http \&client, sf\+::\+Http\+::\+Request \&request)
+\begin{DoxyCompactList}\small\item\em Gets called when a H\+T\+T\+P request is sent. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_crawler_1_1_application_af1ad5bb1ae7ce57444e5a234fe0582a8}{on\+Response} (\hyperlink{class_crawler_1_1_worker}{Crawler\+::\+Worker} \&worker, \hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} \&website, \hyperlink{class_crawler_1_1_link}{Crawler\+::\+Link} \&link, sf\+::\+Http \&client, sf\+::\+Http\+::\+Response \&response)
+\begin{DoxyCompactList}\small\item\em Gets called when a H\+T\+T\+P response is received. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_crawler_1_1_application_a43048018281b44cedeb943d856c2bbad}{on\+Parsing} (\hyperlink{class_crawler_1_1_worker}{Crawler\+::\+Worker} \&worker, \hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} \&website, \hyperlink{class_crawler_1_1_link}{Crawler\+::\+Link} \&link, pugi\+::xml\+\_\+document \&document)
+\begin{DoxyCompactList}\small\item\em Gets called when the document is parsed. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_crawler_1_1_application_acb987ee8ae6f0e6e7f9b1092dd7a4f3f}{on\+Report\+Link} (const std\+::string \&string)
+\begin{DoxyCompactList}\small\item\em Gets called when a \hyperlink{class_crawler_1_1_link}{Link} is reported. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_crawler_1_1_application_abdbdf57a6da5d52a8f7b4fb0e87fb422}{on\+Add\+Website} (\hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} \&website)
+\begin{DoxyCompactList}\small\item\em Gets called when a new website is added. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_crawler_1_1_application_a97037c34bec5f50bd7bf1f56456ea555}{on\+Add\+Link} (\hyperlink{class_crawler_1_1_website}{Crawler\+::\+Website} \&website, \hyperlink{class_crawler_1_1_link}{Crawler\+::\+Link} \&link)
+\begin{DoxyCompactList}\small\item\em Gets called when a new link to a website is added. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_crawler_1_1_application_a45cd98a249e0f0b2755d1acf94c7fa1a}{on\+Visited\+Websites} ()
+\begin{DoxyCompactList}\small\item\em Gets called when all websites has been visited. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ std\+::string $>$ \& \hyperlink{class_crawler_1_1_application_ad22222189cada456cad856bcce6b8f32}{get\+Arguments} () const 
+\begin{DoxyCompactList}\small\item\em Returns command line arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file Application.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_crawler_1_1_application_acf656ce91b631690e20404f6b4d01f7f}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!Application@{Application}}
+\index{Application@{Application}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{Application}]{\setlength{\rightskip}{0pt plus 5cm}Crawler\+::\+Application\+::\+Application (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_application_acf656ce91b631690e20404f6b4d01f7f}
+
+
+Default constructor. 
+
+
+
+Definition at line 3 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_a2c8754469bd6c0722a7077e39775867c}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!````~Application@{$\sim$\+Application}}
+\index{````~Application@{$\sim$\+Application}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{$\sim$\+Application}]{\setlength{\rightskip}{0pt plus 5cm}virtual Crawler\+::\+Application\+::$\sim$\+Application (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}\label{class_crawler_1_1_application_a2c8754469bd6c0722a7077e39775867c}
+
+
+Default destructor. 
+
+\hypertarget{class_crawler_1_1_application_a3f14969f49a9cbfb58ae0976aa65223d}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!Application@{Application}}
+\index{Application@{Application}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{Application}]{\setlength{\rightskip}{0pt plus 5cm}Crawler\+::\+Application\+::\+Application (
+\begin{DoxyParamCaption}
+\item[{const {\bf Application} \&}]{application}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\label{class_crawler_1_1_application_a3f14969f49a9cbfb58ae0976aa65223d}
+
+
+Copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em application} & \hyperlink{class_crawler_1_1_application}{Application} which gets copied \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_crawler_1_1_application_a72a0ae0583df3520ae43af8421eec28b}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!Application@{Application}}
+\index{Application@{Application}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{Application}]{\setlength{\rightskip}{0pt plus 5cm}Crawler\+::\+Application\+::\+Application (
+\begin{DoxyParamCaption}
+\item[{{\bf Application} \&\&}]{application}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\label{class_crawler_1_1_application_a72a0ae0583df3520ae43af8421eec28b}
+
+
+Move constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em application} & \hyperlink{class_crawler_1_1_application}{Application} which gets moved \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_crawler_1_1_application_ad22222189cada456cad856bcce6b8f32}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!get\+Arguments@{get\+Arguments}}
+\index{get\+Arguments@{get\+Arguments}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{get\+Arguments}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::vector$<$ std\+::string $>$ \& Crawler\+::\+Application\+::get\+Arguments (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}}\label{class_crawler_1_1_application_ad22222189cada456cad856bcce6b8f32}
+
+
+Returns command line arguments. 
+
+\begin{DoxyReturn}{Returns}
+Reference to a vector with command line arguments 
+\end{DoxyReturn}
+
+
+Definition at line 119 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_acff7506553bf1a55dced63c1d0b1c2e4}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!get\+Website\+Manager@{get\+Website\+Manager}}
+\index{get\+Website\+Manager@{get\+Website\+Manager}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{get\+Website\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Website\+Manager} \& Crawler\+::\+Application\+::get\+Website\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_application_acff7506553bf1a55dced63c1d0b1c2e4}
+
+
+Returns website manager. 
+
+\begin{DoxyReturn}{Returns}
+Reference to website manager 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_a08d275f1722533ab7ea40b276b3ee712}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!get\+Website\+Manager@{get\+Website\+Manager}}
+\index{get\+Website\+Manager@{get\+Website\+Manager}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{get\+Website\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Crawler\+::\+Website\+Manager} \& Crawler\+::\+Application\+::get\+Website\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_application_a08d275f1722533ab7ea40b276b3ee712}
+
+
+Returns website manager. 
+
+\begin{DoxyReturn}{Returns}
+Reference to website manager 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_aae5500b115428bbe7de9c0451fd3b556}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!get\+Worker\+Manager@{get\+Worker\+Manager}}
+\index{get\+Worker\+Manager@{get\+Worker\+Manager}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{get\+Worker\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Crawler\+::\+Worker\+Manager} \& Crawler\+::\+Application\+::get\+Worker\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_application_aae5500b115428bbe7de9c0451fd3b556}
+
+
+Returns worker manager. 
+
+\begin{DoxyReturn}{Returns}
+Reference to worker manager 
+\end{DoxyReturn}
+
+
+Definition at line 28 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_adb00513d242574057f14d71b60e152bf}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!get\+Worker\+Manager@{get\+Worker\+Manager}}
+\index{get\+Worker\+Manager@{get\+Worker\+Manager}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{get\+Worker\+Manager}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Crawler\+::\+Worker\+Manager} \& Crawler\+::\+Application\+::get\+Worker\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_application_adb00513d242574057f14d71b60e152bf}
+
+
+Returns worker manager. 
+
+\begin{DoxyReturn}{Returns}
+Reference to worker manager 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_a09ab3c80a3677f69b6ba6f6a81367ce6}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!is\+Running@{is\+Running}}
+\index{is\+Running@{is\+Running}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{is\+Running}]{\setlength{\rightskip}{0pt plus 5cm}bool Crawler\+::\+Application\+::is\+Running (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_crawler_1_1_application_a09ab3c80a3677f69b6ba6f6a81367ce6}
+
+
+Returns if application is running. 
+
+\begin{DoxyReturn}{Returns}
+True if application is running 
+\end{DoxyReturn}
+
+
+Definition at line 14 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_a0c1b381f01f73dacb6493043302136ae}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!main@{main}}
+\index{main@{main}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int Crawler\+::\+Application\+::main (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ std\+::string $>$ \&}]{arguments}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_application_a0c1b381f01f73dacb6493043302136ae}
+
+
+Applications entry point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arguments} & Command line arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error code for operating system 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_a97037c34bec5f50bd7bf1f56456ea555}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!on\+Add\+Link@{on\+Add\+Link}}
+\index{on\+Add\+Link@{on\+Add\+Link}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{on\+Add\+Link}]{\setlength{\rightskip}{0pt plus 5cm}bool Crawler\+::\+Application\+::on\+Add\+Link (
+\begin{DoxyParamCaption}
+\item[{{\bf Crawler\+::\+Website} \&}]{website, }
+\item[{{\bf Crawler\+::\+Link} \&}]{link}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_crawler_1_1_application_a97037c34bec5f50bd7bf1f56456ea555}
+
+
+Gets called when a new link to a website is added. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em website} & \hyperlink{class_crawler_1_1_website}{Website} which link refers to \\
+\hline
+{\em link} & \hyperlink{class_crawler_1_1_link}{Link} which is added to website \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if link will be added to website 
+\end{DoxyReturn}
+
+
+Definition at line 109 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_abdbdf57a6da5d52a8f7b4fb0e87fb422}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!on\+Add\+Website@{on\+Add\+Website}}
+\index{on\+Add\+Website@{on\+Add\+Website}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{on\+Add\+Website}]{\setlength{\rightskip}{0pt plus 5cm}bool Crawler\+::\+Application\+::on\+Add\+Website (
+\begin{DoxyParamCaption}
+\item[{{\bf Crawler\+::\+Website} \&}]{website}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_crawler_1_1_application_abdbdf57a6da5d52a8f7b4fb0e87fb422}
+
+
+Gets called when a new website is added. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em website} & \hyperlink{class_crawler_1_1_website}{Website} which is added to website manager \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if website will be added to website manager 
+\end{DoxyReturn}
+
+
+Definition at line 104 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_aa6bc95edeb44f9338224862365c812d5}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!on\+Despawn\+Worker@{on\+Despawn\+Worker}}
+\index{on\+Despawn\+Worker@{on\+Despawn\+Worker}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{on\+Despawn\+Worker}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Application\+::on\+Despawn\+Worker (
+\begin{DoxyParamCaption}
+\item[{{\bf Crawler\+::\+Worker} \&}]{worker}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_crawler_1_1_application_aa6bc95edeb44f9338224862365c812d5}
+
+
+Gets called when a worker despawns. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & \hyperlink{class_crawler_1_1_worker}{Worker} which is despawned \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 75 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_a3f5866fdfdfd85b3ce2d192eef7efd32}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!on\+Main@{on\+Main}}
+\index{on\+Main@{on\+Main}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{on\+Main}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Application\+::on\+Main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_crawler_1_1_application_a3f5866fdfdfd85b3ce2d192eef7efd32}
+
+
+Gets called inside the main function. 
+
+
+
+Definition at line 63 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_a43048018281b44cedeb943d856c2bbad}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!on\+Parsing@{on\+Parsing}}
+\index{on\+Parsing@{on\+Parsing}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{on\+Parsing}]{\setlength{\rightskip}{0pt plus 5cm}bool Crawler\+::\+Application\+::on\+Parsing (
+\begin{DoxyParamCaption}
+\item[{{\bf Crawler\+::\+Worker} \&}]{worker, }
+\item[{{\bf Crawler\+::\+Website} \&}]{website, }
+\item[{{\bf Crawler\+::\+Link} \&}]{link, }
+\item[{pugi\+::xml\+\_\+document \&}]{document}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_crawler_1_1_application_a43048018281b44cedeb943d856c2bbad}
+
+
+Gets called when the document is parsed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & \hyperlink{class_crawler_1_1_worker}{Worker} which parses the document \\
+\hline
+{\em website} & \hyperlink{class_crawler_1_1_website}{Website} the document refers to \\
+\hline
+{\em link} & \hyperlink{class_crawler_1_1_link}{Link} the document refers to \\
+\hline
+{\em document} & X\+M\+L document of the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if worker will report all links 
+\end{DoxyReturn}
+
+
+Definition at line 94 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_acb987ee8ae6f0e6e7f9b1092dd7a4f3f}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!on\+Report\+Link@{on\+Report\+Link}}
+\index{on\+Report\+Link@{on\+Report\+Link}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{on\+Report\+Link}]{\setlength{\rightskip}{0pt plus 5cm}bool Crawler\+::\+Application\+::on\+Report\+Link (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{string}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_crawler_1_1_application_acb987ee8ae6f0e6e7f9b1092dd7a4f3f}
+
+
+Gets called when a \hyperlink{class_crawler_1_1_link}{Link} is reported. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & \hyperlink{class_crawler_1_1_link}{Link} which is reported \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if report\+Link continues the handling of the link 
+\end{DoxyReturn}
+
+
+Definition at line 99 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_a1d3c8c2d7f226d33601e96ede098976a}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!on\+Request@{on\+Request}}
+\index{on\+Request@{on\+Request}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{on\+Request}]{\setlength{\rightskip}{0pt plus 5cm}bool Crawler\+::\+Application\+::on\+Request (
+\begin{DoxyParamCaption}
+\item[{{\bf Crawler\+::\+Worker} \&}]{worker, }
+\item[{{\bf Crawler\+::\+Website} \&}]{website, }
+\item[{{\bf Crawler\+::\+Link} \&}]{link, }
+\item[{sf\+::\+Http \&}]{client, }
+\item[{sf\+::\+Http\+::\+Request \&}]{request}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_crawler_1_1_application_a1d3c8c2d7f226d33601e96ede098976a}
+
+
+Gets called when a H\+T\+T\+P request is sent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & \hyperlink{class_crawler_1_1_worker}{Worker} which parses the document \\
+\hline
+{\em website} & \hyperlink{class_crawler_1_1_website}{Website} the document refers to \\
+\hline
+{\em link} & \hyperlink{class_crawler_1_1_link}{Link} the document refers to \\
+\hline
+{\em client} & H\+T\+T\+P client which sends the request \\
+\hline
+{\em request} & Request which is sent by the client \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if worker will send the request and receive the response 
+\end{DoxyReturn}
+
+
+Definition at line 84 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_af1ad5bb1ae7ce57444e5a234fe0582a8}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!on\+Response@{on\+Response}}
+\index{on\+Response@{on\+Response}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{on\+Response}]{\setlength{\rightskip}{0pt plus 5cm}bool Crawler\+::\+Application\+::on\+Response (
+\begin{DoxyParamCaption}
+\item[{{\bf Crawler\+::\+Worker} \&}]{worker, }
+\item[{{\bf Crawler\+::\+Website} \&}]{website, }
+\item[{{\bf Crawler\+::\+Link} \&}]{link, }
+\item[{sf\+::\+Http \&}]{client, }
+\item[{sf\+::\+Http\+::\+Response \&}]{response}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_crawler_1_1_application_af1ad5bb1ae7ce57444e5a234fe0582a8}
+
+
+Gets called when a H\+T\+T\+P response is received. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & \hyperlink{class_crawler_1_1_worker}{Worker} which received the response \\
+\hline
+{\em website} & \hyperlink{class_crawler_1_1_website}{Website} the document refers to \\
+\hline
+{\em link} & \hyperlink{class_crawler_1_1_link}{Link} the document refers to \\
+\hline
+{\em client} & H\+T\+T\+P client which received the response \\
+\hline
+{\em response} & Response which was received by the client \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if worker will parse the body of the response 
+\end{DoxyReturn}
+
+
+Definition at line 89 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_a544d41cc0fb2b5f36b44480ea4a3b14f}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!on\+Shutdown@{on\+Shutdown}}
+\index{on\+Shutdown@{on\+Shutdown}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{on\+Shutdown}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Application\+::on\+Shutdown (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_crawler_1_1_application_a544d41cc0fb2b5f36b44480ea4a3b14f}
+
+
+Gets called when application shuts down. 
+
+
+
+Definition at line 67 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_a7fe762aa7cd9d776ef593f690fd7d516}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!on\+Spawn\+Worker@{on\+Spawn\+Worker}}
+\index{on\+Spawn\+Worker@{on\+Spawn\+Worker}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{on\+Spawn\+Worker}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Application\+::on\+Spawn\+Worker (
+\begin{DoxyParamCaption}
+\item[{{\bf Crawler\+::\+Worker} \&}]{worker}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_crawler_1_1_application_a7fe762aa7cd9d776ef593f690fd7d516}
+
+
+Gets called when a worker spawns. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & \hyperlink{class_crawler_1_1_worker}{Worker} which is spawned \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 71 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_a4db5d3f489384149ec89be2d9a862277}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!on\+Startup@{on\+Startup}}
+\index{on\+Startup@{on\+Startup}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{on\+Startup}]{\setlength{\rightskip}{0pt plus 5cm}bool Crawler\+::\+Application\+::on\+Startup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_crawler_1_1_application_a4db5d3f489384149ec89be2d9a862277}
+
+
+Gets called when application starts up. 
+
+\begin{DoxyReturn}{Returns}
+True if startup was successfull 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_af9735a84f3ed01419a14e9dc584bd238}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!on\+Unsupported\+Protocol@{on\+Unsupported\+Protocol}}
+\index{on\+Unsupported\+Protocol@{on\+Unsupported\+Protocol}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{on\+Unsupported\+Protocol}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Application\+::on\+Unsupported\+Protocol (
+\begin{DoxyParamCaption}
+\item[{{\bf Crawler\+::\+Worker} \&}]{worker, }
+\item[{{\bf Crawler\+::\+Website} \&}]{website}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_crawler_1_1_application_af9735a84f3ed01419a14e9dc584bd238}
+
+
+Gets called when an unsupported protocol is accessed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & \hyperlink{class_crawler_1_1_worker}{Worker} which accesses the unsupported protocol \\
+\hline
+{\em website} & \hyperlink{class_crawler_1_1_website}{Website} with the unsupported protocol \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 79 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_a45cd98a249e0f0b2755d1acf94c7fa1a}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!on\+Visited\+Websites@{on\+Visited\+Websites}}
+\index{on\+Visited\+Websites@{on\+Visited\+Websites}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{on\+Visited\+Websites}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Application\+::on\+Visited\+Websites (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_crawler_1_1_application_a45cd98a249e0f0b2755d1acf94c7fa1a}
+
+
+Gets called when all websites has been visited. 
+
+
+
+Definition at line 114 of file Application.\+cpp.
+
+\hypertarget{class_crawler_1_1_application_aebd607d398cd26488c0216b2def97f4e}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!operator=@{operator=}}
+\index{operator=@{operator=}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Application}\& Crawler\+::\+Application\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Application} \&}]{application}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\label{class_crawler_1_1_application_aebd607d398cd26488c0216b2def97f4e}
+
+
+Copy assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em application} & \hyperlink{class_crawler_1_1_application}{Application} which gets copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this 
+\end{DoxyReturn}
+\hypertarget{class_crawler_1_1_application_a31d508ac368f000bd3f4dd6626569279}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!operator=@{operator=}}
+\index{operator=@{operator=}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Application}\& Crawler\+::\+Application\+::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Application} \&\&}]{application}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}\label{class_crawler_1_1_application_a31d508ac368f000bd3f4dd6626569279}
+
+
+Move assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em application} & \hyperlink{class_crawler_1_1_application}{Application} which gets moved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this 
+\end{DoxyReturn}
+\hypertarget{class_crawler_1_1_application_aec89860e70e9f040f5468fc233144cae}{}\index{Crawler\+::\+Application@{Crawler\+::\+Application}!set\+Running@{set\+Running}}
+\index{set\+Running@{set\+Running}!Crawler\+::\+Application@{Crawler\+::\+Application}}
+\subsubsection[{set\+Running}]{\setlength{\rightskip}{0pt plus 5cm}void Crawler\+::\+Application\+::set\+Running (
+\begin{DoxyParamCaption}
+\item[{bool}]{running}
+\end{DoxyParamCaption}
+)}\label{class_crawler_1_1_application_aec89860e70e9f040f5468fc233144cae}
+
+
+Changes if application is running. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em running} & Value of running \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 9 of file Application.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Crawler/\hyperlink{_application_8hpp}{Application.\+hpp}\item 
+Source/\+Crawler/\hyperlink{_application_8cpp}{Application.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,260 @@
+.TH "Crawler::WorkerManager" 3 "Sun Jun 21 2015" "Version 1.0" "Crawler" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Crawler::WorkerManager \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <WorkerManager\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBConstIterator\fP = std::list< std::unique_ptr< \fBCrawler::Worker\fP >>::const_iterator"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWorkerManager\fP (\fBApplication\fP &application)"
+.br
+.RI "\fIConstructor\&. \fP"
+.ti -1c
+.RI "\fBWorkerManager\fP (const \fBWorkerManager\fP &workerManager)=delete"
+.br
+.RI "\fICopy constructor\&. \fP"
+.ti -1c
+.RI "\fBWorkerManager\fP (\fBWorkerManager\fP &&workerManager)=delete"
+.br
+.RI "\fIMove constructor\&. \fP"
+.ti -1c
+.RI "\fBWorkerManager\fP & \fBoperator=\fP (const \fBWorkerManager\fP &workerManager)=delete"
+.br
+.RI "\fICopy assignment operator\&. \fP"
+.ti -1c
+.RI "\fBWorkerManager\fP & \fBoperator=\fP (\fBWorkerManager\fP &&workerManager)=delete"
+.br
+.RI "\fIMove assignment operator\&. \fP"
+.ti -1c
+.RI "\fBCrawler::Application\fP & \fBgetApplication\fP ()"
+.br
+.RI "\fIReturns application\&. \fP"
+.ti -1c
+.RI "const \fBCrawler::Application\fP & \fBgetApplication\fP () const "
+.br
+.RI "\fIReturns application\&. \fP"
+.ti -1c
+.RI "void \fBsetAmountOfWorker\fP (std::size_t amountOfWorker)"
+.br
+.RI "\fIChanges amount of worker\&. \fP"
+.ti -1c
+.RI "std::size_t \fBgetAmountOfWorker\fP () const "
+.br
+.RI "\fIReturns amount of worker\&. \fP"
+.ti -1c
+.RI "void \fBspawnWorker\fP ()"
+.br
+.RI "\fISpawns a worker\&. \fP"
+.ti -1c
+.RI "void \fBdespawnWorker\fP ()"
+.br
+.RI "\fIDespawns a worker\&. \fP"
+.ti -1c
+.RI "const std::list< std::unique_ptr< \fBCrawler::Worker\fP > > & \fBgetWorker\fP () const "
+.br
+.RI "\fIReturns list of workers\&. \fP"
+.ti -1c
+.RI "\fBConstIterator\fP \fBbegin\fP () const "
+.br
+.RI "\fIReturns begin iterator\&. \fP"
+.ti -1c
+.RI "\fBConstIterator\fP \fBcbegin\fP () const "
+.br
+.RI "\fIReturns begin iterator\&. \fP"
+.ti -1c
+.RI "\fBConstIterator\fP \fBend\fP () const "
+.br
+.RI "\fIReturns end iterator\&. \fP"
+.ti -1c
+.RI "\fBConstIterator\fP \fBcend\fP () const "
+.br
+.RI "\fIReturns end iterator\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 13 of file WorkerManager\&.hpp\&.
+.SH "Member Typedef Documentation"
+.PP 
+.SS "using \fBCrawler::WorkerManager::ConstIterator\fP =  std::list <std::unique_ptr <\fBCrawler::Worker\fP>>::const_iterator"
+
+.PP
+Definition at line 16 of file WorkerManager\&.hpp\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Crawler::WorkerManager::WorkerManager (\fBApplication\fP & application)"
+
+.PP
+Constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIapplication\fP Reference to application object 
+.RE
+.PP
+
+.PP
+Definition at line 5 of file WorkerManager\&.cpp\&.
+.SS "Crawler::WorkerManager::WorkerManager (const \fBWorkerManager\fP & workerManager)\fC [delete]\fP"
+
+.PP
+Copy constructor\&. 
+.SS "Crawler::WorkerManager::WorkerManager (\fBWorkerManager\fP && workerManager)\fC [delete]\fP"
+
+.PP
+Move constructor\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBCrawler::WorkerManager::ConstIterator\fP Crawler::WorkerManager::begin () const"
+
+.PP
+Returns begin iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Begin iterator 
+.RE
+.PP
+
+.PP
+Definition at line 67 of file WorkerManager\&.cpp\&.
+.SS "\fBCrawler::WorkerManager::ConstIterator\fP Crawler::WorkerManager::cbegin () const"
+
+.PP
+Returns begin iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Begin iterator 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file WorkerManager\&.cpp\&.
+.SS "\fBCrawler::WorkerManager::ConstIterator\fP Crawler::WorkerManager::cend () const"
+
+.PP
+Returns end iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+End iterator 
+.RE
+.PP
+
+.PP
+Definition at line 79 of file WorkerManager\&.cpp\&.
+.SS "void Crawler::WorkerManager::despawnWorker ()"
+
+.PP
+Despawns a worker\&. 
+.PP
+Definition at line 49 of file WorkerManager\&.cpp\&.
+.SS "\fBCrawler::WorkerManager::ConstIterator\fP Crawler::WorkerManager::end () const"
+
+.PP
+Returns end iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+End iterator 
+.RE
+.PP
+
+.PP
+Definition at line 75 of file WorkerManager\&.cpp\&.
+.SS "std::size_t Crawler::WorkerManager::getAmountOfWorker () const"
+
+.PP
+Returns amount of worker\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Amount of worker 
+.RE
+.PP
+
+.PP
+Definition at line 32 of file WorkerManager\&.cpp\&.
+.SS "\fBCrawler::Application\fP & Crawler::WorkerManager::getApplication ()"
+
+.PP
+Returns application\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to application 
+.RE
+.PP
+
+.PP
+Definition at line 10 of file WorkerManager\&.cpp\&.
+.SS "const \fBCrawler::Application\fP & Crawler::WorkerManager::getApplication () const"
+
+.PP
+Returns application\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to application 
+.RE
+.PP
+
+.PP
+Definition at line 15 of file WorkerManager\&.cpp\&.
+.SS "const std::list< std::unique_ptr< \fBCrawler::Worker\fP > > & Crawler::WorkerManager::getWorker () const"
+
+.PP
+Returns list of workers\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to list of workers 
+.RE
+.PP
+
+.PP
+Definition at line 62 of file WorkerManager\&.cpp\&.
+.SS "\fBWorkerManager\fP& Crawler::WorkerManager::operator= (const \fBWorkerManager\fP & workerManager)\fC [delete]\fP"
+
+.PP
+Copy assignment operator\&. 
+.SS "\fBWorkerManager\fP& Crawler::WorkerManager::operator= (\fBWorkerManager\fP && workerManager)\fC [delete]\fP"
+
+.PP
+Move assignment operator\&. 
+.SS "void Crawler::WorkerManager::setAmountOfWorker (std::size_t amountOfWorker)"
+
+.PP
+Changes amount of worker\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIamountOfWorker\fP Value of amount of worker 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file WorkerManager\&.cpp\&.
+.SS "void Crawler::WorkerManager::spawnWorker ()"
+
+.PP
+Spawns a worker\&. 
+.PP
+Definition at line 37 of file WorkerManager\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Crawler from the source code\&.

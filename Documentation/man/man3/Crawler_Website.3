@@ -1,0 +1,536 @@
+.TH "Crawler::Website" 3 "Sun Jun 21 2015" "Version 1.0" "Crawler" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Crawler::Website \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Website\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBIterator\fP = std::list< \fBCrawler::Link\fP >::iterator"
+.br
+.ti -1c
+.RI "using \fBConstIterator\fP = std::list< \fBCrawler::Link\fP >::const_iterator"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWebsite\fP ()"
+.br
+.RI "\fIDefault constructor which adds the root as default entry\&. \fP"
+.ti -1c
+.RI "\fBWebsite\fP (const std::string &scheme, const std::string &authority)"
+.br
+.RI "\fIConstructor\&. \fP"
+.ti -1c
+.RI "\fBWebsite\fP (const std::string &website)"
+.br
+.RI "\fIConstructor for parsing a website\&. \fP"
+.ti -1c
+.RI "\fBWebsite\fP (const \fBWebsite\fP &website)"
+.br
+.RI "\fIDefault copy constructor\&. \fP"
+.ti -1c
+.RI "\fBWebsite\fP (\fBWebsite\fP &&website)"
+.br
+.RI "\fIDefault move Constructor\&. \fP"
+.ti -1c
+.RI "\fBWebsite\fP & \fBoperator=\fP (const \fBWebsite\fP &website)"
+.br
+.RI "\fICopy assignment operator overloading\&. \fP"
+.ti -1c
+.RI "\fBWebsite\fP & \fBoperator=\fP (\fBWebsite\fP &&website)"
+.br
+.RI "\fIMove assignment operator overloading\&. \fP"
+.ti -1c
+.RI "bool \fBwasVisited\fP () const "
+.br
+.RI "\fIChecks if website was visited (all links have been visited) \fP"
+.ti -1c
+.RI "void \fBsetVisited\fP (bool visited)"
+.br
+.RI "\fIChanges if website was visited\&. \fP"
+.ti -1c
+.RI "const std::string & \fBgetScheme\fP () const "
+.br
+.RI "\fIReturns scheme\&. \fP"
+.ti -1c
+.RI "void \fBsetScheme\fP (const std::string &scheme)"
+.br
+.RI "\fIChanges scheme\&. \fP"
+.ti -1c
+.RI "const std::string & \fBgetAuthority\fP () const "
+.br
+.RI "\fIReturns authority\&. \fP"
+.ti -1c
+.RI "void \fBsetAuthority\fP (const std::string &authority)"
+.br
+.RI "\fIChanges authority\&. \fP"
+.ti -1c
+.RI "bool \fBexistsLink\fP (const \fBCrawler::Link\fP &link)"
+.br
+.RI "\fIChecks if link exists\&. \fP"
+.ti -1c
+.RI "void \fBaddLink\fP (const \fBCrawler::Link\fP &link)"
+.br
+.RI "\fIAdds a link to the website\&. \fP"
+.ti -1c
+.RI "void \fBremoveLink\fP (const \fBCrawler::Link\fP &link)"
+.br
+.RI "\fIRemoves a link from the website\&. \fP"
+.ti -1c
+.RI "\fBIterator\fP \fBremoveLink\fP (\fBIterator\fP link)"
+.br
+.RI "\fIRemoves a link from the website\&. \fP"
+.ti -1c
+.RI "const std::list< \fBCrawler::Link\fP > & \fBgetLinks\fP () const "
+.br
+.RI "\fIReturns the list of links\&. \fP"
+.ti -1c
+.RI "void \fBregisterWorker\fP (\fBCrawler::Worker\fP &worker)"
+.br
+.RI "\fIRegisters a worker\&. \fP"
+.ti -1c
+.RI "void \fBunregisterWorker\fP (\fBCrawler::Worker\fP &worker)"
+.br
+.RI "\fIUnregisters a worker\&. \fP"
+.ti -1c
+.RI "const std::list< \fBCrawler::Worker\fP * > & \fBgetWorker\fP () const "
+.br
+.RI "\fIReturns all assigned workers\&. \fP"
+.ti -1c
+.RI "\fBIterator\fP \fBbegin\fP ()"
+.br
+.RI "\fIReturns begin iterator\&. \fP"
+.ti -1c
+.RI "\fBConstIterator\fP \fBbegin\fP () const "
+.br
+.RI "\fIReturns begin iterator\&. \fP"
+.ti -1c
+.RI "\fBConstIterator\fP \fBcbegin\fP () const "
+.br
+.RI "\fIReturns begin iterator\&. \fP"
+.ti -1c
+.RI "\fBIterator\fP \fBend\fP ()"
+.br
+.RI "\fIReturns end iterator\&. \fP"
+.ti -1c
+.RI "\fBConstIterator\fP \fBend\fP () const "
+.br
+.RI "\fIReturns end iterator\&. \fP"
+.ti -1c
+.RI "\fBConstIterator\fP \fBcend\fP () const "
+.br
+.RI "\fIReturns end iterator\&. \fP"
+.ti -1c
+.RI "\fBCrawler::Link\fP * \fBrequestLink\fP ()"
+.br
+.RI "\fIRequests link from website The function marks the website automatically as visited if all links has been visited\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 14 of file Website\&.hpp\&.
+.SH "Member Typedef Documentation"
+.PP 
+.SS "using \fBCrawler::Website::ConstIterator\fP =  std::list <\fBCrawler::Link\fP>::const_iterator"
+
+.PP
+Definition at line 18 of file Website\&.hpp\&.
+.SS "using \fBCrawler::Website::Iterator\fP =  std::list <\fBCrawler::Link\fP>::iterator"
+
+.PP
+Definition at line 17 of file Website\&.hpp\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Crawler::Website::Website ()"
+
+.PP
+Default constructor which adds the root as default entry\&. 
+.PP
+Definition at line 19 of file Website\&.cpp\&.
+.SS "Crawler::Website::Website (const std::string & scheme, const std::string & authority)"
+
+.PP
+Constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIscheme\fP Scheme or protocol ('http'; 'ftp') 
+.br
+\fIauthority\fP Provider or server ('localhost:80'; '127\&.0\&.0\&.1'; 'username@host\&.de:5000') 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file Website\&.cpp\&.
+.SS "Crawler::Website::Website (const std::string & website)"
+
+.PP
+Constructor for parsing a website\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsite\fP String which gets parsed 
+.RE
+.PP
+
+.PP
+Definition at line 31 of file Website\&.cpp\&.
+.SS "Crawler::Website::Website (const \fBWebsite\fP & website)"
+
+.PP
+Default copy constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsite\fP \fBWebsite\fP which is copied 
+.RE
+.PP
+
+.PP
+Definition at line 54 of file Website\&.cpp\&.
+.SS "Crawler::Website::Website (\fBWebsite\fP && website)"
+
+.PP
+Default move Constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsite\fP \fBWebsite\fP which is moved 
+.RE
+.PP
+
+.PP
+Definition at line 62 of file Website\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Crawler::Website::addLink (const \fBCrawler::Link\fP & link)"
+
+.PP
+Adds a link to the website\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlink\fP \fBLink\fP which is added 
+.RE
+.PP
+
+.PP
+Definition at line 138 of file Website\&.cpp\&.
+.SS "\fBCrawler::Website::Iterator\fP Crawler::Website::begin ()"
+
+.PP
+Returns begin iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Begin iterator 
+.RE
+.PP
+
+.PP
+Definition at line 200 of file Website\&.cpp\&.
+.SS "\fBCrawler::Website::ConstIterator\fP Crawler::Website::begin () const"
+
+.PP
+Returns begin iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Begin iterator 
+.RE
+.PP
+
+.PP
+Definition at line 205 of file Website\&.cpp\&.
+.SS "\fBCrawler::Website::ConstIterator\fP Crawler::Website::cbegin () const"
+
+.PP
+Returns begin iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Begin iterator 
+.RE
+.PP
+
+.PP
+Definition at line 210 of file Website\&.cpp\&.
+.SS "\fBCrawler::Website::ConstIterator\fP Crawler::Website::cend () const"
+
+.PP
+Returns end iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+End iterator 
+.RE
+.PP
+
+.PP
+Definition at line 225 of file Website\&.cpp\&.
+.SS "\fBCrawler::Website::Iterator\fP Crawler::Website::end ()"
+
+.PP
+Returns end iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+End iterator 
+.RE
+.PP
+
+.PP
+Definition at line 215 of file Website\&.cpp\&.
+.SS "\fBCrawler::Website::ConstIterator\fP Crawler::Website::end () const"
+
+.PP
+Returns end iterator\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+End iterator 
+.RE
+.PP
+
+.PP
+Definition at line 220 of file Website\&.cpp\&.
+.SS "bool Crawler::Website::existsLink (const \fBCrawler::Link\fP & link)"
+
+.PP
+Checks if link exists\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlink\fP \fBLink\fP which is checked 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if link exists 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file Website\&.cpp\&.
+.SS "const std::string & Crawler::Website::getAuthority () const"
+
+.PP
+Returns authority\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to authority 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file Website\&.cpp\&.
+.SS "const std::list< \fBCrawler::Link\fP > & Crawler::Website::getLinks () const"
+
+.PP
+Returns the list of links\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to the list of links 
+.RE
+.PP
+
+.PP
+Definition at line 167 of file Website\&.cpp\&.
+.SS "const std::string & Crawler::Website::getScheme () const"
+
+.PP
+Returns scheme\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to scheme 
+.RE
+.PP
+
+.PP
+Definition at line 108 of file Website\&.cpp\&.
+.SS "const std::list< \fBCrawler::Worker\fP * > & Crawler::Website::getWorker () const"
+
+.PP
+Returns all assigned workers\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Vector of all assigned worker 
+.RE
+.PP
+
+.PP
+Definition at line 195 of file Website\&.cpp\&.
+.SS "\fBCrawler::Website\fP & Crawler::Website::operator= (const \fBWebsite\fP & website)"
+
+.PP
+Copy assignment operator overloading\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsite\fP \fBWebsite\fP which is copied 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to this 
+.RE
+.PP
+
+.PP
+Definition at line 72 of file Website\&.cpp\&.
+.SS "\fBCrawler::Website\fP & Crawler::Website::operator= (\fBWebsite\fP && website)"
+
+.PP
+Move assignment operator overloading\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwebsite\fP \fBWebsite\fP which is moved 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to this 
+.RE
+.PP
+
+.PP
+Definition at line 84 of file Website\&.cpp\&.
+.SS "void Crawler::Website::registerWorker (\fBCrawler::Worker\fP & worker)"
+
+.PP
+Registers a worker\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP \fBWorker\fP which gets registered 
+.RE
+.PP
+
+.PP
+Definition at line 172 of file Website\&.cpp\&.
+.SS "void Crawler::Website::removeLink (const \fBCrawler::Link\fP & link)"
+
+.PP
+Removes a link from the website\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlink\fP \fBLink\fP which is removed 
+.RE
+.PP
+
+.PP
+Definition at line 148 of file Website\&.cpp\&.
+.SS "\fBCrawler::Website::Iterator\fP Crawler::Website::removeLink (\fBIterator\fP link)"
+
+.PP
+Removes a link from the website\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIiterator\fP Iterator (link) which is removed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Last iterator in the list 
+.RE
+.PP
+
+.PP
+Definition at line 161 of file Website\&.cpp\&.
+.SS "\fBCrawler::Link\fP * Crawler::Website::requestLink ()"
+
+.PP
+Requests link from website The function marks the website automatically as visited if all links has been visited\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Next link of website which has not been visited or nullptr 
+.RE
+.PP
+
+.PP
+Definition at line 230 of file Website\&.cpp\&.
+.SS "void Crawler::Website::setAuthority (const std::string & authority)"
+
+.PP
+Changes authority\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIscheme\fP New authority 
+.RE
+.PP
+
+.PP
+Definition at line 124 of file Website\&.cpp\&.
+.SS "void Crawler::Website::setScheme (const std::string & scheme)"
+
+.PP
+Changes scheme\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIscheme\fP New scheme 
+.RE
+.PP
+
+.PP
+Definition at line 113 of file Website\&.cpp\&.
+.SS "void Crawler::Website::setVisited (bool visited)"
+
+.PP
+Changes if website was visited\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvisited\fP Value of visited 
+.RE
+.PP
+
+.PP
+Definition at line 102 of file Website\&.cpp\&.
+.SS "void Crawler::Website::unregisterWorker (\fBCrawler::Worker\fP & worker)"
+
+.PP
+Unregisters a worker\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP \fBWorker\fP which gets unregistered 
+.RE
+.PP
+
+.PP
+Definition at line 182 of file Website\&.cpp\&.
+.SS "bool Crawler::Website::wasVisited () const"
+
+.PP
+Checks if website was visited (all links have been visited) 
+.PP
+\fBReturns:\fP
+.RS 4
+True of website was visited 
+.RE
+.PP
+
+.PP
+Definition at line 97 of file Website\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Crawler from the source code\&.

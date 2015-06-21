@@ -1,0 +1,254 @@
+.TH "Crawler::Worker" 3 "Sun Jun 21 2015" "Version 1.0" "Crawler" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Crawler::Worker \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Worker\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWorker\fP (\fBCrawler::WorkerManager\fP &workerManager)"
+.br
+.RI "\fIConstructor\&. \fP"
+.ti -1c
+.RI "\fBWorker\fP (const \fBWorker\fP &worker)=delete"
+.br
+.RI "\fICopy constructor\&. \fP"
+.ti -1c
+.RI "\fBWorker\fP (\fBWorker\fP &&worker)=delete"
+.br
+.RI "\fIMove constructor\&. \fP"
+.ti -1c
+.RI "\fBWorker\fP & \fBoperator=\fP (const \fBWorker\fP &worker)=delete"
+.br
+.RI "\fICopy assignment operator\&. \fP"
+.ti -1c
+.RI "\fBWorker\fP & \fBoperator=\fP (\fBWorker\fP &&\fBWorker\fP)=delete"
+.br
+.RI "\fIMove assignment operator\&. \fP"
+.ti -1c
+.RI "\fBCrawler::WorkerManager\fP & \fBgetWorkerManager\fP ()"
+.br
+.RI "\fIReturns reference to worker manager\&. \fP"
+.ti -1c
+.RI "const \fBCrawler::WorkerManager\fP & \fBgetWorkerManager\fP () const "
+.br
+.RI "\fIReturns reference to worker manager\&. \fP"
+.ti -1c
+.RI "\fBCrawler::Website\fP *const \fBgetWebsite\fP ()"
+.br
+.RI "\fIReturns the assigned website\&. \fP"
+.ti -1c
+.RI "const \fBCrawler::Website\fP *const \fBgetWebsite\fP () const "
+.br
+.RI "\fIReturns the assigned website\&. \fP"
+.ti -1c
+.RI "bool \fBisRunning\fP () const "
+.br
+.RI "\fIChecks if the worker is running\&. \fP"
+.ti -1c
+.RI "void \fBsetRunning\fP (bool running)"
+.br
+.RI "\fISets if the worker is running\&. \fP"
+.ti -1c
+.RI "void \fBlaunch\fP ()"
+.br
+.RI "\fILaunches the worker\&. \fP"
+.ti -1c
+.RI "void \fBterminate\fP ()"
+.br
+.RI "\fITerminates the worker\&. \fP"
+.ti -1c
+.RI "void \fBwait\fP ()"
+.br
+.RI "\fIWait until the worker finishes (this blocks the thread which executes this method so be carefull) \fP"
+.ti -1c
+.RI "void \fBkill\fP ()"
+.br
+.RI "\fIKills the worker immediately\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 19 of file Worker\&.hpp\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Crawler::Worker::Worker (\fBCrawler::WorkerManager\fP & workerManager)"
+
+.PP
+Constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworkerManager\fP \fBWorker\fP manager the worker belongs to 
+.RE
+.PP
+
+.PP
+Definition at line 10 of file Worker\&.cpp\&.
+.SS "Crawler::Worker::Worker (const \fBWorker\fP & worker)\fC [delete]\fP"
+
+.PP
+Copy constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP \fBWorker\fP which is copied 
+.RE
+.PP
+
+.SS "Crawler::Worker::Worker (\fBWorker\fP && worker)\fC [delete]\fP"
+
+.PP
+Move constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP \fBWorker\fP which is moved 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBCrawler::Website\fP *const Crawler::Worker::getWebsite ()"
+
+.PP
+Returns the assigned website\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to the assigned website 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file Worker\&.cpp\&.
+.SS "const \fBCrawler::Website\fP *const Crawler::Worker::getWebsite () const"
+
+.PP
+Returns the assigned website\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to the assigned website 
+.RE
+.PP
+
+.PP
+Definition at line 31 of file Worker\&.cpp\&.
+.SS "\fBCrawler::WorkerManager\fP & Crawler::Worker::getWorkerManager ()"
+
+.PP
+Returns reference to worker manager\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to worker manager 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file Worker\&.cpp\&.
+.SS "const \fBCrawler::WorkerManager\fP & Crawler::Worker::getWorkerManager () const"
+
+.PP
+Returns reference to worker manager\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to worker manager 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file Worker\&.cpp\&.
+.SS "bool Crawler::Worker::isRunning () const"
+
+.PP
+Checks if the worker is running\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the worker is running 
+.RE
+.PP
+
+.PP
+Definition at line 36 of file Worker\&.cpp\&.
+.SS "void Crawler::Worker::kill ()"
+
+.PP
+Kills the worker immediately\&. 
+.PP
+Definition at line 65 of file Worker\&.cpp\&.
+.SS "void Crawler::Worker::launch ()"
+
+.PP
+Launches the worker\&. 
+.PP
+Definition at line 47 of file Worker\&.cpp\&.
+.SS "\fBWorker\fP& Crawler::Worker::operator= (const \fBWorker\fP & worker)\fC [delete]\fP"
+
+.PP
+Copy assignment operator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP \fBWorker\fP which is copied 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to this 
+.RE
+.PP
+
+.SS "\fBWorker\fP& Crawler::Worker::operator= (\fBWorker\fP && Worker)\fC [delete]\fP"
+
+.PP
+Move assignment operator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP \fBWorker\fP which is moved 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Reference to this 
+.RE
+.PP
+
+.SS "void Crawler::Worker::setRunning (bool running)"
+
+.PP
+Sets if the worker is running\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrunning\fP Value of running 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file Worker\&.cpp\&.
+.SS "void Crawler::Worker::terminate ()"
+
+.PP
+Terminates the worker\&. 
+.PP
+Definition at line 53 of file Worker\&.cpp\&.
+.SS "void Crawler::Worker::wait ()"
+
+.PP
+Wait until the worker finishes (this blocks the thread which executes this method so be carefull) 
+.PP
+Definition at line 59 of file Worker\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Crawler from the source code\&.

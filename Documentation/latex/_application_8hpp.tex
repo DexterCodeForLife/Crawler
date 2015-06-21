@@ -1,0 +1,56 @@
+\hypertarget{_application_8hpp}{}\section{Source/\+Crawler/\+Application.hpp File Reference}
+\label{_application_8hpp}\index{Source/\+Crawler/\+Application.\+hpp@{Source/\+Crawler/\+Application.\+hpp}}
+{\ttfamily \#include $<$Crawler/\+Linker.\+hpp$>$}\\*
+{\ttfamily \#include $<$Crawler/\+Website\+Manager.\+hpp$>$}\\*
+{\ttfamily \#include $<$Crawler/\+Worker\+Manager.\+hpp$>$}\\*
+{\ttfamily \#include $<$S\+F\+M\+L/\+Network.\+hpp$>$}\\*
+{\ttfamily \#include $<$pugixml.\+hpp$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+Include dependency graph for Application.\+hpp\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_crawler_1_1_application}{Crawler\+::\+Application}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace_crawler}{Crawler}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_application_8hpp_a3f2b4a4f0ec6e7ef34462a2877eb74b9}{C\+R\+A\+W\+L\+E\+R\+\_\+\+A\+P\+P\+L\+I\+C\+A\+T\+I\+O\+N}(x)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_application_8hpp_a3f2b4a4f0ec6e7ef34462a2877eb74b9}{}\index{Application.\+hpp@{Application.\+hpp}!C\+R\+A\+W\+L\+E\+R\+\_\+\+A\+P\+P\+L\+I\+C\+A\+T\+I\+O\+N@{C\+R\+A\+W\+L\+E\+R\+\_\+\+A\+P\+P\+L\+I\+C\+A\+T\+I\+O\+N}}
+\index{C\+R\+A\+W\+L\+E\+R\+\_\+\+A\+P\+P\+L\+I\+C\+A\+T\+I\+O\+N@{C\+R\+A\+W\+L\+E\+R\+\_\+\+A\+P\+P\+L\+I\+C\+A\+T\+I\+O\+N}!Application.\+hpp@{Application.\+hpp}}
+\subsubsection[{C\+R\+A\+W\+L\+E\+R\+\_\+\+A\+P\+P\+L\+I\+C\+A\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+R\+A\+W\+L\+E\+R\+\_\+\+A\+P\+P\+L\+I\+C\+A\+T\+I\+O\+N(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{_application_8hpp_a3f2b4a4f0ec6e7ef34462a2877eb74b9}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordtype}{int} main ( \textcolor{keywordtype}{int} argc , \textcolor{keywordtype}{char} ** argv ) \(\backslash\)
+\{ \(\backslash\)
+    std::vector <std::string> arguments ; \(\backslash\)
+    arguments.reserve ( argc ) ; \(\backslash\)
+ \(\backslash\)
+    for ( \textcolor{keywordtype}{int} i = 0 ; i < argc ; ++i ) \(\backslash\)
+        arguments.push\_back ( argv [ i ] ) ; \(\backslash\)
+ \(\backslash\)
+    x instance ; \(\backslash\)
+    return instance.main ( arguments ) ; \(\backslash\)
+\}
+\end{DoxyCode}
+
+
+Definition at line 150 of file Application.\+hpp.
+
