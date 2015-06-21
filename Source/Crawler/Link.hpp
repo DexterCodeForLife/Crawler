@@ -91,11 +91,11 @@ namespace Crawler
 	/// \param left First link
 	/// \param right Second link
 	/// \return True if they are equal
-	bool operator == ( const Crawler::Link & left , const Crawler::Link & right ) ;
+	CRAWLER_API bool operator == ( const Crawler::Link & left , const Crawler::Link & right ) ;
 	
 	/// \brief Compares two links together
 	/// \param left First link
 	/// \param right Second link
 	/// \return False if they are equal
-	bool operator != ( const Crawler::Link & left , const Crawler::Link & right ) ;
+	CRAWLER_API bool operator != ( const Crawler::Link & left , const Crawler::Link & right ) ;
 }

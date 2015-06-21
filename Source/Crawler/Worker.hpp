@@ -51,11 +51,11 @@ namespace Crawler
 			
 			/// \brief Returns the assigned website
 			/// \return Reference to the assigned website
-			Crawler::Website * getWebsite ( ) ;
+			Crawler::Website * const getWebsite ( ) ;
 			
 			/// \brief Returns the assigned website
 			/// \return Reference to the assigned website
-			const Crawler::Website * getWebsite ( ) const ;
+			const Crawler::Website * const getWebsite ( ) const ;
 			
 			/// \brief Checks if the worker is running
 			/// \return True if the worker is running

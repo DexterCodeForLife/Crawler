@@ -23,12 +23,12 @@ const Crawler::WorkerManager & Crawler::Worker::getWorkerManager ( ) const
 	return this->workerManager ;
 }
 
-Crawler::Website * Crawler::Worker::getWebsite ( )
+Crawler::Website * const Crawler::Worker::getWebsite ( )
 {
 	return this->website;
 }
 	
-const Crawler::Website * Crawler::Worker::getWebsite ( ) const
+const Crawler::Website * const Crawler::Worker::getWebsite ( ) const
 {	
 	return this->website ;
 }
