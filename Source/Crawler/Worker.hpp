@@ -86,5 +86,8 @@ namespace Crawler
 			Crawler::Website * website = nullptr ;
 			bool running = true ;
 			sf::Mutex mutex ;
+			
+			static sf::Mutex onVisitedWebsitesMutex ;
+			static bool onVisitedWebsitesCalled ;
 	} ;
 }

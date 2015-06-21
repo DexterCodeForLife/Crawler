@@ -130,5 +130,42 @@ void Crawler::Worker::main ( )
 			
 			website->unregisterWorker ( * this ) ;
 		}
+		else
+		{
+			bool allVisited = true ;
+		
+			for ( auto & worker : this->getWorkerManager ( ) )
+			{
+				if ( worker->getWebsite ( ) )
+				{
+					allVisited = false ;
+					break ;
+				}
+			}
+		
+			for ( auto & website : this->getWorkerManager ( ).getApplication ( ).getWebsiteManager ( ) )
+			{
+				if ( ! website.wasVisited ( ) )
+				{
+					allVisited = false ;
+					break ;
+				}
+			}
+		
+			
+			if ( allVisited )
+			{
+				Crawler::ScopedMutex mutex ( Crawler::Worker::onVisitedWebsitesMutex ) ;
+				
+				if ( ! Crawler::Worker::onVisitedWebsitesCalled )
+				{
+					Crawler::Worker::onVisitedWebsitesCalled = true ;
+					this->getWorkerManager ( ).getApplication ( ).onVisitedWebsites ( ) ;
+				}
+			}
+		}
 	}
 }
+
+sf::Mutex Crawler::Worker::onVisitedWebsitesMutex ;
+bool Crawler::Worker::onVisitedWebsitesCalled = false ;
