@@ -145,7 +145,7 @@ void Crawler::Worker::main ( )
 		
 			for ( auto & website : this->getWorkerManager ( ).getApplication ( ).getWebsiteManager ( ) )
 			{
-				if ( ! website.wasVisited ( ) )
+				if ( website.getLinks ( ).size ( ) > 1 && ! website.wasVisited ( ) )
 				{
 					allVisited = false ;
 					break ;
