@@ -82,5 +82,4 @@ applications which populate databases for search engines like Google Search or M
 	* pacman -S uriparser  
   
 ### Team
-Josephine Lipkin  
 Justus Flerlage  
